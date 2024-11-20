@@ -1,0 +1,16 @@
+/* Sidebar active link styles */
+#sidebar nav a.active {
+    color: #ffffff; /* White text for active link */
+    font-weight: bold;
+  }
+  
+  #sidebar nav a {
+    color: rgba(255, 255, 255, 0.55); /* Default text color */
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  #sidebar nav a:hover {
+    color: rgba(255, 255, 255, 0.75); /* Slightly brighter on hover */
+  }
+  
