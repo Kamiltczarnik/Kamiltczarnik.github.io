@@ -1,0 +1,62 @@
+/* Container for the About Me section */
+.about-me-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 2rem; /* Add spacing between text and image */
+}
+
+/* Style for the text content */
+.about-me-text {
+    flex: 2; /* Give text more space relative to the image */
+    padding: 1.5rem;
+    background-color: #3a3a3a; /* Light background for contrast */
+    border: 1px solid #ddd; /* Subtle border for emphasis */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 3px 3px 5px rgba(4, 4, 4, 4); 
+    transition: transform 0.4s; /* Optional: smooth transition on hover */
+}
+
+/* Style for the image container */
+.about-me-image {
+    flex:1; /* Reduce space taken by the image */
+    max-width: 100%;
+    display: flex;
+    justify-content: center; /* Center image within the container */
+    align-items: center; /* Align vertically */
+}
+
+/* Style for the image */
+.about-me-image img {
+    max-height: 360px; /* Limit height */
+    border-radius: 8px; /* Optional: adds rounded corners */
+    box-shadow: 3px 3px 5px rgba(4, 4, 4, 4); 
+    transition: transform 0.4s; /* Optional: smooth transition on hover */
+}
+.about-me-image img:hover, .about-me-text:hover {
+    transform: scale(1.04); /* Optional: zoom effect on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-me-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-text {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .about-me-image {
+        width: 80%;
+    }
+
+    .about-me-image img {
+        height: auto;
+        object-fit: contain;
+    }
+}

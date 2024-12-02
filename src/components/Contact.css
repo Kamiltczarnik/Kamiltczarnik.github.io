@@ -27,6 +27,13 @@
     font-size: 1rem;
     color: #fff;
     margin: 0;
+    transition: color 0.3s ease;
+    transition: transform 0.3s ease-in-out;
+  }
+  .contact-item p:hover {
+    color: #00FF00;
+    transform: scale(1.1);
+    cursor: default;
   }
   
   .social-icons {
@@ -48,3 +55,15 @@
     transform: scale(1.1);
   }
   
+
+  @media(max-width: 600px){
+    .contact-info{
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-item{
+      flex: none;
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }

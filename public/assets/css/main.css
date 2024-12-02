@@ -22,7 +22,7 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -3212,11 +3212,19 @@ input, select, textarea {
 			max-width: 100%;
 			width: 75em;
 		}
+			@media screen and (max-width: 1920px) {
 
+				.wrapper > .inner {
+					padding: 4em 4em 2em 4em ;
+					width:78%;
+				}
+
+			}
 			@media screen and (max-width: 1680px) {
 
 				.wrapper > .inner {
 					padding: 4em 4em 2em 4em ;
+					width:79%;
 				}
 
 			}
@@ -3858,7 +3866,7 @@ input, select, textarea {
 
 						#sidebar nav a:after {
 							background-image: none;
-							background-color: #b74e91;
+							background-color: #00FF00;
 						}
 
 		}
