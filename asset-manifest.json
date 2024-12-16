@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Kamiltczarnik/static/css/main.236c9d0f.css",
+    "main.js": "/Kamiltczarnik/static/js/main.47798392.js",
+    "index.html": "/Kamiltczarnik/index.html",
+    "main.236c9d0f.css.map": "/Kamiltczarnik/static/css/main.236c9d0f.css.map",
+    "main.47798392.js.map": "/Kamiltczarnik/static/js/main.47798392.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.236c9d0f.css",
+    "static/js/main.47798392.js"
+  ]
+}
