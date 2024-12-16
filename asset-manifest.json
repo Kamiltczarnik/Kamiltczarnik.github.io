@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Kamiltczarnik.github.io/static/css/main.236c9d0f.css",
-    "main.js": "/Kamiltczarnik.github.io/static/js/main.47798392.js",
+    "main.js": "/Kamiltczarnik.github.io/static/js/main.14d36641.js",
     "index.html": "/Kamiltczarnik.github.io/index.html",
     "main.236c9d0f.css.map": "/Kamiltczarnik.github.io/static/css/main.236c9d0f.css.map",
-    "main.47798392.js.map": "/Kamiltczarnik.github.io/static/js/main.47798392.js.map"
+    "main.14d36641.js.map": "/Kamiltczarnik.github.io/static/js/main.14d36641.js.map"
   },
   "entrypoints": [
     "static/css/main.236c9d0f.css",
-    "static/js/main.47798392.js"
+    "static/js/main.14d36641.js"
   ]
 }
