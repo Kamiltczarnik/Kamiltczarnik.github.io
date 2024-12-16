@@ -1,6 +1,6 @@
 {
   "name": "personal-portfolio",
-  "homepage": "https://Kamiltczarnik.github.io/Kamiltczarnik.github.io",
+  "homepage": "https://kamiltczarnik.github.io/kamiltczarnik.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,8 @@
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,6 +22,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+
   },
   "eslintConfig": {
     "extends": [
