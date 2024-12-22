@@ -11,10 +11,10 @@
   .contact-item {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the text and icons */
+    align-items: center;
     margin: 0 1rem;
-    text-align: center; /* Ensures proper alignment */
-    flex: 1; /* Allows items to scale evenly */
+    text-align: center; 
+    flex: 1;
   }
   
   .contact-item h3 {
@@ -39,7 +39,7 @@
   .social-icons {
     display: flex;
     gap: 1rem;
-    justify-content: center; /* Centers the icons */
+    justify-content: center;
   }
   
   .social-icons a {

@@ -16,5 +16,9 @@
   
   .hero-text {
 	animation: fadeIn 2s ease-out;
-
+	text-align: left;
   }
+
+html {
+	scroll-behavior: smooth;
+}

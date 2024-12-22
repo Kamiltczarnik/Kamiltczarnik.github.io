@@ -22,7 +22,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;;}
+	vertical-align: baseline;;
+	text-align: center;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -3324,6 +3325,7 @@ input, select, textarea {
 			-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 			transition: opacity 1s ease, transform 1s ease;
 			opacity: 1.0;
+			text-align: center;
 		}
 
 		.wrapper.fade-up.inactive > .inner,
@@ -3778,10 +3780,10 @@ input, select, textarea {
 				background-image: -webkit-linear-gradient(to right, #00FF00, #005500);
 				background-image: -ms-linear-gradient(to right, #00FF00, #005500);
 				background-image: linear-gradient(to right, #00FF00, #005500);
-				-moz-transition: max-width 0.2s ease; /* Smooth transition for width on hover */
-				-webkit-transition: max-width 0.2s ease;
-				-ms-transition: max-width 0.2s ease;
-				transition: max-width 0.2s ease;
+				-moz-transition: max-width 0.5s ease; /* Smooth transition for width on hover */
+				-webkit-transition: max-width 0.5s ease;
+				-ms-transition: max-width 0.5s ease;
+				transition: max-width 0.5s ease;
 				max-width: 0; /* Initially hidden */
 			  }
 

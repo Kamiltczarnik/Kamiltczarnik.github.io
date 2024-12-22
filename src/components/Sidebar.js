@@ -5,6 +5,7 @@ function Sidebar() {
   const [activeSection, setActiveSection] = useState("welcome");
   const [manualActiveSection, setManualActiveSection] = useState(null);
 
+  // Scroll-based section detection
   useEffect(() => {
     const handleScroll = () => {
       if (manualActiveSection) return; // Ignore scroll if manually set
@@ -33,85 +34,51 @@ function Sidebar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [manualActiveSection]);
 
+  // Click handler for smooth navigation
   const handleClick = (sectionId) => {
     setManualActiveSection(sectionId);
     setActiveSection(sectionId);
 
-    // Scroll to the section smoothly
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // Clear manualActiveSection after 1 second to resume scroll-based detection
-    setTimeout(() => setManualActiveSection(null), 1000);
+    setTimeout(() => setManualActiveSection(null), 500);
+  };
+
+  // Hover handler to preview the active section
+  const handleHover = (sectionId) => {
+    setActiveSection(sectionId);
   };
 
   return (
     <section id="sidebar">
       <div className="inner">
         <nav>
+          <h2>Kamil Czarnik</h2>
           <ul>
-            <li>
-              <a
-                href="#welcome"
-                className={activeSection === "welcome" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault(); // Prevent default anchor behavior
-                  handleClick("welcome");
-                }}
-              >
-                Welcome
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about-me"
-                className={activeSection === "about-me" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("about-me");
-                }}
-              >
-                About Me
-              </a>
-            </li>
-            <li>
-              <a
-                href="#technologies"
-                className={activeSection === "technologies" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("technologies");
-                }}
-              >
-                Technologies
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className={activeSection === "projects" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("projects");
-                }}
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className={activeSection === "contact" ? "active" : ""}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("contact");
-                }}
-              >
-                Contact Me
-              </a>
-            </li>
+            {[
+              { id: "welcome", label: "Welcome" },
+              { id: "about-me", label: "About Me" },
+              { id: "technologies", label: "Technologies" },
+              { id: "projects", label: "Projects" },
+              { id: "contact", label: "Contact Me" },
+            ].map(({ id, label }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={activeSection === id ? "active" : ""}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(id);
+                  }}
+                  onMouseEnter={() => handleHover(id)} // Trigger on hover
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
