@@ -10,8 +10,14 @@ function Sidebar() {
     const handleScroll = () => {
       if (manualActiveSection) return; // Ignore scroll if manually set
 
-      const sections = ["welcome", "about-me", "projects", "technologies", "contact"];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const sections = [
+        "welcome",
+        "about-me",
+        "projects",
+        "technologies",
+        "contact",
+      ];
+      const scrollPosition = window.scrollY + window.innerHeight / 2 + 60;
 
       const currentSection = sections.find((sectionId) => {
         const section = document.getElementById(sectionId);
@@ -56,7 +62,6 @@ function Sidebar() {
     <section id="sidebar">
       <div className="inner">
         <nav>
-          <h2>Kamil Czarnik</h2>
           <ul>
             {[
               { id: "welcome", label: "Welcome" },
@@ -73,8 +78,7 @@ function Sidebar() {
                     e.preventDefault();
                     handleClick(id);
                   }}
-                  onMouseEnter={() => handleHover(id)} // Trigger on hover
-                >
+                  onMouseEnter={() => handleHover(id)}>
                   {label}
                 </a>
               </li>

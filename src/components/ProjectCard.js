@@ -1,7 +1,14 @@
 import React from "react";
 import "./ProjectCard.css";
 
-const ProjectCard = ({ title, description, image, link, backgroundColor, footer }) => {
+const ProjectCard = ({
+  title,
+  description,
+  image,
+  link,
+  backgroundColor,
+  footer,
+}) => {
   return (
     <div className="project-card" style={{ backgroundColor: backgroundColor }}>
       <a href={link} className="project-link">

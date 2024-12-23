@@ -1,35 +1,34 @@
-/* Sidebar active link styles */
-#sidebar nav a.active {
-    color: #ffffff; /* White text for active link */
-    font-weight: bold;
-  }
-  
-  #sidebar nav a {
-    color: rgba(255, 255, 255, 0.55); /* Default text color */
-    text-decoration: none;
-    transition: color .2s ease;
-  }
-  
-  #sidebar nav a:hover {
-    color: rgba(255, 255, 255, 0.75); /* Slightly brighter on hover */
-  }
-  
-.h2{
-    font-family: "Playfair Display", serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 1rem;
-  }
-  .h2::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #ffffff;
-    transition: width .2s ease;
-  }
+Sidebar active link styles #sidebar nav a.active {
+  color: #ffffff;
+  font-weight: bold;
+}
 
-  .h2:hover::after {
-    width: 100%;
-  }
+#sidebar nav a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#sidebar nav a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+.h2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.2s ease;
+}
+
+.h2:hover::after {
+  width: 100%;
+}

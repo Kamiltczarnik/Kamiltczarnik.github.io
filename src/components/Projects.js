@@ -6,7 +6,8 @@ const projects = [
   {
     id: 1,
     title: "HOF Oracle",
-    description: "Simplifying the process of finding the perfect Hall of Fame candidate.",
+    description:
+      "Simplifying the process of finding the perfect Hall of Fame candidate.",
     image: "../assets/images/NFL.svg.webp", // Path to your image
     link: "/projects/project1", // Path to project-specific page
     backgroundColor: "#013369", // Custom background color
@@ -23,6 +24,19 @@ const projects = [
     image: "../assets/images/Designer.png",
     link: "/projects/project2",
     backgroundColor: "#00400e", // Custom background color
+    footer: {
+      reads: 11,
+      views: 1699,
+      comments: 27,
+    },
+  },
+  {
+    id: 3,
+    title: "TBD",
+    description: "In the works!.",
+    image: "../assets/images/tbd.png",
+    link: "/projects/project3",
+    backgroundColor: "#ffec19", // Custom background color
     footer: {
       reads: 11,
       views: 1699,
