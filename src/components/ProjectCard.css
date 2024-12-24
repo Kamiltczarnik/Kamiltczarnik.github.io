@@ -84,3 +84,6 @@
 .project-link {
   border: none;
 }
+#projects .inner {
+  padding-bottom: 10em;
+}

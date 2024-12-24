@@ -7,12 +7,6 @@
   }
 }
 
-.hero-section {
-  background: linear-gradient(45deg, #121212, #2e2e2e);
-  background-size: 400% 400%;
-  animation: backgroundAnimation 3s ease;
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -24,11 +18,71 @@
   }
 }
 
-.hero-text {
-  animation: fadeIn 2s ease-out;
-  text-align: left;
-}
-
 html {
   scroll-behavior: smooth;
+}
+.gif {
+  width: 100%;
+}
+.hero-text {
+  font-size: 3rem; /* Adjust as needed */
+  font-weight: bold;
+  background: transparent;
+  text-align: center;
+  font-family: "Sometype Mono", serif;
+}
+
+.gradient-text {
+  color: #ff4c4c;
+}
+.school-text {
+  background: linear-gradient(to top, #ff5f05, #13294b); /* Gradient colors */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: backgroundAnimation 3s ease infinite; /* Added animation */
+}
+
+/* Keyframe for Gradient Animation */
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#welcome .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center all child elements horizontally */
+  padding-top: 0;
+}
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place it behind other content */
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Ensures particles stay behind other content */
+  background-color: #1c1c1c; /* Default background, adjust as needed */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+#welcome body.no-scroll {
+  overflow: hidden;
 }

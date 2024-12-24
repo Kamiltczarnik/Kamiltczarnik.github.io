@@ -1,27 +1,38 @@
-import React from 'react';
-import './Technologies.css';
-<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
+import React from "react";
+import "./Technologies.css";
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+/>;
 
 function Technologies() {
   return (
-    <section id="technologies" className="wrapper style1 fade-up">
+    <section id="technologies" className="wrapper style2 spotlights">
       <div className="inner">
-        <h2>My Dev Technologies</h2>
         <div className="technologies-container">
           <div className="technology-section">
             <h3>Technologies I Prefer Using</h3>
             <div className="technologies-grid">
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt = "React icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                  alt="React icon"
+                />
                 <p>React JS/Native</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt = "Python icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                  alt="Python icon"
+                />
                 <p>Python</p>
               </div>
-              <div className="tech-item">  
-                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt = "GCP icon"/>
+              <div className="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+                  alt="GCP icon"
+                />
                 <p>Google Cloud</p>
               </div>
               <div className="tech-item">
@@ -29,7 +40,10 @@ function Technologies() {
                 <p>SQL</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt = "JS icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                  alt="JS icon"
+                />
                 <p>JavaScript</p>
               </div>
               <div className="tech-item">
@@ -37,11 +51,14 @@ function Technologies() {
                 <p>Flask</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt = "Git icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                  alt="Git icon"
+                />
                 <p>Git</p>
               </div>
               <div className="tech-item">
-                <i class="devicon-github-original"></i>   
+                <i class="devicon-github-original"></i>
                 <p>Github</p>
               </div>
             </div>
@@ -51,15 +68,24 @@ function Technologies() {
             <h3>Other Technologies</h3>
             <div className="technologies-grid">
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt = "Docker icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+                  alt="Docker icon"
+                />
                 <p>Docker</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt = "Numpy icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+                  alt="Numpy icon"
+                />
                 <p>NumPy</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt = "Pytorch icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+                  alt="Pytorch icon"
+                />
                 <p>PyTorch</p>
               </div>
               <div className="tech-item">
@@ -67,7 +93,10 @@ function Technologies() {
                 <p>MySQL</p>
               </div>
               <div className="tech-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt = "Java icon"/>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                  alt="Java icon"
+                />
                 <p>Java</p>
               </div>
               <div className="tech-item">

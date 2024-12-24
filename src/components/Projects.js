@@ -48,9 +48,8 @@ const projects = [
 
 function Projects() {
   return (
-    <section id="projects" className="wrapper style2 spotlights">
+    <section id="projects" className="wrapper style1 spotlights">
       <div className="inner">
-        <h2>Projects</h2>
         <div className="projects-container">
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 import Welcome from "./components/Welcome";
 import AboutMe from "./components/AboutMe";
 import Technologies from "./components/Technologies";
@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <div id="wrapper">
-        <Sidebar />
+        <Navbar />
         <Routes>
           <Route
             path="/"
