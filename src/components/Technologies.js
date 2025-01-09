@@ -36,7 +36,7 @@ function Technologies() {
                 <p>Google Cloud</p>
               </div>
               <div className="tech-item">
-                <i class="devicon-azuresqldatabase-plain"></i>
+                <i className="devicon-azuresqldatabase-plain"></i>
                 <p>SQL</p>
               </div>
               <div className="tech-item">
@@ -47,7 +47,7 @@ function Technologies() {
                 <p>JavaScript</p>
               </div>
               <div className="tech-item">
-                <i class="devicon-flask-original"></i>
+                <i className="devicon-flask-original"></i>
                 <p>Flask</p>
               </div>
               <div className="tech-item">
@@ -58,7 +58,7 @@ function Technologies() {
                 <p>Git</p>
               </div>
               <div className="tech-item">
-                <i class="devicon-github-original"></i>
+                <i className="devicon-github-original"></i>
                 <p>Github</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ function Technologies() {
                 <p>PyTorch</p>
               </div>
               <div className="tech-item">
-                <i class="devicon-mysql-original"></i>
+                <i className="devicon-mysql-original"></i>
                 <p>MySQL</p>
               </div>
               <div className="tech-item">

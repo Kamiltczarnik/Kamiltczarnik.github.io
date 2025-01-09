@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ scrollLocked, setScrollLocked }) {
   const [activeSection, setActiveSection] = useState("welcome");
   const [manualActiveSection, setManualActiveSection] = useState(null); // Tracks manual navigation
   const [isSticky, setIsSticky] = useState(false);
-  const [scrollLocked, setScrollLocked] = useState(true); // Lock scrolling initially
 
   useEffect(() => {
     // Lock or unlock scrolling
@@ -43,15 +42,9 @@ function Navbar() {
       }
     };
 
-    // Debounced scroll listener to improve performance
-    const debouncedScrollListener = () => {
-      clearTimeout(window.scrollDebounce);
-      window.scrollDebounce = setTimeout(handleScroll, 4);
-    };
-
-    window.addEventListener("scroll", debouncedScrollListener);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", debouncedScrollListener);
+      window.removeEventListener("scroll", handleScroll);
       document.body.style.overflow = "auto"; // Reset overflow
     };
   }, [scrollLocked, activeSection, manualActiveSection]);
@@ -65,12 +58,10 @@ function Navbar() {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    // Unlock scrolling if "Learn More" or a navbar link is clicked
-    if (scrollLocked) {
-      setScrollLocked(false);
-    }
+    // Unlock scrolling when a navbar link is clicked
+    setScrollLocked(false);
 
-    setTimeout(() => setManualActiveSection(null), 500); // Reset manual navigation after smooth scroll
+    setTimeout(() => setManualActiveSection(null), 600); // Reset manual navigation after smooth scroll
   };
 
   return (
@@ -89,7 +80,8 @@ function Navbar() {
               onClick={(e) => {
                 e.preventDefault();
                 handleClick(id);
-              }}>
+              }}
+            >
               {label}
             </a>
           </li>

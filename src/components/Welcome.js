@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { particlesConfig } from "../particlesConfig"; // Adjust path as needed
 import "./Welcome.css";
 
-function Welcome() {
+function Welcome({ setScrollLocked }) {
   useEffect(() => {
     if (window.particlesJS) {
       window.particlesJS("particles-js", particlesConfig);
@@ -15,7 +15,7 @@ function Welcome() {
     e.preventDefault();
     const aboutMeSection = document.getElementById("about-me");
     if (aboutMeSection) {
-      document.body.style.overflow = "auto"; // Unlock scrolling
+      setScrollLocked(false); // Unlock scrolling
       aboutMeSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
@@ -23,7 +23,8 @@ function Welcome() {
   return (
     <section
       id="welcome"
-      className="hero-section wrapper style1 fullscreen fade-up">
+      className="hero-section wrapper style1 fullscreen fade-up"
+    >
       <div className="inner">
         <h1 className="hero-text">
           Hi, I'm <span className="gradient-text">Kamil Czarnik</span>.
@@ -34,7 +35,8 @@ function Welcome() {
             <a
               href="#about-me"
               className="button scrolly"
-              onClick={handleLearnMoreClick}>
+              onClick={handleLearnMoreClick}
+            >
               Learn More
             </a>
           </li>

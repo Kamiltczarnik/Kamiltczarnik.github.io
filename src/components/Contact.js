@@ -35,6 +35,12 @@ function ContactMe() {
                 rel="noopener noreferrer">
                 <i className="fab fa-linkedin"></i>
               </a>
+              <a
+                href="https://www.strava.com/athletes/142765024"
+                target="_blank"
+                rel="noopener noreferrer">
+                <i className="fab fa-strava"></i>
+              </a>
             </div>
           </div>
         </section>
