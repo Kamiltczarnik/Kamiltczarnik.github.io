@@ -10,8 +10,7 @@ import ContactMe from "./components/Contact";
 import ProjectDetail from "./components/ProjectDetail";
 
 function App() {
-  const [scrollLocked, setScrollLocked] = useState(true); // Centralized scroll lock state
-
+  const [scrollLocked, setScrollLocked] = useState(false); // Centralized scroll lock state
   useEffect(() => {
     // Scroll to the top of the page when the component mounts (e.g., on refresh)
     window.scrollTo(0, 0);

@@ -76,3 +76,9 @@
   height: 2px;
   background: linear-gradient(to right, #ff4c4c, #9b5de5);
 }
+/* Hide navbar on small screens */
+@media (max-width: 768px) {
+  #navbar {
+    display: none; /* Completely hides the navbar */
+  }
+}

@@ -1,22 +1,24 @@
+/* About Me Container */
 .about-me-container {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
   gap: 2rem;
-  margin-top:24px;
+  margin-top: 24px;
 }
 
+/* Text Section */
 .about-me-text {
   flex: 2;
   display: flex;
-  flex-direction: row; /* Make text sections side by side */
+  flex-direction: row;
   gap: 2rem;
   padding: 2rem;
   background-color: #3a3a3a;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 3px 3px 5px rgba(4, 4, 4, 4);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
   margin-bottom: 5px;
 }
 
@@ -24,19 +26,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+
 }
 
 .text-column h3 {
   font-size: 1.5rem;
   color: white;
-  margin-bottom: 0.5rem;
 }
+
 
 .text-column p {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.6;
+  margin-bottom:0;
+  padding-left:3px;
 }
 
 .divider {
@@ -44,6 +48,47 @@
   background-color: #ddd;
 }
 
+/* Non-Technical Flip Card */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 0,1rem,1rem;
+  
+}
+
+.flip-card-front {
+  /* background-color: #3a3a3a; */
+  color: #ddd;
+}
+
+.flip-card-back {
+  background-color: #444;
+  color: #ddd;
+  transform: rotateY(180deg);
+}
+
+/* Image Section */
 .about-me-image {
   flex: 1;
   max-width: 100%;
@@ -60,6 +105,62 @@
   border-radius: 8px;
 }
 
+/* Carousel Original Styles */
+.carousel .slide img {
+  width: 100%; /* Stretch across the container */
+  height: 400px; /* Fixed height for uniform size */
+  object-fit: cover;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.carousel .control-prev,
+.carousel .control-next {
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.carousel .control-prev:hover,
+.carousel .control-next:hover {
+  opacity: 1;
+}
+
+.carousel .control-dots {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.carousel .control-dots .dot {
+  background: black;
+  border: none;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.carousel .control-dots .dot:hover,
+.carousel .control-dots .dot.selected {
+  background: white;
+}
+
+/* Responsiveness */
 @media (max-width: 768px) {
   .about-me-container {
     flex-direction: column;
@@ -82,23 +183,21 @@
   .about-me-image img {
     height: 65%;
     object-fit: contain;
-    
   }
-}
-.carousel .slide img {
-  width: 100%; /* Stretch across the container */
-  height: 400px; /* Fixed height for uniform size */
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 3px 3px 5px rgba(4, 4, 4, 4);
-  margin-bottom: 5px;
-  margin-top:5px;
 
-  
-}
-
-@media (max-width: 768px) {
   .carousel .slide img {
     height: 200px; /* Smaller height for smaller screens */
   }
+}
+/* Center the button and fix background issues */
+ul.actions{
+  margin-top:10px;
+}
+h4{
+  margin:0;
+  padding-top:1rem;
+}
+
+p{
+  text-align: left;
 }

@@ -2805,6 +2805,7 @@ ul.actions {
   list-style: none;
   margin-left: -1em;
   padding-left: 0;
+  justify-content: center;
 }
 
 ul.actions li {
