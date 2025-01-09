@@ -47,8 +47,11 @@ function Technologies() {
                 <p>JavaScript</p>
               </div>
               <div className="tech-item">
-                <i className="devicon-flask-original"></i>
-                <p>Flask</p>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+                  alt="Numpy icon"
+                />
+                <p>NumPy</p>
               </div>
               <div className="tech-item">
                 <img
@@ -63,7 +66,7 @@ function Technologies() {
               </div>
             </div>
           </div>
-
+          <div className="divider"></div>
           <div className="technology-section">
             <h3>Other Technologies</h3>
             <div className="technologies-grid">
@@ -75,11 +78,8 @@ function Technologies() {
                 <p>Docker</p>
               </div>
               <div className="tech-item">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
-                  alt="Numpy icon"
-                />
-                <p>NumPy</p>
+                <i className="devicon-flask-original"></i>
+                <p>Flask</p>
               </div>
               <div className="tech-item">
                 <img

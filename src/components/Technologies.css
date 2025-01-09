@@ -20,9 +20,16 @@
 #technologies .technologies-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  height: auto;
+  align-items: center; /* Ensure child items align properly */
   gap: 3rem;
+  border-radius: 8px;
+  border: 1px solid #ffffff; /* Add a white border */
+  padding: 1rem; /* Add padding to prevent content overlap with the border */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width/height */
 }
+
 
 #technologies .technology-section {
   flex: 1 1 45%;
@@ -71,4 +78,21 @@
 #technologies .inner {
   padding-top: 0;
   padding-bottom: 10rem;
+}
+/* Vertical Divider */
+.divider {
+  width: 1px;
+  background-color: #ddd; /* Light grey color for the divider */
+  height: 220px; /* Set an explicit height */
+  margin: auto 0; /* Center the divider vertically */
+  align-self: center; /* Ensure it aligns within the flex container */
+}
+
+@media (max-width: 768px) {
+  .divider {
+    display: none; /* Hide the divider on smaller screens */
+  }
+  #technologies .technologies-container{
+    border: none;
+  }
 }

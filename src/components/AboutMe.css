@@ -19,7 +19,6 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 5px;
 }
 
 .text-column {
@@ -41,6 +40,7 @@
   line-height: 1.6;
   margin-bottom:0;
   padding-left:3px;
+  margin-left: 10px;
 }
 
 .divider {
