@@ -30,24 +30,25 @@ function AboutMe() {
               <p>
                 Hello! My name is Kamil Czarnik, and I'm a Computer Science
                 student at the University of Illinois Urbana-Champaign. I am
-                passionate about software and enjoy working on
-                challenging projects! I have experience with full-stack
-                development, data analysis, and machine learning and I greatly
-                enjoy using my creative side to solve problems and create visually
-                appealing applications.
+                passionate about software and enjoy working on challenging
+                projects! I have experience with full-stack development, data
+                analysis, and machine learning and I greatly enjoy using my
+                creative side to solve problems and create visually appealing
+                applications.
               </p>
             </div>
             <div className="divider"></div>
 
             {/* Non-Technical Section */}
-            <div className={`text-column flip-card ${isFlipped ? "flipped" : ""}`}>
+            <div
+              className={`text-column flip-card ${isFlipped ? "flipped" : ""}`}>
               <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <h3>Non-Technical</h3>
                   <p>
                     Outside of programming, I prioritize staying active through
                     weightlifting, running, and playing water polo. I currently
-                    play for the UIUC club water polo team and have played for a 
+                    play for the UIUC club water polo team and have played for a
                     little over 6 years. I'm also a big NFL fan. Bear Down!
                   </p>
                   <ul className="actions">
@@ -55,35 +56,29 @@ function AboutMe() {
                       <a
                         href="#!"
                         className="button scrolly"
-                        onClick={handleFlip}
-                      >
-                        Flip Me
+                        onClick={handleFlip}>
+                        Non Technical Work Experience
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div className="flip-card-back">
-                  <h4>
-                    IHSA Water Polo Official
-                    </h4>
-                    <p>
-                      - From May 2022 - Present<br />
-                      - Maintained player safety and communicated clearly.
-                    </p>
-                    <h4>
-                    Driver for North Branch Pizza & Burger Co.
-                    </h4>
-                    <p>
-                      - From Aug 2021 - Nov 2023 <br />
-                      - Ensured timely deliveries with excellent service.
-                    </p>
+                  <h4>IHSA Water Polo Official</h4>
+                  <p>
+                    - From May 2022 - Present
+                    <br />- Maintained player safety and communicated clearly.
+                  </p>
+                  <h4>Driver for North Branch Pizza & Burger Co.</h4>
+                  <p>
+                    - From Aug 2021 - Nov 2023 <br />- Ensured timely deliveries
+                    with excellent service.
+                  </p>
                   <ul className="actions">
                     <li>
                       <a
                         href="#!"
                         className="button scrolly"
-                        onClick={handleFlip}
-                      >
+                        onClick={handleFlip}>
                         Flip Me Back
                       </a>
                     </li>
@@ -102,8 +97,7 @@ function AboutMe() {
               showStatus={false}
               interval={3300}
               transitionTime={1000}
-              showArrows={false}
-            >
+              showArrows={false}>
               {images.map((image, index) => (
                 <div key={index}>
                   <img

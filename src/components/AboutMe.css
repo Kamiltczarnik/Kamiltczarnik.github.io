@@ -25,7 +25,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-
 }
 
 .text-column h3 {
@@ -33,13 +32,12 @@
   color: white;
 }
 
-
 .text-column p {
   font-size: 1rem;
   color: #ddd;
   line-height: 1.6;
-  margin-bottom:0;
-  padding-left:3px;
+  margin-bottom: 0;
+  padding-left: 3px;
   margin-left: 10px;
 }
 
@@ -51,7 +49,6 @@
 /* Non-Technical Flip Card */
 .flip-card {
   perspective: 1000px;
-  cursor: pointer;
 }
 
 .flip-card-inner {
@@ -73,17 +70,14 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 8px;
-  padding: 0,1rem,1rem;
-  
+  padding: 1rem;
 }
 
 .flip-card-front {
-  /* background-color: #3a3a3a; */
   color: #ddd;
 }
 
 .flip-card-back {
-  background-color: #444;
   color: #ddd;
   transform: rotateY(180deg);
 }
@@ -105,16 +99,14 @@
   border-radius: 8px;
 }
 
-/* Carousel Original Styles */
+/* Carousel Styles */
 .carousel .slide img {
   width: 100%; /* Stretch across the container */
-  height: 400px; /* Fixed height for uniform size */
+  height: 500px; /* Adjusted height for uniform size */
   object-fit: cover;
   border: 2px solid #ddd;
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-  margin-bottom: 5px;
-  margin-top: 5px;
 }
 
 .carousel .control-prev,
@@ -189,15 +181,17 @@
     height: 200px; /* Smaller height for smaller screens */
   }
 }
-/* Center the button and fix background issues */
-ul.actions{
-  margin-top:10px;
-}
-h4{
-  margin:0;
-  padding-top:1rem;
+
+/* Miscellaneous Styling */
+ul.actions {
+  margin-top: 10px;
 }
 
-p{
+h4 {
+  margin: 0;
+  padding-top: 1rem;
+}
+
+p {
   text-align: left;
 }
