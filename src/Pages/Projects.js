@@ -26,7 +26,7 @@ const projectData = [
     name: "Spotify Data Analysis",
     description: "Data analysis of a Spotify user's listening history.",
     route: "/projects/spotify-data-analysis",
-    image: "/assets/images/spotify.png",
+    image: "/assets/images/Spotify.png",
   },
 ];
 
