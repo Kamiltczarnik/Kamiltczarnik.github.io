@@ -1,5 +1,5 @@
 import React from "react";
-import "./Technologies.css";
+import "./css/Technologies.css";
 <link
   rel="stylesheet"
   type="text/css"

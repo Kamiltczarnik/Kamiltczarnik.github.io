@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./AboutMe.css";
+import "./css/AboutMe.css";
 
 function AboutMe() {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -53,12 +53,9 @@ function AboutMe() {
                   </p>
                   <ul className="actions">
                     <li>
-                      <a
-                        href="#!"
-                        className="button scrolly"
-                        onClick={handleFlip}>
-                        Non Technical Work Experience
-                      </a>
+                    <button type="button" className="button scrolly" onClick={handleFlip}>
+                      Non Technical Work Experience
+                    </button>
                     </li>
                   </ul>
                 </div>
@@ -75,12 +72,9 @@ function AboutMe() {
                   </p>
                   <ul className="actions">
                     <li>
-                      <a
-                        href="#!"
-                        className="button scrolly"
-                        onClick={handleFlip}>
-                        Flip Me Back
-                      </a>
+                    <button type="button" className="button scrolly" onClick={handleFlip}>
+                      Flip me back
+                    </button>
                     </li>
                   </ul>
                 </div>

@@ -9,31 +9,40 @@ function Navbar({ scrollLocked, setScrollLocked }) {
   useEffect(() => {
     // Lock or unlock scrolling
     document.body.style.overflow = scrollLocked ? "hidden" : "auto";
-
+  
     const handleScroll = () => {
       if (manualActiveSection) return; // Ignore scroll if manually set
-
+  
       const sections = ["welcome", "about-me", "projects", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      // Check which section is currently in view
-      const currentSection = sections.find((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          const { offsetTop, offsetHeight } = section;
-          return (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          );
+  
+      // Check if the user is at the bottom of the page
+      const atBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight;
+  
+      if (atBottom) {
+        setActiveSection("contact"); // Highlight "Contact Me" if at the bottom
+      } else {
+        // Check which section is currently in view
+        const currentSection = sections.find((id) => {
+          const section = document.getElementById(id);
+          if (section) {
+            const { offsetTop, offsetHeight } = section;
+            return (
+              scrollPosition >= offsetTop &&
+              scrollPosition < offsetTop + offsetHeight
+            );
+          }
+          return false;
+        });
+  
+        // Update active section for highlighting
+        if (currentSection && currentSection !== activeSection) {
+          setActiveSection(currentSection);
         }
-        return false;
-      });
-
-      // Update active section for highlighting
-      if (currentSection && currentSection !== activeSection) {
-        setActiveSection(currentSection);
       }
-
+  
       // Handle sticky state for the navbar
       const welcomeSection = document.getElementById("welcome");
       if (welcomeSection) {
@@ -41,13 +50,14 @@ function Navbar({ scrollLocked, setScrollLocked }) {
         setIsSticky(bottom <= 0); // Make navbar sticky when Welcome is out of view
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.body.style.overflow = "auto"; // Reset overflow
     };
   }, [scrollLocked, activeSection, manualActiveSection]);
+  
 
   const handleClick = (sectionId) => {
     setManualActiveSection(sectionId); // Set manual navigation state

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { particlesConfig } from "../particlesConfig"; // Adjust path as needed
-import "./Welcome.css";
+import "./css/Welcome.css";
 
 function Welcome({ setScrollLocked }) {
   useEffect(() => {
@@ -32,13 +32,12 @@ function Welcome({ setScrollLocked }) {
         </h1>
         <ul className="actions">
           <li>
-            <a
-              href="#about-me"
+            <button
               className="button scrolly"
               onClick={handleLearnMoreClick}
             >
               Learn More
-            </a>
+            </button>
           </li>
         </ul>
       </div>

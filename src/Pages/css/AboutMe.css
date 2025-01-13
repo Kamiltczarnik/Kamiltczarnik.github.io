@@ -6,6 +6,7 @@
   justify-content: space-between;
   gap: 2rem;
   margin-top: 24px;
+  
 }
 
 /* Text Section */
@@ -15,7 +16,8 @@
   flex-direction: row;
   gap: 2rem;
   padding: 2rem;
-  background-color: #3a3a3a;
+  background-color: #1c1c1c;
+
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
@@ -70,7 +72,6 @@
   height: 100%;
   backface-visibility: hidden;
   border-radius: 8px;
-  padding: 1rem;
 }
 
 .flip-card-front {

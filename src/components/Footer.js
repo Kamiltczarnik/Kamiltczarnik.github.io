@@ -1,16 +1,10 @@
 import React from "react";
-import "./Contact.css";
+import "./Footer.css";
 
-function ContactMe() {
+function Footer() {
   return (
     <section id="contact" className="wrapper style1 spotlights">
       <div className="inner">
-        <h2>Get in touch</h2>
-        <p>
-          Thank you so much for taking a look at my porfolio website! I'm open
-          to any opportunities and conversations and would love to hear from
-          you!
-        </p>
         <section className="contact-info">
           <div className="contact-item">
             <h3>Email</h3>
@@ -49,4 +43,4 @@ function ContactMe() {
   );
 }
 
-export default ContactMe;
+export default Footer;
