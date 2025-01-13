@@ -6,20 +6,25 @@ import AboutMe from "./Pages/AboutMe";
 import Technologies from "./Pages/Technologies";
 import Projects from "./Pages/Projects";
 import Footer from "./components/Footer";
+import { useLocation } from "react-router-dom";
 
 function App() {
-  const [scrollLocked, setScrollLocked] = useState(false); // Centralized scroll lock state
+  const [scrollLocked, setScrollLocked] = useState(true); // Centralized scroll lock state
+  const location = useLocation(); // Access the current route
 
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts (e.g., on refresh)
-    window.scrollTo(0, 0);
-  }, []);
+    // Enable scrolling if the current route is '/home'
+    if (location.pathname === "/home") {
+      setScrollLocked(false);
+    } else {
+      setScrollLocked(true);
+    }
+  }, [location.pathname]);
 
   return (
     <div id="wrapper">
       {/* Pass scrollLocked and setScrollLocked to Navbar */}
       <Navbar scrollLocked={scrollLocked} setScrollLocked={setScrollLocked} />
-      {/* Render all sections of the website on a single page */}
       <Welcome setScrollLocked={setScrollLocked} />
       <AboutMe />
       <Technologies />

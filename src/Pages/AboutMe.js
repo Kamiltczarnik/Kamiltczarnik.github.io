@@ -19,7 +19,7 @@ function AboutMe() {
   ];
 
   return (
-    <section id="about-me" className="wrapper style2 spotlights">
+    <section id="home" className="wrapper style2 spotlights">
       <div className="inner">
         <div className="about-me-container">
           {/* About Me Text Section */}
@@ -54,12 +54,13 @@ function AboutMe() {
                   <ul className="actions">
                     <li>
                     <button type="button" className="button scrolly" onClick={handleFlip}>
-                      Non Technical Work Experience
+                       Work Experience
                     </button>
                     </li>
                   </ul>
                 </div>
                 <div className="flip-card-back">
+                  <h3>Work Experience</h3>
                   <h4>IHSA Water Polo Official</h4>
                   <p>
                     - From May 2022 - Present

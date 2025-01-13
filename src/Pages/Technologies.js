@@ -53,12 +53,10 @@ function Technologies() {
                 />
                 <p>NumPy</p>
               </div>
+
               <div className="tech-item">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                  alt="Git icon"
-                />
-                <p>Git</p>
+                  <i className="devicon-pandas-plain"></i>
+                <p>Pandas</p>
               </div>
               <div className="tech-item">
                 <i className="devicon-github-original"></i>
@@ -100,8 +98,11 @@ function Technologies() {
                 <p>Java</p>
               </div>
               <div className="tech-item">
-                <i className="fab fa-node"></i>
-                <p>Node.js</p>
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                  alt="Git icon"
+                />
+                <p>Git</p>
               </div>
             </div>
           </div>

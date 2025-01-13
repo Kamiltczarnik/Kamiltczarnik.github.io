@@ -76,9 +76,9 @@
     grid-template-columns: repeat(4, 1fr); /* Max 4 columns on wider screens */
   }
 }
-#technologies .inner {
+/* #technologies .inner {
   padding-top: 0;
-}
+} */
 /* Vertical Divider */
 .divider {
   width: 1px;

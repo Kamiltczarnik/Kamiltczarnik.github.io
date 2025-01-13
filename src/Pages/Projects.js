@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./css/Projects.css";
 
-// Import images
-
+// Project data
 const projectData = [
   {
     name: "PortfoliPro",
@@ -13,7 +12,7 @@ const projectData = [
   },
   {
     name: "HOF Oracle",
-    description: "NFL Stat Retreival and Hall of Fame predictor.",
+    description: "NFL Stat Retrieval and Hall of Fame predictor.",
     route: "/projects/hof-oracle",
     image: "/assets/images/nfl.png",
   },
@@ -26,19 +25,25 @@ const projectData = [
   {
     name: "Spotify Data Analysis",
     description: "Data analysis of a Spotify user's listening history.",
-    route: "/projects/Spotify-Data-Analysis",
+    route: "/projects/spotify-data-analysis",
     image: "/assets/images/spotify.png",
-  }
+  },
 ];
 
 function Projects() {
+  const navigate = useNavigate();
+
+  // Handle navigation with animation
+  const handleLearnMore = (route) => {
+    navigate(route);
+  };
+
   return (
     <section id="projects" className="wrapper style2 spotlights">
       <div className="inner">
         <div className="projects-container">
           {projectData.map((project, index) => (
             <div key={index} className="project-card">
-              {/* Display the project image */}
               <img
                 src={project.image}
                 alt={`${project.name} Thumbnail`}
@@ -46,9 +51,12 @@ function Projects() {
               />
               <h2 className="project-title">{project.name}</h2>
               <p className="project-description">{project.description}</p>
-              <Link to={project.route} className="learn-more-button">
+              <button
+                className="learn-more-button"
+                onClick={() => handleLearnMore(project.route)}
+              >
                 Learn More →
-              </Link>
+              </button>
             </div>
           ))}
         </div>

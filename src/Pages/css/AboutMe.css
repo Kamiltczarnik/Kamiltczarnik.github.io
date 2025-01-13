@@ -189,10 +189,12 @@ ul.actions {
 }
 
 h4 {
-  margin: 0;
-  padding-top: 1rem;
+  text-decoration: bold;
 }
 
 p {
   text-align: left;
+}
+#home .button{
+  margin-top:0;
 }

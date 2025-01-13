@@ -13,7 +13,7 @@ function Navbar({ scrollLocked, setScrollLocked }) {
     const handleScroll = () => {
       if (manualActiveSection) return; // Ignore scroll if manually set
   
-      const sections = ["welcome", "about-me", "projects", "contact"];
+      const sections = ["welcome", "home", "projects", "contact"];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
   
       // Check if the user is at the bottom of the page
@@ -79,7 +79,7 @@ function Navbar({ scrollLocked, setScrollLocked }) {
       <ul>
         {[
           { id: "welcome", label: "Welcome" },
-          { id: "about-me", label: "About Me" },
+          { id: "home", label: "About Me" },
           { id: "projects", label: "Projects" },
           { id: "contact", label: "Contact Me" },
         ].map(({ id, label }) => (

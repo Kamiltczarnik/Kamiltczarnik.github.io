@@ -21,19 +21,13 @@ function Footer() {
                 href="https://github.com/Kamiltczarnik"
                 target="_blank"
                 rel="noopener noreferrer">
-                <i className="fab fa-github"></i>
+                <i className="devicon-github-plain"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/kamil-czarnik-269492242/"
                 target="_blank"
                 rel="noopener noreferrer">
-                <i className="fab fa-linkedin"></i>
-              </a>
-              <a
-                href="https://www.strava.com/athletes/142765024"
-                target="_blank"
-                rel="noopener noreferrer">
-                <i className="fab fa-strava"></i>
+                <i className="devicon-linkedin-plain"></i>
               </a>
             </div>
           </div>
