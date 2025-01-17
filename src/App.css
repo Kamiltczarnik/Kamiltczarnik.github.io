@@ -13,3 +13,7 @@ h6 {
   font-family: "Playfair Display", serif;
   text-align: center;
 }
+/* ::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+} */

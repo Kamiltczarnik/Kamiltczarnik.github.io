@@ -18,9 +18,6 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
-}
 .gif {
   width: 100%;
 }
@@ -61,29 +58,21 @@ html {
   flex-direction: column;
   align-items: center; /* Center all child elements horizontally */
   padding-top: 0;
+  position: relative;
 }
-/* #particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1; /* Place it behind other content 
-} 
-*/
-
 #particles-js {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  z-index: -1; /* Ensures particles stay behind other content */
-  background-color: #1c1c1c; /* Default background, adjust as needed */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
+
 #welcome body.no-scroll {
   overflow: hidden;
+  position: relative;
+}
+#welcome {
+  position: relative;
 }

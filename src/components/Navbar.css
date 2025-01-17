@@ -5,13 +5,13 @@
   left: 0;
   width: 100%;
   background: #1c1c1c;
-  z-index: 10000;
+  z-index: 1000;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   padding: 0.5em 1em;
   display: flex;
   justify-content: center;
-  padding-top:15px;
-  padding-bottom:15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* Sticky Navbar */

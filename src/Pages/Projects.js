@@ -22,12 +22,12 @@ const projectData = [
     route: "/projects/personal-portfolio",
     image: "/assets/images/logo.png",
   },
-  {
-    name: "Spotify Data Analysis",
-    description: "Data analysis of a Spotify user's listening history.",
-    route: "/projects/spotify-data-analysis",
-    image: "/assets/images/spotify.png",
-  },
+  // {
+  //   name: "Spotify Data Analysis",
+  //   description: "Data analysis of a Spotify user's listening history.",
+  //   route: "/projects/spotify-data-analysis",
+  //   image: "/assets/images/spotify.png",
+  // },
 ];
 
 function Projects() {
@@ -53,8 +53,7 @@ function Projects() {
               <p className="project-description">{project.description}</p>
               <button
                 className="learn-more-button"
-                onClick={() => handleLearnMore(project.route)}
-              >
+                onClick={() => handleLearnMore(project.route)}>
                 Learn More →
               </button>
             </div>

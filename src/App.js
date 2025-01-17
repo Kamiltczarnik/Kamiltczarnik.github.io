@@ -1,37 +1,59 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Welcome from "./Pages/Welcome";
-import AboutMe from "./Pages/AboutMe";
-import Technologies from "./Pages/Technologies";
 import Projects from "./Pages/Projects";
+import Technologies from "./Pages/Technologies";
+import AboutMe from "./Pages/AboutMe";
 import Footer from "./components/Footer";
-import { useLocation } from "react-router-dom";
 
 function App() {
-  const [scrollLocked, setScrollLocked] = useState(true); // Centralized scroll lock state
-  const location = useLocation(); // Access the current route
+  const location = useLocation();
 
   useEffect(() => {
-    // Enable scrolling if the current route is '/home'
-    if (location.pathname === "/home") {
-      setScrollLocked(false);
-    } else {
-      setScrollLocked(true);
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: "auto", block: "start" });
+      }
     }
-  }, [location.pathname]);
-
+  }, [location]);
+  // This is your home page content
   return (
     <div id="wrapper">
-      {/* Pass scrollLocked and setScrollLocked to Navbar */}
-      <Navbar scrollLocked={scrollLocked} setScrollLocked={setScrollLocked} />
-      <Welcome setScrollLocked={setScrollLocked} />
-      <AboutMe />
-      <Technologies />
+      <section id="welcome" style={{ position: "relative" }}>
+        <Welcome />
+        <Navbar />
+      </section>
       <Projects />
+      <Technologies />
+      <AboutMe />
       <Footer />
     </div>
   );
 }
 
 export default App;
+
+// import Navbar from "./components/Navbar";
+// import Welcome from "./Pages/Welcome";
+// import AboutMe from "./Pages/AboutMe";
+// import Technologies from "./Pages/Technologies";
+// import Projects from "./Pages/Projects";
+// import Footer from "./components/Footer";
+
+// function App() {
+//   return (
+//     <div id="wrapper">
+//       {/* Pass scrollLocked and setScrollLocked to Navbar */}
+//       <Navbar />
+//       <Welcome />
+//       <Projects />
+//       <Technologies />
+//       <AboutMe />
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default App;
