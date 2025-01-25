@@ -2,10 +2,8 @@
 <html>
 <head>
     <script>
-        // Redirect to the correct React route
-        var path = window.location.pathname;
-        var newPath = "/your-repo-name" + path;
-        window.location.replace(newPath);
+        // Redirect to the correct React route on refresh
+        window.location.replace(window.location.origin + window.location.pathname);
     </script>
 </head>
 <body>
