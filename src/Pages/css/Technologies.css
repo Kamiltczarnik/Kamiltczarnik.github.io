@@ -93,9 +93,16 @@ h3 {
     display: none;
   }
   .technologies-grid {
-    grid-template-columns: repeat(3, 1fr); /* 2 columns on mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
   }
   .technologies-container {
     flex-direction: column;
+    gap:0;
+  }
+  .technology-section{
+    min-width: 0px;
+  }
+  h3{
+    font-size: 1.5rem;
   }
 }

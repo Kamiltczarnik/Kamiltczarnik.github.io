@@ -22,36 +22,36 @@ function PortfoliPro({ navigateBack }) {
         </div>
 
         {/* GIF showcasing website */}
-        <img
-          src="/assets/images/goat.gif"
-          alt="Project Preview"
-          className="gif"
-        />
-
+        <div className="video-wrapper">
+        <video  className="gif" autoPlay loop muted playsInline>
+        <source src="/assets/images/port.webm" type="video/webm" />
+       </video>
+       </div>
         {/* Key Features */}
         <h2>Key Features</h2>
         <ul className="features-list">
           <li>
-            📈 <strong>Portfolio Manager</strong> Allows users to track and
+            📈 <strong>Portfolio Manager </strong> - Allows users to track and
             analyze their personal stock portfolios.
           </li>
           <li>
-            🏆 <strong>AI-Powered Prediction</strong> Uses an LSTM model trained
+            🏆 <strong>AI-Powered Prediction </strong> - Uses an LSTM model trained
             on market data to forecast stock trends.
           </li>
           <li>
-            🔍 <strong>Real-Time Stock Data</strong> Fetches up-to-date market
+            🔍 <strong>Real-Time Stock Data </strong> - Fetches up-to-date market
             information using the YFinance API.
           </li>
           <li>
-            💾 <strong>Local Storage & Context API</strong> Saves user
+            💾 <strong>Local Storage & Context API </strong> - Saves user
             preferences and stock selections between sessions.
           </li>
           <li>
-            🎨 <strong>Simple & Intuitive UI</strong> Designed to be easy to
+            🎨 <strong>Simple & Intuitive UI </strong> - Designed to be easy to
             navigate for users of all experience levels.
           </li>
         </ul>
+        <img src="/assets/images/welcome.png" alt="PortfoliPro" className = "step img2"/>
 
         <hr className="section-divider" />
 
@@ -60,7 +60,7 @@ function PortfoliPro({ navigateBack }) {
           <h2>How It Works</h2>
           <div className="steps-container">
             <div className="step">
-              <img src="/assets/images/stock-search.gif" alt="Stock Search" />
+              <img src="/assets/images/image1.png" alt="Stock Search" />
               <h3>1️⃣ Search for Stocks</h3>
               <p>
                 Use the search functionality to find and add stocks to your
@@ -69,7 +69,7 @@ function PortfoliPro({ navigateBack }) {
             </div>
             <div className="step-divider"></div>
             <div className="step">
-              <img src="/assets/images/predictions.gif" alt="AI Predictions" />
+              <img src="/assets/images/PortManager.png" alt="AI Predictions" />
               <h3>2️⃣ View AI Predictions</h3>
               <p>
                 Analyze the stock's historical data and see AI-generated future
@@ -79,7 +79,7 @@ function PortfoliPro({ navigateBack }) {
             <div className="step-divider"></div>
             <div className="step">
               <img
-                src="/assets/images/portfolio-manager.gif"
+                src="/assets/images/img3.png"
                 alt="Portfolio Management"
               />
               <h3>3️⃣ Manage Portfolio</h3>
@@ -150,24 +150,24 @@ function PortfoliPro({ navigateBack }) {
           <h4>My Contributions: Full Stack Developer</h4>
           <ul className="contributions">
             <li>
-              <strong>Designed & Developed the UI</strong> Created a
+              <strong>Designed & Developed the UI </strong> - Created a
               user-friendly interface with a focus on simplicity and
               responsiveness.
             </li>
             <li>
-              <strong>Integrated YFinance API</strong> Connected real-time stock
+              <strong>Integrated YFinance API </strong> - Connected real-time stock
               data to dynamically update stock information and predictions.
             </li>
             <li>
-              <strong>Built AI Prediction System</strong> Implemented an LSTM
+              <strong>Built AI Prediction System </strong> - Implemented an LSTM
               model to provide stock price forecasting.
             </li>
             <li>
-              <strong>Managed Portfolio Storage</strong> Used Local Storage and
+              <strong>Managed Portfolio Storage </strong> - Used Local Storage and
               Context API to retain user selections and preferences.
             </li>
             <li>
-              <strong>Debugged & Optimized Performance</strong> Improved
+              <strong>Debugged & Optimized Performance </strong> - Improved
               application performance by reducing redundant API calls and
               optimizing database queries.
             </li>

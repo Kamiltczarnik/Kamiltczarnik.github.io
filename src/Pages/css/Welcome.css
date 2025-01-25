@@ -57,8 +57,10 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center all child elements horizontally */
+  justify-content: center; /* Center all child elements vertically */
   padding-top: 0;
   position: relative;
+  height: 100vh;
 }
 #particles-js {
   position: absolute;
@@ -75,4 +77,12 @@
 }
 #welcome {
   position: relative;
+}
+@media screen and (max-width: 480px) {
+  ul.actions:not(.fixed) li input[type="submit"], ul.actions:not(.fixed) li input[type="reset"], ul.actions:not(.fixed) li input[type="button"], ul.actions:not(.fixed) li button, ul.actions:not(.fixed) li .button {
+      width: 90%;
+  }
+  .hero-text {
+      font-size: 2rem;
+  }
 }

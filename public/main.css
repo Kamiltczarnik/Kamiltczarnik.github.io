@@ -3369,6 +3369,13 @@ table.alt tfoot {
 .wrapper.style2 {
   background-color: transparent;
 }
+@media screen and (max-width: 738px) {
+  .wrapper.style2 {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+}
 
 .wrapper.style2-alt {
   background-color: #3c3c3c;

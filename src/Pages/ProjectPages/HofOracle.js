@@ -20,23 +20,26 @@ function HOFOracle({ navigateBack }) {
             alt="logo "
             className="title-image"></img>
         </div>
-        <img src="/assets/images/goat.gif" alt="gif" className="gif"></img>
+        <div className="video-wrapper">
+        <video  className="gif" autoPlay loop muted playsInline>
+        <source src="/assets/images/hoforac.webm" type="video/webm" />
+       </video>
+       </div>
         <h2>Key Features</h2>
         <ul className="features-list">
           <li>
-            ✅ <strong>HOF Prediction</strong> Trained on 50+ years of NFL data
-            to make accurate predictions.
+            ✅ <strong>HOF Prediction </strong> - Predicts a player’s Hall of Fame chances by comparing their stats to HOF legends.
           </li>
           <li>
-            📊 <strong>Compare Stats</strong> Compare any player’s career stats
+            📊 <strong>Compare Stats </strong> - Compare any player’s career stats
             to HOF legends.
           </li>
           <li>
-            🔍 <strong>Searchable Database</strong> Find and analyze players
+            🔍 <strong>Searchable Database </strong> - Find and analyze players
             instantly with real-time data.
           </li>
           <li>
-            ⚡ <strong>Intuitive UI</strong> Player cards and Intuitive pages
+            ⚡ <strong>Intuitive UI </strong> - Player cards and Intuitive pages
             greatly improve user experience.
           </li>
         </ul>
@@ -45,21 +48,21 @@ function HOFOracle({ navigateBack }) {
           <h2>How It Works</h2>
           <div className="steps-container">
             <div className="step">
-              <img src="/images/step1.gif" alt="Step 1" />
+              <img src="/assets/images/choose.png" alt="Step 1" className="step img3"/>
               <h3>1️⃣ Select a Player</h3>
               <p>Choose any NFL player to analyze from our database.</p>
             </div>
             <div className="step-divider"></div>
             <div className="step">
-              <img src="/images/step2.gif" alt="Step 2" />
+              <img src="/assets/images/chances.png" alt="Step 2" className="step img3"/>
               <h3>2️⃣ Run Model</h3>
-              <p>Our evaluates their HOF potential.</p>
+              <p>Our model evaluates their HOF potential along with providing meaningful statistics.</p>
             </div>
             <div className="step-divider"></div>
             <div className="step">
-              <img src="/images/step3.gif" alt="Step 3" />
-              <h3>3️⃣ Get Prediction</h3>
-              <p>See the probability of the player making the Hall of Fame.</p>
+              <img src="/assets/images/compare.png" alt="Step 3" className="step img3"/>
+              <h3>3️⃣ Compare </h3>
+              <p>Compare with any other player in NFL history</p>
             </div>
           </div>
         </section>
@@ -74,7 +77,7 @@ function HOFOracle({ navigateBack }) {
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                   alt="React icon"
                 />
-                <p>React JS/Native</p>
+                <p>React JS</p>
               </div>
               <div className="tech-item">
                 <img
@@ -123,25 +126,24 @@ function HOFOracle({ navigateBack }) {
           <h4>My Contributions: Full Stack Developer</h4>
           <ul className="contributions">
             <li>
-              <strong>Full Frontend Development & Styling</strong> Designed and
+              <strong>Full Frontend Development & Styling</strong> - Designed and
               implemented the entire UI/UX, ensuring a clean and interactive
               experience while seamlessly integrating the frontend with the
               backend.
             </li>
             <li>
-              <strong>Connecting Frontend to Backend</strong> Established API
+              <strong>Connecting Frontend to Backend</strong> - Established API
               calls to fetch and display player statistics, setting up a base
               query for player stats and processing the data dynamically based
               on player positions.
             </li>
             <li>
-              <strong>Search & Compare Functionality</strong> Implemented search
+              <strong>Search & Compare Functionality</strong> - Implemented search
               and comparison features, allowing users to find specific players
               and compare their career stats efficiently.
             </li>
             <li>
-              <strong>Optimized Backend Queries for Performance</strong>
-              Improved query efficiency by reducing unnecessary API calls and
+              <strong>Optimized Backend Queries for Performance </strong> - Improved query efficiency by reducing unnecessary API calls and
               database queries, ensuring smooth and fast retrieval of player
               statistics across the platform.
             </li>
@@ -149,7 +151,7 @@ function HOFOracle({ navigateBack }) {
               <strong>
                 Handling Technical Challenges in Data Visualization
               </strong>{" "}
-              Attempted to visualize player data using React Charts, but due to
+               - Attempted to visualize player data using React Charts, but due to
               inconsistent game-to-game data and API limitations, made the
               decision to remove it, optimizing project focus and efficiency.
             </li>

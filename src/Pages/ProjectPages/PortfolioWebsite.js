@@ -22,33 +22,33 @@ function PortfolioWebsite({ navigateBack }) {
         </div>
 
         {/* GIF showcasing website */}
-        <img
-          src="/assets/images/goat.gif"
-          alt="Website Preview"
-          className="gif"
-        />
+        <div className="video-wrapper">
+        <video  className="gif" autoPlay loop muted playsInline>
+        <source src="/assets/images/port2.webm" type="video/webm" />
+       </video>
+       </div>
 
         {/* Key Features */}
         <h2>Key Features</h2>
         <ul className="features-list">
           <li>
-            🖥️ <strong>Responsive Design</strong> Fully optimized for desktop,
+            🖥️ <strong>Responsive Design </strong> - Fully optimized for desktop,
             tablet, and mobile views.
           </li>
           <li>
-            ⚡ <strong>Optimized UI</strong> Built with React and CSS animations
+            ⚡ <strong>Optimized UI </strong> - Built with React and CSS animations
             for a smooth user experience.
           </li>
           <li>
-            🌐 <strong>Projects Showcase</strong> Displays my latest projects
+            🌐 <strong>Projects Showcase </strong> - Displays my latest projects
             dynamically.
           </li>
           <li>
-            🔗 <strong>Custom Navigation</strong> Includes animated transitions
+            🔗 <strong>Custom Navigation </strong> - Includes animated transitions
             between pages.
           </li>
           <li>
-            🎨 <strong>Unique Personal Branding</strong> Custom theme,
+            🎨 <strong>Unique Personal Branding </strong> - Custom theme,
             animations, and layout to reflect my style.
           </li>
         </ul>
@@ -60,7 +60,7 @@ function PortfolioWebsite({ navigateBack }) {
           <h2>Website Overview</h2>
           <div className="steps-container">
             <div className="step">
-              <img src="/assets/images/homepage.gif" alt="Homepage" />
+              <img src="/assets/images/home.png" alt="Homepage" className="step img2"/>
               <h3>1️⃣ Home Page</h3>
               <p>
                 A visually engaging hero section introducing myself and my work.
@@ -68,7 +68,7 @@ function PortfolioWebsite({ navigateBack }) {
             </div>
             <div className="step-divider"></div>
             <div className="step">
-              <img src="/assets/images/projects.gif" alt="Projects Section" />
+              <img src="/assets/images/projects.png" alt="Projects Section" className="step img2"/>
               <h3>2️⃣ Projects Showcase</h3>
               <p>
                 Interactive gallery highlighting my best projects with
@@ -77,10 +77,10 @@ function PortfolioWebsite({ navigateBack }) {
             </div>
             <div className="step-divider"></div>
             <div className="step">
-              <img src="/assets/images/contact.gif" alt="Contact Page" />
+              <img src="/assets/images/contact.png" alt="Contact Page" className="step img2"/>
               <h3>3️⃣ Contact Section</h3>
               <p>
-                Easy-to-use contact form for professional inquiries and
+                Easy-to-use contact information for professional inquiries and
                 networking.
               </p>
             </div>
@@ -141,19 +141,19 @@ function PortfolioWebsite({ navigateBack }) {
           <h4>My Contributions: Front End Developer</h4>
           <ul className="contributions">
             <li>
-              <strong>Designed & Developed the Website</strong> Built a fully
+              <strong>Designed & Developed the Website </strong> - Built a fully
               responsive portfolio with a custom UI/UX.
             </li>
             <li>
-              <strong>Implemented Smooth Page Transitions</strong> Used React
+              <strong>Implemented Smooth Page Transitions </strong> - Used React
               animations and keyframes for a seamless transition between pages.
             </li>
             <li>
-              <strong>Optimized Performance</strong> Minimized render-blocking
+              <strong>Optimized Performance </strong> - Minimized render-blocking
               scripts and improved lazy loading of images.
             </li>
             <li>
-              <strong>Deployed the Site</strong> Hosted the website using GitHub
+              <strong>Deployed the Site </strong> - Hosted the website using GitHub
               Pages.
             </li>
           </ul>
