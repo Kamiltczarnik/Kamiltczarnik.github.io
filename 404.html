@@ -3,13 +3,10 @@
 <head>
     <script>
         // Fix repeated repo name issue
-        var repoName = "/your-repo-name"; // Change this to your repo name!
         var path = window.location.pathname;
 
-        // Prevent duplicate repo name appending
-        if (!path.startsWith(repoName)) {
-            path = repoName + path;
-        }
+        // Prevent duplicate repo name appendin
+
 
         // Redirect to correct route
         window.location.replace(path);
