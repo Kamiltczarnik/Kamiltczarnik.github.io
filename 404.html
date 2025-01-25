@@ -2,14 +2,8 @@
 <html>
 <head>
     <script>
-        // Fix repeated repo name issue
-        var path = window.location.pathname;
-
-        // Prevent duplicate repo name appendin
-
-
-        // Redirect to correct route
-        window.location.replace(path);
+        // Redirect to the correct React route on refresh
+        window.location.replace(window.location.origin + window.location.pathname);
     </script>
 </head>
 <body>
