@@ -2,8 +2,10 @@
 <html>
 <head>
     <script>
-        // Redirect to the correct React route on refresh
-        window.location.replace(window.location.origin + window.location.pathname);
+        var newLocation = window.location.origin + window.location.pathname;
+        if (document.referrer.indexOf(window.location.origin) === -1) {
+            window.location.replace(newLocation);
+        }
     </script>
 </head>
 <body>
