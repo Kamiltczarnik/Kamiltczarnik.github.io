@@ -151,7 +151,8 @@
   color: #ff4c4c;
 }
 .gif {
-  width: 907px;
+  max-width: 907px;
+  width:90%;
   height: 510px; /* Ensures the video fully occupies its container */
   max-width: none; /* Remove max-width restriction */
   max-height: none; /* Remove max-height restriction */
