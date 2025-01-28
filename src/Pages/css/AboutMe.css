@@ -167,7 +167,7 @@
   }
 
   .about-me-text {
-    flex: 2;
+  flex: 2;
   display: flex;
   flex-direction: column; /* Change to column to ensure content fits */
   gap: .5rem;
@@ -176,9 +176,9 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-  min-width: 60%; /* Ensure it has enough space */
+  min-width: 70%; /* Ensure it has enough space */
   max-width: 100%; /* Prevent it from shrinking */
-  min-height: 750px; /* Ensures at least 850px, but allows growth */
+  min-height: 650px; /* Ensures at least 650px, but allows growth */
   height: auto; /* Allows dynamic expansion */
   }
 
@@ -250,7 +250,7 @@ p {
     font-size:10px;
   }
   .text-column p {
-    font-size: 1rem;
+    font-size: .75rem;
   }
   .text-column
   {
@@ -263,5 +263,8 @@ p {
   }
   #home .button{
     font-size:6px;
+  }
+  .about-me-text{
+    min-height: 800px;
   }
 }
