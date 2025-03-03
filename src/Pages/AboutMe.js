@@ -15,7 +15,7 @@ function AboutMe() {
     "/assets/images/hackillinois.jpeg",
     "/assets/images/Image_2.jpeg",
     "/assets/images/Image_3.JPG",
-    "/assets/images/garrick.jpg",
+    "/assets/images/garrick.JPG",
   ];
 
   return (
