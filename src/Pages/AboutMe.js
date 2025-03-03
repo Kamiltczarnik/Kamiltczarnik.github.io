@@ -12,10 +12,10 @@ function AboutMe() {
 
   const images = [
     "/assets/images/Headshot.jpg",
-    "/assets/images/Image_1.JPG",
+    "/assets/images/hackillinois.jpeg",
     "/assets/images/Image_2.jpeg",
     "/assets/images/Image_3.JPG",
-    "/assets/images/Image_5.jpeg",
+    "/assets/images/garrick.jpg",
   ];
 
   return (

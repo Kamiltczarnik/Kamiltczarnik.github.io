@@ -22,7 +22,8 @@ function HOFOracle({ navigateBack }) {
         </div>
         <div className="video-wrapper">
         <video  className="gif" autoPlay loop muted playsInline>
-        <source src="/assets/images/hoforac.webm" type="video/webm" />
+        <source src="https://kamiltczarnik.github.io/assets/images/hoforac.webm" type="video/webm" />
+        <source src="/assets/images/hoforac.mp4" type="video/mp4" />
        </video>
        </div>
         <h2>Key Features</h2>

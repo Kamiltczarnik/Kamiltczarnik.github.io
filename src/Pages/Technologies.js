@@ -12,7 +12,7 @@ function Technologies() {
       <div className="inner">
         <div className="technologies-container">
           <div className="technology-section">
-            <h3>Technologies I Prefer Using</h3>
+            <h3>Preferred Technologies</h3>
             <div className="technologies-grid">
               <div className="tech-item">
                 <img
@@ -53,9 +53,8 @@ function Technologies() {
                 />
                 <p>NumPy</p>
               </div>
-
               <div className="tech-item">
-                  <i className="devicon-pandas-plain"></i>
+                <i className="devicon-pandas-plain"></i>
                 <p>Pandas</p>
               </div>
               <div className="tech-item">
@@ -76,8 +75,8 @@ function Technologies() {
                 <p>Docker</p>
               </div>
               <div className="tech-item">
-                <i className="devicon-flask-original"></i>
-                <p>Flask</p>
+                <i className="devicon-fastapi-plain colored"></i>
+                <p>FastAPI</p>
               </div>
               <div className="tech-item">
                 <img
@@ -85,10 +84,6 @@ function Technologies() {
                   alt="Pytorch icon"
                 />
                 <p>PyTorch</p>
-              </div>
-              <div className="tech-item">
-                <i className="devicon-mysql-original"></i>
-                <p>MySQL</p>
               </div>
               <div className="tech-item">
                 <img
@@ -103,6 +98,21 @@ function Technologies() {
                   alt="Git icon"
                 />
                 <p>Git</p>
+              </div>
+              <div className="tech-item">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                  alt="TypeScript icon"
+                />
+                <p>TypeScript</p>
+              </div>
+              <div className="tech-item">
+                <i className="devicon-c-plain colored"></i>
+                <p>C</p>
+              </div>
+              <div className="tech-item">
+              <i class="devicon-tailwindcss-original colored"></i>
+                <p>Tailwind</p>
               </div>
             </div>
           </div>

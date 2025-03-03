@@ -22,12 +22,12 @@ const projectData = [
     route: "/projects/personal-portfolio",
     image: "/assets/images/logo.png",
   },
-  // {
-  //   name: "Spotify Data Analysis",
-  //   description: "Data analysis of a Spotify user's listening history.",
-  //   route: "/projects/spotify-data-analysis",
-  //   image: "/assets/images/spotify.png",
-  // },
+  {
+    name: "Lira",
+    description: "Your personal AI banking and financial assistant.",
+    route: "/projects/Lira",
+    image: "/assets/images/lira2.jpg",
+  },
 ];
 
 function Projects() {
