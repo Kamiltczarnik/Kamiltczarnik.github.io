@@ -1,5 +1,15 @@
 import "../css/Projects.css";
 import "../css/Technologies.css";
+import { 
+  FaChartBar,     // Portfolio Manager
+  FaBolt,         // AI Prediction
+  FaSearch,       // Real-time Data
+  FaDatabase,     // Local Storage & Context
+  FaPaintBrush,   // Simple UI
+  FaPaintBrush as FaDesign,     // for “Designed & Developed”
+  FaSyncAlt as FaTransition,    // for transitions
+  FaTachometerAlt as FaPerf,    // for performance
+} from 'react-icons/fa';
 import Footer from "../../components/Footer.js";
 
 function PortfoliPro({ navigateBack }) {
@@ -9,7 +19,6 @@ function PortfoliPro({ navigateBack }) {
       <button className="button scrolly" onClick={navigateBack}>
         ← Back to Home
       </button>
-
       <div className="project-content">
         {/* Title Bar */}
         <div className="title-bar">
@@ -29,28 +38,40 @@ function PortfoliPro({ navigateBack }) {
        </div>
         {/* Key Features */}
         <h2>Key Features</h2>
-        <ul className="features-list">
-          <li>
-            📈 <strong>Portfolio Manager </strong> - Allows users to track and
-            analyze their personal stock portfolios.
-          </li>
-          <li>
-            🏆 <strong>AI-Powered Prediction </strong> - Uses an LSTM model trained
-            on market data to forecast stock trends.
-          </li>
-          <li>
-            🔍 <strong>Real-Time Stock Data </strong> - Fetches up-to-date market
-            information using the YFinance API.
-          </li>
-          <li>
-            💾 <strong>Local Storage & Context API </strong> - Saves user
-            preferences and stock selections between sessions.
-          </li>
-          <li>
-            🎨 <strong>Simple & Intuitive UI </strong> - Designed to be easy to
-            navigate for users of all experience levels.
-          </li>
-        </ul>
+        <div className="step-divider"></div>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon"><FaChartBar /></div>
+            <h3 className="feature-title">Portfolio Manager</h3>
+            <p className="feature-desc">
+              Track and analyze personal stock portfolios.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaBolt /></div>
+            <h3 className="feature-title">AI-Powered Prediction</h3>
+            <p className="feature-desc">
+              LSTM-based model forecasts market trends.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaSearch /></div>
+            <h3 className="feature-title">Real-Time Stock Data</h3>
+            <p className="feature-desc">
+              Up-to-date market info via the YFinance API.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaPaintBrush /></div>
+            <h3 className="feature-title">Simple & Intuitive UI</h3>
+            <p className="feature-desc">
+              Clean design for users of all experience levels.
+            </p>
+          </div>
+        </div>
         <img src="/assets/images/welcome.png" alt="PortfoliPro" className = "step img2"/>
 
         <hr className="section-divider" />
@@ -146,32 +167,49 @@ function PortfoliPro({ navigateBack }) {
         <hr className="section-divider" />
 
         {/* My Contributions */}
-        <div className="text">
-          <h4>My Contributions: Full Stack Developer</h4>
-          <ul className="contributions">
-            <li>
-              <strong>Designed & Developed the UI </strong> - Created a
-              user-friendly interface with a focus on simplicity and
-              responsiveness.
-            </li>
-            <li>
-              <strong>Integrated YFinance API </strong> - Connected real-time stock
-              data to dynamically update stock information and predictions.
-            </li>
-            <li>
-              <strong>Built AI Prediction System </strong> - Implemented an LSTM
-              model to provide stock price forecasting.
-            </li>
-            <li>
-              <strong>Managed Portfolio Storage </strong> - Used Local Storage and
-              Context API to retain user selections and preferences.
-            </li>
-            <li>
-              <strong>Debugged & Optimized Performance </strong> - Improved
-              application performance by reducing redundant API calls and
-              optimizing database queries.
-            </li>
-          </ul>
+        <h2>My Contributions: Full Stack Developer</h2>
+        <div className="step-divider"></div>
+        <div className="contributions-grid">
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaDesign /></div>
+            <h3 className="contribution-title">
+              Designed & Developed UI
+            </h3>
+            <p className="contribution-desc">
+              Created a responsive interface focused on simplicity.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaTransition /></div>
+            <h3 className="contribution-title">
+              Integrated YFinance API
+            </h3>
+            <p className="contribution-desc">
+              Connected real-time stock data to live forecasts.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaPerf /></div>
+            <h3 className="contribution-title">
+              Built AI Prediction System
+            </h3>
+            <p className="contribution-desc">
+              LSTM model implementation for forecast accuracy.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaDatabase /></div>
+            <h3 className="contribution-title">
+              Managed Portfolio Storage
+            </h3>
+            <p className="contribution-desc">
+              Used Context API & Local Storage for user data.
+            </p>
+          </div>
+
         </div>
 
         <Footer />

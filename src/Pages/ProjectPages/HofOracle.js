@@ -1,6 +1,16 @@
 import "../css/Projects.css";
 import ".././css/Technologies.css";
 import Footer from "../../components/Footer.js";
+import {
+  FaTrophy,
+  FaChartBar,
+  FaSearch,
+  FaBolt,
+  FaPaintBrush,
+  FaLink,
+  FaSearchPlus,
+  FaTachometerAlt,
+} from "react-icons/fa";
 <link
   rel="stylesheet"
   type="text/css"
@@ -26,24 +36,41 @@ function HOFOracle({ navigateBack }) {
         <source src="/assets/images/hoforac.mp4" type="video/mp4" />
        </video>
        </div>
-        <h2>Key Features</h2>
-        <ul className="features-list">
-          <li>
-            ✅ <strong>HOF Prediction </strong> - Predicts a player’s Hall of Fame chances by comparing their stats to HOF legends.
-          </li>
-          <li>
-            📊 <strong>Compare Stats </strong> - Compare any player’s career stats
-            to HOF legends.
-          </li>
-          <li>
-            🔍 <strong>Searchable Database </strong> - Find and analyze players
-            instantly with real-time data.
-          </li>
-          <li>
-            ⚡ <strong>Intuitive UI </strong> - Player cards and Intuitive pages
-            greatly improve user experience.
-          </li>
-        </ul>
+       <h2>Key Features</h2>
+       <div className="step-divider"></div>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon"><FaTrophy /></div>
+            <h3 className="feature-title">HOF Prediction</h3>
+            <p className="feature-desc">
+              Predicts Hall of Fame chances by comparing stats to legends.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaChartBar /></div>
+            <h3 className="feature-title">Compare Stats</h3>
+            <p className="feature-desc">
+              Side-by-side career stat comparison with HOF greats.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaSearch /></div>
+            <h3 className="feature-title">Searchable Database</h3>
+            <p className="feature-desc">
+              Instantly find & analyze players with real-time data.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon"><FaBolt /></div>
+            <h3 className="feature-title">Intuitive UI</h3>
+            <p className="feature-desc">
+              Clean player cards and dashboards for a great UX.
+            </p>
+          </div>
+        </div>
         <hr className="section-divider" />
         <section className="how-it-works">
           <h2>How It Works</h2>
@@ -123,40 +150,49 @@ function HOFOracle({ navigateBack }) {
         {/* End of Technologies */}
         <hr className="section-divider" />
 
-        <div className="text">
-          <h4>My Contributions: Full Stack Developer</h4>
-          <ul className="contributions">
-            <li>
-              <strong>Full Frontend Development & Styling</strong> - Designed and
-              implemented the entire UI/UX, ensuring a clean and interactive
-              experience while seamlessly integrating the frontend with the
-              backend.
-            </li>
-            <li>
-              <strong>Connecting Frontend to Backend</strong> - Established API
-              calls to fetch and display player statistics, setting up a base
-              query for player stats and processing the data dynamically based
-              on player positions.
-            </li>
-            <li>
-              <strong>Search & Compare Functionality</strong> - Implemented search
-              and comparison features, allowing users to find specific players
-              and compare their career stats efficiently.
-            </li>
-            <li>
-              <strong>Optimized Backend Queries for Performance </strong> - Improved query efficiency by reducing unnecessary API calls and
-              database queries, ensuring smooth and fast retrieval of player
-              statistics across the platform.
-            </li>
-            <li>
-              <strong>
-                Handling Technical Challenges in Data Visualization
-              </strong>{" "}
-               - Attempted to visualize player data using React Charts, but due to
-              inconsistent game-to-game data and API limitations, made the
-              decision to remove it, optimizing project focus and efficiency.
-            </li>
-          </ul>
+        <h2>My Contributions: Full Stack Developer</h2>
+        <div className="step-divider"></div>
+        <div className="contributions-grid">
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaPaintBrush /></div>
+            <h3 className="contribution-title">
+              Frontend Development & Styling
+            </h3>
+            <p className="contribution-desc">
+              Designed and implemented a clean, interactive UI/UX.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaLink /></div>
+            <h3 className="contribution-title">
+              Frontend ↔ Backend Integration
+            </h3>
+            <p className="contribution-desc">
+              Wired up API calls to fetch & display player statistics.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaSearchPlus /></div>
+            <h3 className="contribution-title">
+              Search & Compare Features
+            </h3>
+            <p className="contribution-desc">
+              Built robust search and stat‐compare functionality.
+            </p>
+          </div>
+
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaTachometerAlt /></div>
+            <h3 className="contribution-title">
+              Optimized Backend Queries
+            </h3>
+            <p className="contribution-desc">
+              Reduced unnecessary API/database calls for speed.
+            </p>
+          </div>
+
         </div>
         <Footer />
       </div>

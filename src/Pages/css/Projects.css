@@ -45,11 +45,12 @@
 }
 
 .learn-more-button {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-  border: none;
+  display: inline-block;     /* shrink-wrap to text + padding */
+  margin: 0 auto;            /* center in a block-formatting context */
+  padding-left: 1.5rem;  
+  padding-right: 1.5rem;  /* adjust these to taste */
+  position: relative;         /* for the ::before gradient border */
+  border:none;
 }
 
 .learn-more-button:hover {
@@ -94,14 +95,14 @@
 .project-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 50px 0 0 0;
+  align-items: center;      /* horizontally center everything */
+  gap: 2rem;                /* vertical spacing between sections */
+  padding: 2rem;            /* breathe room all around */
+  width: 100%;
+  max-width: 60rem;         /* keep it from getting too wide on big screens */
   background-color: #1c1c1c;
-  width: 60%;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
-  height: 100%;
-  gap:5px;
+  border: 1px solid #fff;
+  border-radius: 0.625rem;
 }
 .title-bar {
   display: flex;
@@ -151,29 +152,34 @@
   color: #ff4c4c;
 }
 .gif {
-  max-width: 907px;
-  width:90%;
-  height: 510px; /* Ensures the video fully occupies its container */
-  max-width: none; /* Remove max-width restriction */
-  max-height: none; /* Remove max-height restriction */
-  border-radius: 8px;
-  border: 2px solid #ffffff;
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-.video-wrapper{
-  overflow: hidden
+  border: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
 }
 
-.video-wrapper #video{
-  position: relative; /* could be absolute if needed */
-  left: 1px;
-}
-video {
+/* Style the wrapper as the single white frame, with a dark bg inside */
+.video-wrapper {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  background-color: #1c1c1c;    /* hide any leftover space */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: block;               /* shrink‐to‐fit via inline width */
+  margin: 1rem auto;            /* center it if you like */
 }
+
+.video-wrapper video {
+  display: block;               /* no inline whitespace */
+  width: 100%;                  /* fill the wrapper */
+  height: 100%;                 /* match its aspect‐ratio box */
+  object-fit: contain;          /* show the full frame */
+  background-color: #1c1c1c;    /* hide any letter-box area */
+  border: 2px solid #fff;       /* your single white frame */
+}
+
 .project-details {
   padding: 2rem;
   color: #ffffff;
@@ -491,4 +497,109 @@ body {
   width:90%;
 }
 
+}
+
+
+
+
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 60rem;
+}
+
+@media (max-width: 48rem) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  background-color: #2a2a2a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+}
+
+.feature-icon {
+  font-size: 2.5rem;       /* icon size */
+  color: #ff4c4c;           /* choose accent color */
+  margin-bottom: 0.75rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.feature-desc {
+  font-size: 1rem;
+  color: #c0c0c0;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 60rem;
+}
+
+@media (max-width: 48rem) {
+  .contributions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contribution-card {
+  background-color: #2a2a2a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contribution-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.4);
+}
+
+.contribution-icon {
+  font-size: 2.5rem;
+  color: #ff4c4c;
+  margin-bottom: 0.75rem;
+}
+
+.contribution-title {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.contribution-desc {
+  font-size: 1rem;
+  color: #c0c0c0;
+  line-height: 1.4;
 }

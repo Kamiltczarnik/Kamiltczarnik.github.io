@@ -1,6 +1,20 @@
 import "../css/Projects.css";
 import "../css/Technologies.css";
 import Footer from "../../components/Footer.js";
+import { 
+  FaTrophy,       // 🏆
+  FaChartBar,     // 📊
+  FaSearch,       // 🔍
+  FaBolt,          // ⚡
+  FaPaintBrush,     // for design/dev
+  FaSyncAlt,        // for transitions
+  FaTachometerAlt,  // for performance
+  FaCloudUploadAlt  // for deploy
+} from 'react-icons/fa'
+
+
+
+
 
 function PortfolioWebsite({ navigateBack }) {
   return (
@@ -30,28 +44,41 @@ function PortfolioWebsite({ navigateBack }) {
 
         {/* Key Features */}
         <h2>Key Features</h2>
-        <ul className="features-list">
-          <li>
-            🖥️ <strong>Responsive Design </strong> - Fully optimized for desktop,
-            tablet, and mobile views.
-          </li>
-          <li>
-            ⚡ <strong>Optimized UI </strong> - Built with React and CSS animations
-            for a smooth user experience.
-          </li>
-          <li>
-            🌐 <strong>Projects Showcase </strong> - Displays my latest projects
-            dynamically.
-          </li>
-          <li>
-            🔗 <strong>Custom Navigation </strong> - Includes animated transitions
-            between pages.
-          </li>
-          <li>
-            🎨 <strong>Unique Personal Branding </strong> - Custom theme,
-            animations, and layout to reflect my style.
-          </li>
-        </ul>
+        <div className="step-divider"></div>
+        <div className="features-grid">
+      <div className="feature-card">
+        <div className="feature-icon"><FaTrophy /></div>
+        <h3 className="feature-title">HOF Prediction</h3>
+        <p className="feature-desc">
+          Predicts a player’s Hall of Fame chances by comparing their stats to HOF legends.
+        </p>
+      </div>
+      
+      <div className="feature-card">
+        <div className="feature-icon"><FaChartBar /></div>
+        <h3 className="feature-title">Compare Stats</h3>
+        <p className="feature-desc">
+          Compare any player’s career stats side-by-side with all-time greats.
+        </p>
+      </div>
+      
+      <div className="feature-card">
+        <div className="feature-icon"><FaSearch /></div>
+        <h3 className="feature-title">Searchable Database</h3>
+        <p className="feature-desc">
+          Find and analyze players instantly with real-time data from our API.
+        </p>
+      </div>
+      
+      <div className="feature-card">
+        <div className="feature-icon"><FaBolt /></div>
+        <h3 className="feature-title">Intuitive UI</h3>
+        <p className="feature-desc">
+          Sleek player cards and dashboards that make insights a breeze.
+        </p>
+      </div>
+    </div>
+
 
         <hr className="section-divider" />
 
@@ -137,27 +164,49 @@ function PortfolioWebsite({ navigateBack }) {
         <hr className="section-divider" />
 
         {/* My Contributions */}
-        <div className="text">
-          <h4>My Contributions: Front End Developer</h4>
-          <ul className="contributions">
-            <li>
-              <strong>Designed & Developed the Website </strong> - Built a fully
-              responsive portfolio with a custom UI/UX.
-            </li>
-            <li>
-              <strong>Implemented Smooth Page Transitions </strong> - Used React
-              animations and keyframes for a seamless transition between pages.
-            </li>
-            <li>
-              <strong>Optimized Performance </strong> - Minimized render-blocking
-              scripts and improved lazy loading of images.
-            </li>
-            <li>
-              <strong>Deployed the Site </strong> - Hosted the website using GitHub
-              Pages.
-            </li>
-          </ul>
-        </div>
+        <h2>My Contributions: Solo Developer</h2>
+        <div className="step-divider"></div>
+        <div className="contributions-grid">
+  <div className="contribution-card">
+    <div className="contribution-icon"><FaPaintBrush /></div>
+    <h3 className="contribution-title">
+      Designed & Developed the Website
+    </h3>
+    <p className="contribution-desc">
+      Built a fully responsive portfolio with a custom UI/UX.
+    </p>
+  </div>
+
+  <div className="contribution-card">
+    <div className="contribution-icon"><FaSyncAlt /></div>
+    <h3 className="contribution-title">
+      Implemented Smooth Page Transitions
+    </h3>
+    <p className="contribution-desc">
+      Used React animations and keyframes for seamless navigation.
+    </p>
+  </div>
+
+  <div className="contribution-card">
+    <div className="contribution-icon"><FaTachometerAlt /></div>
+    <h3 className="contribution-title">
+      Optimized Performance
+    </h3>
+    <p className="contribution-desc">
+      Minimized render-blocking scripts & added lazy-loading of images.
+    </p>
+  </div>
+
+  <div className="contribution-card">
+    <div className="contribution-icon"><FaCloudUploadAlt /></div>
+    <h3 className="contribution-title">
+      Deployed the Site
+    </h3>
+    <p className="contribution-desc">
+      Hosted on GitHub Pages with a custom GoDaddy domain.
+    </p>
+  </div>
+</div>
 
         <Footer />
       </div>

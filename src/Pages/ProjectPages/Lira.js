@@ -1,6 +1,15 @@
 import "../css/Projects.css";
 import "../css/Technologies.css";
 import Footer from "../../components/Footer.js";
+import {
+  FaRobot,
+  FaChartPie,
+  FaComments,
+  FaPaintBrush,
+  FaPlug,
+  FaMicrophone,
+  FaDatabase
+} from "react-icons/fa";
 
 function Lira({ navigateBack }) {
   return (
@@ -31,17 +40,30 @@ function Lira({ navigateBack }) {
 
         {/* Key Features */}
         <h2>Key Features</h2>
-        <ul className="features-list">
-          <li>
-            🤖 <strong>AI Banker:</strong> Ask Lira questions like “I need a checking account with low fees and great perks.”
-          </li>
-          <li>
-            📊 <strong>Dashboard:</strong>    View your total balance, monthly changes, and spending trends.
-          </li>
-          <li>
-            💬 <strong>Financial Advice:</strong> Receive personalized financial advice on credit cards, personal loans, and more.
-          </li>
-        </ul>
+        <div className="step-divider"></div>
+        <div className="features-grid">
+          <div className="feature-card">
+            <div className="feature-icon"><FaRobot /></div>
+            <h3 className="feature-title">AI Banker</h3>
+            <p className="feature-desc">
+              Ask Lira questions like “I need a checking account with low fees and great perks.”
+            </p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon"><FaChartPie /></div>
+            <h3 className="feature-title">Dashboard</h3>
+            <p className="feature-desc">
+              View your total balance, monthly changes, and spending trends.
+            </p>
+          </div>
+          <div className="feature-card">
+            <div className="feature-icon"><FaComments /></div>
+            <h3 className="feature-title">Financial Advice</h3>
+            <p className="feature-desc">
+              Receive personalized financial advice on credit cards, personal loans, and more.
+            </p>
+          </div>
+        </div>
 
         <hr className="section-divider" />
 
@@ -135,22 +157,37 @@ function Lira({ navigateBack }) {
         <hr className="section-divider" />
 
         {/* My Contributions */}
-        <div className="text">
-          <h4>My Contributions: Full Stack Developer</h4>
-          <ul className="contributions">
-            <li>
-              <strong>UI/UX Development:</strong> Designed and implemented a user-friendly financial dashboard and interactive virtual assistant interface.
-            </li>
-            <li>
-              <strong>API Integration:</strong> Connected the frontend with the Nessie API and ChatGPT API to deliver real-time banking data and personalized advice.
-            </li>
-            <li>
-              <strong>Speech-to-Text Integration:</strong> Implemented text-to-speech functionality to enhance user accessibility and interaction.
-            </li>
-            <li>
-              <strong>Data Management:</strong> Ensured seamless data flow between user inputs and backend processing for accurate financial insights.
-            </li>
-          </ul>
+        <h2>My Contributions: Full Stack Developer</h2>
+        <div className="step-divider"></div>
+        <div className="contributions-grid">
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaPaintBrush /></div>
+            <h3 className="contribution-title">UI/UX Development</h3>
+            <p className="contribution-desc">
+              Designed and implemented a user-friendly dashboard and assistant interface.
+            </p>
+          </div>
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaPlug /></div>
+            <h3 className="contribution-title">API Integration</h3>
+            <p className="contribution-desc">
+              Connected to the Nessie & ChatGPT APIs for real-time banking data and advice.
+            </p>
+          </div>
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaMicrophone /></div>
+            <h3 className="contribution-title">Speech-to-Text</h3>
+            <p className="contribution-desc">
+              Added voice input/output for a more accessible, conversational UI.
+            </p>
+          </div>
+          <div className="contribution-card">
+            <div className="contribution-icon"><FaDatabase /></div>
+            <h3 className="contribution-title">Data Management</h3>
+            <p className="contribution-desc">
+              Ensured seamless data flow between user inputs and backend processing.
+            </p>
+          </div>
         </div>
 
         <Footer />
