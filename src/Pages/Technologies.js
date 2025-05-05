@@ -19,7 +19,7 @@ function Technologies() {
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
                   alt="React icon"
                 />
-                <p>React JS/Native</p>
+                <p>React</p>
               </div>
               <div className="tech-item">
                 <img

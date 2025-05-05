@@ -1,6 +1,6 @@
 {
   "name": "personal-portfolio",
-  "homepage": "https://kamiltczarnik.github.io/",
+  "homepage": "https://kamiltczarnik.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
