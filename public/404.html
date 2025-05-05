@@ -1,14 +1,125 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <script>
-        var newLocation = window.location.origin + window.location.pathname;
-        if (document.referrer.indexOf(window.location.origin) === -1) {
-            window.location.replace(newLocation);
+<html lang="en">
+  <head>
+    <!-- Basic Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <!-- Primary SEO -->
+    <title>Kamil Czarnik — Computer Science Student &amp; Software Engineer</title>
+    <meta
+      name="description"
+      content="Kamil Czarnik, UIUC Computer Science student &amp; software engineer specializing in React, Python, and Data Science. Browse projects, resume, and contact."
+    />
+    <link rel="canonical" href="https://kamiltczarnik.com/" />
+    <meta name="robots" content="index,follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kamil Czarnik — Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore Kamil Czarnik’s engineering & web-dev projects in React, Python, and more."
+    />
+    <meta property="og:url" content="https://kamiltczarnik.com/" />
+    <meta
+      property="og:image"
+      content="https://kamiltczarnik.com/assets/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="Kamil Czarnik's Software Portfolio" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kamil Czarnik — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Browse projects, resume, and contact info for Kamil Czarnik—UIUC Computer Engineering student & software engineer."
+    />
+    <meta
+      name="twitter:image"
+      content="https://kamiltczarnik.com/assets/images/og-image.jpg"
+    />
+
+    <!-- PWA / Mobile Meta -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#123456" />
+    <link
+      rel="apple-touch-icon"
+      href="/assets/images/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kamil Czarnik",
+      "url": "https://kamiltczarnik.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/kamil-czarnik-269492242/",
+        "https://github.com/kamiltczarnik"
+      ],
+      "jobTitle": "Computer Science Student & Software Engineer",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Illinois Urbana–Champaign"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Bachelor’s Degree",
+        "educationalLevel": "Undergraduate"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "email",
+          "email": "hello@kamiltczarnik.com"
         }
+      ]
+    }
     </script>
-</head>
-<body>
-    <p>hi!</p>
-</body>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="%PUBLIC_URL%/assets/images/logo.png"
+    />
+
+    <!-- Your CSS & Icon Fonts -->
+    <link rel="stylesheet" href="/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+      type="text/css"
+    />
+
+    <!-- Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Sometype+Mono:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Particle.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+    <div id="root"></div>
+  </body>
 </html>
