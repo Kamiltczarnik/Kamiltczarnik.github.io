@@ -1,0 +1,658 @@
+.projects-container {
+  display: flex; /* Flexbox for horizontal alignment */
+  flex-direction: row; /* Horizontal layout */
+  flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+  justify-content: center; /* Center the cards */
+  gap: 60px; /* Space between cards */
+  padding: 20px;
+}
+
+.project-card {
+  background-color: #000000 !important;
+  border-radius: 10px;
+  border: 1px solid #333333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 230px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s, box-shadow 0.2s;
+}
+.project-card:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #fff;
+  cursor: default;
+}
+
+.project-description {
+  font-size: 14px;
+  color: #9f9f9f;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: default;
+}
+
+.learn-more-button {
+  display: inline-block; /* shrink-wrap to text + padding */
+  margin: 0 auto; /* center in a block-formatting context */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; /* adjust these to taste */
+  position: relative; /* for the ::before gradient border */
+  border: none;
+}
+
+.learn-more-button:hover {
+  color: #ff552e; /* Illinois Orange */
+}
+.project-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  max-height: 115px;
+}
+@media screen and (max-width: 768px) {
+  .projects-container {
+    gap: 20px;
+  }
+  .project-card {
+    width: 450px;
+  }
+  .project-icon {
+    font-size: 30px;
+  }
+  .project-title {
+    font-size: 16px;
+  }
+  .project-description {
+    font-size: 12px;
+  }
+}
+
+#projects {
+  background-color: #000000;
+  /* min-height: 100vh; */
+}
+#projects .inner {
+  padding: 4em 4em 4em 4em;
+}
+
+/* Individual Project Pages css */
+
+.project-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontally center everything */
+  gap: 2rem; /* vertical spacing between sections */
+  padding: 2rem; /* breathe room all around */
+  width: 100%;
+  max-width: 60rem; /* keep it from getting too wide on big screens */
+  background-color: #000000 !important;
+  border: 1px solid #333333;
+  border-radius: 0.625rem;
+}
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 20px;
+  height: 74px;
+  padding: 0, 10px, 10px, 10px;
+  border-bottom: 1px solid whitesmoke;
+}
+.title-image {
+  height: 100%;
+  max-width: 64px;
+  border-radius: 6px;
+  max-height: 64px;
+}
+
+.button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+.button:hover {
+  transform: scale(1.1);
+}
+/* Ensure the project page and wrapper take full viewport height */
+.project-page {
+  /* min-height: 100vh; /* At least the full height of the screen */
+  display: flex;
+  flex-direction: column; /* Makes content stack properly */
+  justify-content: flex-start; /* Adjust alignment as needed */
+}
+.projects-title {
+  margin: 0;
+  font-size: 2.5em;
+  color: #ffffff;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.text {
+  text-align: left;
+  margin: 2em;
+  font-size: 1em;
+}
+.bold {
+  font-weight: bold;
+  color: #ff552e; /* Illinois Orange */
+}
+.gif {
+  border: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+}
+
+/* Style the wrapper as the single white frame, with a dark bg inside */
+.video-wrapper {
+  width: 100%;
+  background-color: #000000 !important; /* Pure black */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: block; /* shrink‐to‐fit via inline width */
+  margin: 1rem auto; /* center it if you like */
+}
+
+.video-wrapper video {
+  display: block; /* no inline whitespace */
+  width: 100%; /* fill the wrapper */
+  height: 100%; /* match its aspect‐ratio box */
+  object-fit: contain; /* show the full frame */
+  background-color: #000000 !important; /* Pure black */
+  border: 2px solid #fff; /* your single white frame */
+}
+
+.project-details {
+  padding: 2rem;
+  color: #ffffff;
+  background-color: #000000 !important;
+}
+
+/* Features List - Simple Bullet Points */
+.features h2,
+.how-it-works h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* How It Works - 3 Vertical Steps */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+}
+
+.step img,
+.step.img2 {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  height: 280px;
+}
+.step.img2,
+.step.img3 {
+  border: 1px solid #fff;
+  max-width: 750px;
+}
+.step.img3 {
+  height: 350px;
+}
+
+.step h3 {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to top,
+    #ff552e,
+    #13294b
+  ); /* Illinois Orange to Blue */
+  margin: 3rem auto;
+  width: 80%;
+  opacity: 0.7;
+}
+
+.step-divider {
+  width: 80%; /* Make it visible */
+  height: 1px; /* Set a fixed height */
+  background: #ddd; /* Red color */
+  opacity: 0.7;
+  display: inline-block;
+  align-self: center;
+}
+.how-it-works {
+  margin: 2em;
+}
+.techcontainer .technologies-container {
+  border: none !important;
+}
+/* Contributions Section Styling */
+.text {
+  background-color: #000000 !important; /* Pure black background */
+  color: white; /* Dark gray text */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+/* Heading Style */
+.text h4 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white; /* Softer blue */
+  letter-spacing: 1px;
+}
+
+/* Bullet Point List */
+.contributions {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+/* Bullet Point Items */
+.contributions li {
+  position: relative;
+  padding-left: 2rem; /* Space for custom bullet */
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Custom Icon Before Each List Item */
+.contributions li::before {
+  content: "✦"; /* Softer diamond icon */
+  position: absolute;
+  left: 0;
+  font-size: 1.4rem;
+  color: #007acc; /* Soft blue */
+  font-weight: bold;
+}
+
+/* Strong (Bold) Text */
+.contributions li strong {
+  color: #4a90e2; /* Softer highlight */
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .text {
+    padding: 1.5rem;
+  }
+
+  .text h4 {
+    font-size: 1.5rem;
+  }
+
+  .contributions {
+    font-size: 1rem;
+  }
+
+  .contributions li {
+    padding-left: 1.5rem;
+  }
+
+  .contributions li::before {
+    font-size: 1.2rem;
+  }
+}
+strong {
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .text {
+    padding: 1.2rem;
+  }
+  .text h4 {
+    font-size: 1.5rem;
+  }
+
+  .contributions {
+    font-size: 1rem;
+  }
+
+  .contributions li {
+    padding-left: 1.2rem;
+  }
+
+  .contributions li::before {
+    font-size: 1.1rem;
+  }
+
+  .title-bar {
+    text-align: center;
+    gap: 10px;
+  }
+
+  .title-image {
+    height: 40px;
+    max-width: 40px;
+  }
+
+  .button {
+    font-size: 0.9rem;
+  }
+
+  .gif {
+    max-width: 100%;
+    margin: 1em;
+  }
+
+  .step img {
+    width: 100%;
+  }
+
+  .step-divider {
+    height: 1px;
+    width: 90%;
+  }
+
+  .features-list {
+    font-size: 0.9rem;
+  }
+
+  .features-list li {
+    gap: 0.4rem;
+  }
+
+  /* Improve Technologies Layout on Mobile */
+  .technologies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tech-item img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tech-item p {
+    font-size: 0.9rem;
+  }
+  .project-detail {
+    width: 100%;
+  }
+  .project-content {
+    width: 90%;
+  }
+  .projects-title {
+    font-size: 2em;
+  }
+  .gif {
+    width: 80%;
+    height: 100%;
+  }
+  .features-list li,
+  .contributions li {
+    flex-direction: row; /* Keep icon and text in the same row */
+    align-items: flex-start;
+  }
+
+  .features-list li strong,
+  .contributions li strong {
+    display: block;
+    font-size: 0.82rem;
+    margin-bottom: 0.3rem; /* Space between strong and description */
+    white-space: wrap;
+  }
+
+  .features-list li div,
+  .contributions li div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .text {
+    width: 85%;
+  }
+  .technologies-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  }
+  .title-bar {
+    border: none;
+  }
+  h2 {
+    font-size: 2rem !important;
+  }
+  strong {
+    width: 100px;
+  }
+  .text strong {
+    width: 100%;
+  }
+  .ul.contributions strong {
+    width: 100%;
+  }
+  .features-list li strong {
+    width: 100px;
+  }
+  .technologies-container {
+    justify-content: center;
+    align-items: center;
+  }
+  body {
+    margin: 0;
+  }
+  .step.img2 {
+    width: 90%;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 60rem;
+}
+
+@media (max-width: 48rem) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  background-color: #000000 !important;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.feature-icon {
+  font-size: 2.5rem; /* icon size */
+  color: #ff552e; /* Illinois Orange */
+  margin-bottom: 0.75rem;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.feature-desc {
+  font-size: 1rem;
+  color: #c0c0c0;
+  line-height: 1.4;
+}
+
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 60rem;
+}
+
+@media (max-width: 48rem) {
+  .contributions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contribution-card {
+  background-color: #000000 !important;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contribution-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.contribution-icon {
+  font-size: 2.5rem;
+  color: #ff552e; /* Illinois Orange */
+  margin-bottom: 0.75rem;
+}
+
+.contribution-title {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.contribution-desc {
+  font-size: 1rem;
+  color: #c0c0c0;
+  line-height: 1.4;
+}
+
+/* Light Mode Styles for Projects */
+body.light-mode .project-card {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+  color: #000000 !important;
+}
+
+body.light-mode .project-title {
+  color: #000000 !important;
+}
+
+body.light-mode .project-description {
+  color: #666666 !important;
+}
+
+body.light-mode .project-content {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+  color: #000000 !important;
+}
+
+body.light-mode .project-details {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .text {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+body.light-mode .feature-card {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+body.light-mode .feature-title {
+  color: #000000 !important;
+}
+
+body.light-mode .feature-desc {
+  color: #666666 !important;
+}
+
+body.light-mode .contribution-card {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+body.light-mode .contribution-title {
+  color: #000000 !important;
+}
+
+body.light-mode .contribution-desc {
+  color: #666666 !important;
+}

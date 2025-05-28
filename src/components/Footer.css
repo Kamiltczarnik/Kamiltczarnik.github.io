@@ -1,0 +1,101 @@
+#contact {
+  background-color: #000000;
+  /* min-height: 100vh; */
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
+  text-align: center;
+  flex: 1;
+}
+
+.contact-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.contact-item p {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0;
+  transition: transform 0.3s ease-in-out, color 0.3s ease;
+  text-decoration: none;
+}
+.contact-item p:hover {
+  color: #ff552e !important; /* Illinois Orange */
+  transform: scale(1.1);
+  cursor: default;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out, color 0.3s ease;
+  text-decoration: none;
+  border: 0;
+}
+.social-icons a:hover {
+  color: #ff552e !important; /* Illinois Orange */
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-item {
+    flex: none;
+    width: 100%;
+    margin: 0;
+  }
+}
+#contact .inner {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Light Mode Styles for Footer */
+body.light-mode .contact-item h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .contact-item p {
+  color: #000000 !important;
+}
+
+body.light-mode .contact-item p:hover {
+  color: #ff552e !important; /* Illinois Orange */
+}
+
+body.light-mode .social-icons a {
+  color: #000000 !important;
+}
+
+body.light-mode .social-icons a:hover {
+  color: #ff552e !important; /* Illinois Orange */
+}
+
+body.light-mode #contact {
+  background-color: #ffffff !important;
+}

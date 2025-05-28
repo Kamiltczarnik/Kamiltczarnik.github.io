@@ -1,0 +1,357 @@
+.page-section {
+  min-height: 100vh;
+  padding: 120px 2rem 4rem;
+  background-color: #ffffff;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-bubble {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.project-bubble:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+.featured-project {
+  grid-column: span 2;
+  border-color: #3b82f6;
+}
+
+.project-image {
+  height: 180px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.placeholder-image {
+  font-size: 3rem;
+  opacity: 0.6;
+  color: #9ca3af;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  color: #1f2937;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.project-content p {
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.tech-tag {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.coming-soon {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 280px;
+}
+
+.coming-soon .project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon h3 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.coming-soon p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon-icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* Light mode explicit styles */
+body.light-mode .page-section {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .section-header h1 {
+  color: #1f2937;
+}
+
+body.light-mode .section-header p {
+  color: #6b7280;
+}
+
+body.light-mode .project-bubble {
+  background: #ffffff;
+  border-color: #e5e7eb;
+}
+
+body.light-mode .project-bubble:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+body.light-mode .featured-project {
+  border-color: #3b82f6;
+}
+
+body.light-mode .project-image {
+  background: #f8fafc;
+  border-bottom-color: #f3f4f6;
+}
+
+body.light-mode .placeholder-image {
+  color: #9ca3af;
+}
+
+body.light-mode .project-content h3 {
+  color: #1f2937;
+}
+
+body.light-mode .project-content p {
+  color: #4b5563;
+}
+
+body.light-mode .tech-tag {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+  color: #374151;
+}
+
+body.light-mode .btn-secondary {
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+body.light-mode .btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+body.light-mode .coming-soon {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+body.light-mode .coming-soon h3 {
+  color: #1f2937;
+}
+
+body.light-mode .coming-soon p {
+  color: #6b7280;
+}
+
+/* Dark mode styles */
+body:not(.light-mode) .page-section {
+  background-color: #0f0f0f;
+}
+
+body:not(.light-mode) .section-header h1 {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .section-header p {
+  color: #a1a1aa;
+}
+
+body:not(.light-mode) .project-bubble {
+  background: #1a1a1a;
+  border-color: #2a2a2a;
+}
+
+body:not(.light-mode) .project-bubble:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+  border-color: #3a3a3a;
+}
+
+body:not(.light-mode) .featured-project {
+  border-color: #3b82f6;
+}
+
+body:not(.light-mode) .project-image {
+  background: #161616;
+  border-bottom-color: #2a2a2a;
+}
+
+body:not(.light-mode) .placeholder-image {
+  color: #71717a;
+}
+
+body:not(.light-mode) .project-content h3 {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .project-content p {
+  color: #a1a1aa;
+}
+
+body:not(.light-mode) .tech-tag {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+  color: #e4e4e7;
+}
+
+body:not(.light-mode) .btn-secondary {
+  color: #e4e4e7;
+  border-color: #3a3a3a;
+}
+
+body:not(.light-mode) .btn-secondary:hover {
+  background: #2a2a2a;
+  border-color: #4a4a4a;
+}
+
+body:not(.light-mode) .coming-soon {
+  background: #161616;
+  border-color: #2a2a2a;
+}
+
+body:not(.light-mode) .coming-soon h3 {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .coming-soon p {
+  color: #a1a1aa;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .featured-project {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-section {
+    padding: 100px 1rem 2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .project-content {
+    padding: 1.25rem;
+  }
+
+  .project-links {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}

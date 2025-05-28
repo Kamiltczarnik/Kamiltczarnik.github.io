@@ -1,9 +1,134 @@
-html,body {
-  scroll-behavior: smooth;
-  background-color: black;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
 }
 
-h1, h2, h3, h4, h5, h6{
-  font-family: "Playfair Display", serif;
-  text-align: center;
+/* Remove any potential viewport borders */
+@viewport {
+  width: device-width;
+  zoom: 1;
+}
+
+html {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: "SF Pro Display", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+    sans-serif;
+  color: #333333;
+  line-height: 1.6;
+}
+
+#wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Page sections */
+section {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+}
+
+#root {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "SF Pro Display", "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+    sans-serif;
+  color: #1a1a1a;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Clean scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}
+
+/* Dark Mode Styles */
+body:not(.light-mode) {
+  background-color: #0f0f0f;
+  color: #e4e4e7;
+}
+
+body:not(.light-mode) #wrapper {
+  background-color: #0f0f0f;
+}
+
+body:not(.light-mode) h1,
+body:not(.light-mode) h2,
+body:not(.light-mode) h3,
+body:not(.light-mode) h4,
+body:not(.light-mode) h5,
+body:not(.light-mode) h6 {
+  color: #ffffff;
+}
+
+body:not(.light-mode) section {
+  background-color: #0f0f0f;
+}
+
+body:not(.light-mode) #root {
+  background-color: #0f0f0f;
+}
+
+body:not(.light-mode) html {
+  background-color: #0f0f0f;
+}
+
+body:not(.light-mode) ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+body:not(.light-mode) ::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+body:not(.light-mode) ::-webkit-scrollbar-thumb:hover {
+  background: #555555;
 }
