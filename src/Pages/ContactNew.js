@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import { FaEnvelope } from "react-icons/fa";
+import { FaCopy } from "react-icons/fa";
+import { motion } from "framer-motion";
 import "./css/ContactNew.css";
 
 function ContactNew() {
@@ -8,6 +11,9 @@ function ContactNew() {
     email: "",
     message: "",
   });
+
+  const [copied, setCopied] = useState(false);
+  const email = "kamiltczarnik@gmail.com";
 
   const handleChange = (e) => {
     setFormData({
@@ -24,111 +30,168 @@ function ContactNew() {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1200);
+  };
+
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+  const bubbleVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3 + i * 0.15,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <>
       <Navbar />
       <section id="contact" className="page-section">
         <div className="page-container">
-          <div className="section-header">
+          <motion.div
+            className="section-header"
+            variants={headerVariants}
+            initial="hidden"
+            animate="visible">
             <h1>Get In Touch</h1>
-            <p>
-              Have a project in mind or just want to say hello? I'd love to hear
-              from you!
-            </p>
-          </div>
-
+            <p>You can also get in touch with me through the links below.</p>
+          </motion.div>
           <div className="contact-grid">
-            {/* Contact Form */}
-            <div className="contact-bubble form-bubble">
-              <h3>Send me a message</h3>
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    rows="5"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required></textarea>
-                </div>
-                <button type="submit" className="btn-submit">
-                  Send Message
-                </button>
-              </form>
-            </div>
-
-            {/* Email Contact */}
-            <div className="contact-bubble email-bubble">
-              <div className="contact-icon">📧</div>
-              <h3>Email</h3>
-              <p>kamil.czarnik@example.com</p>
-              <button className="btn-contact">Send Email</button>
-            </div>
-
-            {/* Social Media */}
-            <div className="contact-bubble social-bubble">
-              <div className="contact-icon">🔗</div>
-              <h3>Social Media</h3>
-              <div className="social-links">
-                <a href="#" className="social-link github">
-                  GitHub
-                </a>
-                <a href="#" className="social-link linkedin">
-                  LinkedIn
-                </a>
-                <a href="#" className="social-link twitter">
-                  Twitter
-                </a>
+            {/* Email Bubble */}
+            <motion.div
+              className="contact-bubble email-bubble"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={0}>
+              <div className="contact-icon">
+                <FaEnvelope style={{ fontSize: "2.2rem", color: "#3b82f6" }} />
               </div>
-            </div>
+              <h3>Email</h3>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "0.2rem",
+                  width: "100%",
+                }}>
+                <a
+                  href={`mailto:${email}`}
+                  className="btn-contact"
+                  style={{
+                    whiteSpace: "nowrap",
+                    flexShrink: 1,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    minWidth: 0,
+                  }}>
+                  {email}
+                </a>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(email);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1200);
+                  }}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0,
+                    marginLeft: "0.1rem",
+                    color: copied ? "#2563eb" : "#3b82f6",
+                    fontSize: "1em",
+                    height: "1.8em",
+                    width: "1.8em",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                  aria-label="Copy email to clipboard"
+                  title={copied ? "Copied!" : "Copy email"}>
+                  <FaCopy
+                    style={{ fontSize: "1em", verticalAlign: "middle" }}
+                  />
+                </button>
+              </div>
+              <div
+                style={{
+                  textAlign: "center",
+                  marginTop: "0.18rem",
+                  minHeight: "1.1em",
+                  height: "1.1em",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}>
+                {copied && (
+                  <span style={{ color: "#2563eb", fontSize: "0.95rem" }}>
+                    Copied!
+                  </span>
+                )}
+              </div>
+            </motion.div>
 
-            {/* Location */}
-            <div className="contact-bubble location-bubble">
-              <div className="contact-icon">📍</div>
-              <h3>Location</h3>
-              <p>Germany</p>
-              <p>Available for remote work</p>
-            </div>
+            {/* GitHub Bubble */}
+            <motion.div
+              className="contact-bubble social-bubble"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={1}>
+              <div className="contact-icon">
+                <i
+                  className="devicon-github-original"
+                  style={{ fontSize: "2.2rem" }}></i>
+              </div>
+              <h3>GitHub</h3>
+              <a
+                href="https://github.com/Kamiltczarnik"
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                github.com/Kamiltczarnik
+              </a>
+            </motion.div>
 
-            {/* Response Time */}
-            <div className="contact-bubble response-bubble">
-              <div className="contact-icon">⚡</div>
-              <h3>Response Time</h3>
-              <p>I typically respond within</p>
-              <div className="response-time">24 hours</div>
-            </div>
-
-            {/* Availability */}
-            <div className="contact-bubble availability-bubble">
-              <div className="contact-icon">🗓️</div>
-              <h3>Availability</h3>
-              <p>Currently available for:</p>
-              <ul className="availability-list">
-                <li>Freelance projects</li>
-                <li>Part-time work</li>
-                <li>Collaborations</li>
-              </ul>
-            </div>
+            {/* LinkedIn Bubble */}
+            <motion.div
+              className="contact-bubble social-bubble"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={2}>
+              <div className="contact-icon">
+                <i
+                  className="devicon-linkedin-plain"
+                  style={{ fontSize: "2.2rem" }}></i>
+              </div>
+              <h3>LinkedIn</h3>
+              <a
+                href="https://www.linkedin.com/in/kamil-czarnik/"
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                linkedin.com/in/kamil-czarnik
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
