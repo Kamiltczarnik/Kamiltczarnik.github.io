@@ -365,6 +365,17 @@ body {
   opacity: 1;
 }
 
+body.light-mode .technologies-vertical-box .tech-item .tech-tooltip {
+  background: #fff;
+  color: #111;
+  border: 1px solid #e5e7eb;
+}
+body:not(.light-mode) .technologies-vertical-box .tech-item .tech-tooltip {
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
+}
+
 /* 7. Education Box - (3,2) + (3,3) */
 .education-bottom-box {
   grid-column: 3 / 7;
@@ -783,4 +794,98 @@ body.light-mode .sql-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.react-github-calendar__tooltip {
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 100;
+  transition: background 0.3s, color 0.3s;
+}
+body.light-mode .react-github-calendar__tooltip {
+  background: #fff;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+/* Ensure GitHub calendar tooltip is always visible and not hidden by other CSS */
+.react-github-calendar__tooltip {
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: none;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+.stat-scout-hockey-icon {
+  color: #fff;
+  transition: color 0.3s;
+}
+body.light-mode .stat-scout-hockey-icon {
+  color: #18181b;
+}
+
+.tech-item {
+  background: none !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  border: none;
+  position: relative;
+  justify-content: center;
+}
+
+.tech-item img,
+.tech-item i {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 2.2rem !important;
+  margin-bottom: 0.1rem;
+  display: block;
+}
+
+.tech-item .tech-tooltip {
+  display: none;
+  position: absolute;
+  top: -2.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tech-item:hover .tech-tooltip,
+.tech-item:focus .tech-tooltip {
+  display: block;
+  opacity: 1;
+}
+
+body.light-mode .tech-item .tech-tooltip {
+  background: #fff;
+  color: #111;
+  border: 1px solid #e5e7eb;
+}
+body:not(.light-mode) .tech-item .tech-tooltip {
+  background: #222;
+  color: #fff;
+  border: 1px solid #333;
 }

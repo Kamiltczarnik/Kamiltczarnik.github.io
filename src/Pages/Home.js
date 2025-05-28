@@ -1,8 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import GitHubCalendar from "react-github-calendar";
+import { HopIcon as Hockey } from "lucide-react";
 import "./css/Home.css";
 
 function Home() {
+  // Detect dark mode from body class
+  const isDarkMode =
+    typeof document !== "undefined" &&
+    document.body.classList.contains("light-mode") === false;
+
   return (
     <>
       <Navbar />
@@ -11,14 +18,181 @@ function Home() {
           <div className="grid-6x6-layout">
             {/* "Who am I?" Box */}
             <div className="bubble who-am-i-box">
-              <h3>Who am I?</h3>
-              <ul className="about-bullets">
-                <li>
-                  Computer Science student at the University of Illinois
-                  Urbana-Champaign (Go Illini!)
-                </li>
-                <li>Currently based in the Chicago area</li>
-              </ul>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.6rem",
+                  marginBottom: "0.1rem",
+                }}>
+                <h3 style={{ margin: 0, paddingBottom: "1rem" }}>
+                  Personal Project Spotlight : StatScout
+                </h3>
+                <Hockey className="stat-scout-hockey-icon" size={28} />
+              </div>
+              <div
+                className="working-on-content"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1.2rem",
+                  flexWrap: "wrap",
+                }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.3rem",
+                  }}>
+                  <ul className="about-bullets" style={{ margin: 0 }}>
+                    <li>
+                      Predicting sports outcomes using{" "}
+                      <span className="edu-highlight">Machine Learning</span>
+                    </li>
+                    <li>
+                      Automating data collection from NFL, NBA, MLB, and NHL
+                      using web scrapers and public APIs
+                    </li>
+                    <li>
+                      Designing scalable{" "}
+                      <span className="edu-highlight">ETL pipelines</span> and
+                      cloud storage with
+                      <span className="edu-highlight"> AWS</span>
+                    </li>
+                    <li>
+                      Currently developing predictive models with{" "}
+                      <span className="edu-highlight">PyTorch</span> and
+                      <span className="edu-highlight"> Spark</span>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className="sports-logos"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.2rem",
+                    alignItems: "flex-start",
+                  }}>
+                  <span
+                    style={{
+                      fontSize: "0.95rem",
+                      fontWeight: 500,
+                      color: "#3b82f6",
+                      marginBottom: "0.2rem",
+                    }}>
+                    Tech Stack:
+                  </span>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.7rem",
+                      alignItems: "center",
+                    }}>
+                    <div
+                      className="tech-item"
+                      style={{
+                        position: "relative",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                        alt="Python"
+                        title="Python"
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <span className="tech-tooltip">Python</span>
+                    </div>
+                    <div
+                      className="tech-item"
+                      style={{
+                        position: "relative",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
+                      <img
+                        src="/assets/images/aws.png.png"
+                        alt="AWS"
+                        title="AWS"
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <span className="tech-tooltip">AWS</span>
+                    </div>
+                    <div
+                      className="tech-item"
+                      style={{
+                        position: "relative",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
+                      <i
+                        className="devicon-azuresqldatabase-plain colored"
+                        title="SQL"
+                        style={{
+                          fontSize: "32px",
+                          width: "32px",
+                          height: "32px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}></i>
+                      <span className="tech-tooltip">SQL</span>
+                    </div>
+                    <div
+                      className="tech-item"
+                      style={{
+                        position: "relative",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+                        alt="Pandas"
+                        title="Pandas"
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <span className="tech-tooltip">Pandas</span>
+                    </div>
+                    <div
+                      className="tech-item"
+                      style={{
+                        position: "relative",
+                        width: "40px",
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+                        alt="PyTorch"
+                        title="PyTorch"
+                        style={{
+                          height: "32px",
+                          width: "32px",
+                          objectFit: "contain",
+                        }}
+                      />
+                      <span className="tech-tooltip">PyTorch</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Star Image Quote Box */}
