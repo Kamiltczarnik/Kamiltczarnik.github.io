@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { HopIcon as Hockey } from "lucide-react";
+import { HopIcon as Hockey, ChartCandlestick, Star } from "lucide-react";
 import "./css/ProjectsNew.css";
 import { motion } from "framer-motion";
 
@@ -43,32 +43,6 @@ const projects = [
     route: "/projects/statscout",
   },
   {
-    name: "Lira AI",
-    desc: "Conversational AI banking assistant: OpenAI-powered advice, up to date financial data, and voice interaction.",
-    logo: "/assets/images/lira2.jpg",
-    tech: [
-      { icon: "/assets/images/openai.png", label: "OpenAI API" },
-      {
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-        label: "Python",
-      },
-      {
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-        label: "React",
-      },
-      {
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-        label: "TypeScript",
-      },
-      {
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
-        label: "FastAPI",
-      },
-    ],
-    repo: "https://github.com/Kamiltczarnik/Lira",
-    route: "/projects/Lira",
-  },
-  {
     name: "PortfoliPro",
     desc: "ML-powered stock portfolio optimizer: LSTM forecasting, real-time stock data, and interactive dashboards.",
     logo: "/assets/images/portfolipro.png",
@@ -100,6 +74,32 @@ const projects = [
     ],
     blocki: true,
     route: "/projects/portfolipro",
+  },
+  {
+    name: "Lira AI",
+    desc: "Conversational AI banking assistant: OpenAI-powered advice, up to date financial data, and voice interaction.",
+    logo: "/assets/images/lira2.jpg",
+    tech: [
+      { icon: "/assets/images/openai.png", label: "OpenAI API" },
+      {
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+        label: "Python",
+      },
+      {
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+        label: "React",
+      },
+      {
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+        label: "TypeScript",
+      },
+      {
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+        label: "FastAPI",
+      },
+    ],
+    repo: "https://github.com/Kamiltczarnik/Lira",
+    route: "/projects/Lira",
   },
   {
     name: "HOF Oracle",
@@ -170,7 +170,10 @@ function ProjectsNew() {
             animate="visible">
             {projects.map((project, idx) => (
               <motion.div
-                className="project-card-minimal"
+                className={
+                  "project-card-minimal" +
+                  (project.name === "StatScout" ? " showcase-glow" : "")
+                }
                 key={project.name}
                 variants={cardVariants}
                 custom={idx}>
@@ -206,6 +209,20 @@ function ProjectsNew() {
                           height: 30,
                           display: "block",
                           padding: 0,
+                        }}
+                      />
+                    ) : project.name === "PortfoliPro" ? (
+                      <ChartCandlestick
+                        className="portfolipro-stock-icon"
+                        size={36}
+                        style={{
+                          background: "none",
+                          borderRadius: 0,
+                          width: 36,
+                          height: 36,
+                          display: "block",
+                          padding: 0,
+                          color: "#3b82f6",
                         }}
                       />
                     ) : (

@@ -89,7 +89,7 @@ function Home() {
           <div className="grid-6x6-layout">
             {/* "Who am I?" Box */}
             <motion.div
-              className="bubble who-am-i-box"
+              className="bubble who-am-i-box showcase-glow"
               variants={bubbleVariants}
               initial="hidden"
               animate="visible"

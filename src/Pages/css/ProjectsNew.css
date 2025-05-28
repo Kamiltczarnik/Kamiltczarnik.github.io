@@ -380,6 +380,7 @@ body:not(.light-mode) .coming-soon p {
 
 .projects-grid-2x2 {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2.2rem 2.2rem;
@@ -650,7 +651,7 @@ body:not(.light-mode) .project-desc {
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
-  z-index: 10;
+  z-index: 1000;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
@@ -691,11 +692,13 @@ body.light-mode .stat-scout-hockey-icon {
   align-items: center;
   cursor: pointer;
   outline: none;
+  z-index: 20001;
 }
 .blocki-badge:focus .blocki-tooltip,
 .blocki-badge:hover .blocki-tooltip {
   display: block;
   opacity: 1;
+  z-index: 10000;
 }
 .blocki-tooltip {
   display: none;
@@ -711,7 +714,7 @@ body.light-mode .stat-scout-hockey-icon {
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
-  z-index: 10000;
+  z-index: 20002;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
@@ -778,4 +781,20 @@ body.light-mode .projects-title-header,
 body.light-mode .projects-subtitle-header,
 body.light-mode .project-github-icon {
   color: #1f2937;
+}
+
+.stat-scout-star {
+  color: #facc15;
+  margin-left: 0.4em;
+  vertical-align: middle;
+  stroke-width: 2.2px;
+  stroke: #facc15;
+  fill: #facc15;
+}
+
+.showcase-glow {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18),
+    0 0 16px 4px rgba(59, 130, 246, 0.22);
+  transition: box-shadow 0.3s, border-color 0.3s;
 }
