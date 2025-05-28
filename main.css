@@ -126,7 +126,7 @@ section {
 
 body {
   line-height: 1;
-  background: #121212; /* Dark background */
+  background: #000000; /* Dark background */
 }
 
 ol,
@@ -194,6 +194,12 @@ body {
 
 html {
   box-sizing: border-box;
+  background: #000000;
+}
+
+/* Light Mode for html background */
+html.light-mode {
+  background: #ffffff !important;
 }
 
 *,
@@ -203,7 +209,12 @@ html {
 }
 
 body {
-  background: #1c1c1c;
+  background: #000000;
+}
+
+/* Light Mode for body background */
+body.light-mode {
+  background: #ffffff !important;
 }
 
 body.is-preload *,
@@ -3372,7 +3383,6 @@ table.alt tfoot {
     padding-top: 0;
     padding-bottom: 0;
   }
-  
 }
 
 .wrapper.style2-alt {

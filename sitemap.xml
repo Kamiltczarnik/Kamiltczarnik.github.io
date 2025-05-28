@@ -1,45 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kamiltczarnik.com/</loc>
-    <lastmod>2025-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Project: PortfoliPro -->
   <url>
-    <loc>https://kamiltczarnik.com/projects/portfolipro</loc>
-    <lastmod>2025-04-29</lastmod>
+    <loc>https://kamiltczarnik.com/projects</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
-
-  <!-- Project: Hall of Fame Oracle -->
   <url>
-    <loc>https://kamiltczarnik.com/projects/hof-oracle</loc>
-    <lastmod>2025-04-29</lastmod>
+    <loc>https://kamiltczarnik.com/contact</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
-
-  <!-- Project: Personal Portfolio -->
-  <url>
-    <loc>https://kamiltczarnik.com/projects/personal-portfolio</loc>
-    <lastmod>2025-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Project: Lira -->
-  <url>
-    <loc>https://kamiltczarnik.com/projects/lira</loc>
-    <lastmod>2025-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
 </urlset>
