@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import GitHubCalendar from "react-github-calendar";
 import { HopIcon as Hockey } from "lucide-react";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import "./css/Home.css";
 
 function Home() {
-  // Detect dark mode from body class
-  const isDarkMode =
-    typeof document !== "undefined" &&
-    document.body.classList.contains("light-mode") === false;
-
   // Detect mobile
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {

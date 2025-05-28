@@ -1,8 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { FaGithub } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import { HopIcon as Hockey, ChartCandlestick, Star } from "lucide-react";
+import { HopIcon as Hockey, ChartCandlestick } from "lucide-react";
 import "./css/ProjectsNew.css";
 import { motion } from "framer-motion";
 
@@ -151,7 +150,6 @@ const cardVariants = {
 };
 
 function ProjectsNew() {
-  const navigate = useNavigate();
   return (
     <>
       <Navbar />

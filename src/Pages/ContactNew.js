@@ -6,35 +6,8 @@ import { motion } from "framer-motion";
 import "./css/ContactNew.css";
 
 function ContactNew() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
   const [copied, setCopied] = useState(false);
   const email = "kamiltczarnik@gmail.com";
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
-  };
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1200);
-  };
 
   // Animation variants
   const headerVariants = {

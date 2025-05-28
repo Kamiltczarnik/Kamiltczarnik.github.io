@@ -51,6 +51,13 @@ function Navbar() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    // Scroll to top on route change, only on mobile
+    if (window.innerWidth <= 600) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location.pathname]);
+
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
