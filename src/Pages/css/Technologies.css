@@ -1,6 +1,11 @@
+#home {
+  background-color: #000000 !important;
+  /* min-height: 100vh; */
+}
+
 .wrapper {
   padding: 2rem;
-  background-color: #1a1a1a;
+  background-color: #000000 !important;
   color: #ffffff;
 }
 
@@ -24,10 +29,10 @@ h3 {
   align-items: center;
   gap: 3rem;
   border-radius: 8px;
-  border: 1px solid #ffffff;
+  border: 1px solid #333333;
   padding: 1rem;
   box-sizing: border-box;
-  background-color: #1c1c1c;
+  background-color: #000000 !important;
 }
 
 .technology-section {
@@ -97,12 +102,36 @@ h3 {
   }
   .technologies-container {
     flex-direction: column;
-    gap:0;
+    gap: 0;
   }
-  .technology-section{
+  .technology-section {
     min-width: 0px;
   }
-  h3{
+  h3 {
     font-size: 1.5rem;
   }
+}
+
+/* Light Mode Styles for Technologies */
+body.light-mode .wrapper {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+body.light-mode .technologies-container {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+}
+
+body.light-mode .tech-item p {
+  color: #666666 !important;
+}
+
+body.light-mode h2,
+body.light-mode h3 {
+  color: #000000;
+}
+
+body.light-mode #home {
+  background-color: #ffffff !important;
 }

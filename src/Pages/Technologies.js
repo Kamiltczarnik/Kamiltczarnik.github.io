@@ -111,8 +111,9 @@ function Technologies() {
                 <p>C</p>
               </div>
               <div className="tech-item">
-              <i class="devicon-tailwindcss-original colored"></i>
-                <p>Tailwind</p>
+                {" "}
+                <i className="devicon-tailwindcss-original colored"></i>{" "}
+                <p>Tailwind</p>{" "}
               </div>
             </div>
           </div>

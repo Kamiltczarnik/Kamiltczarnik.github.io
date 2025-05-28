@@ -1,98 +1,104 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { IoSunnyOutline } from "react-icons/io5";
+import { FiMoon } from "react-icons/fi";
 import "./Navbar.css";
 
 function Navbar() {
-  const [activeSection, setActiveSection] = useState("welcome");
-  const [manualActiveSection, setManualActiveSection] = useState(null); // Tracks manual navigation
-  const [isSticky, setIsSticky] = useState(false);
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return savedTheme === "dark";
+    // Otherwise, use system preference
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      return true;
+    }
+    return false;
+  });
+
+  // Listen for system theme changes if user hasn't chosen manually
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) return; // Don't react to system if user chose manually
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e) => {
+      setIsDarkMode(e.matches);
+    };
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (manualActiveSection) return; // Ignore scroll if manually set
+    // Apply the theme on component mount or change
+    document.body.classList.toggle("light-mode", !isDarkMode);
+    document.documentElement.classList.toggle("light-mode", !isDarkMode);
+  }, [isDarkMode]);
 
-      const sections = ["welcome", "home", "projects", "contact"];
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-      // Check if the user is at the bottom of the page
-      const atBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight;
-
-      if (atBottom) {
-        setActiveSection("contact"); // Highlight "Contact Me" if at the bottom
-      } else {
-        // Check which section is currently in view
-        const currentSection = sections.find((id) => {
-          const section = document.getElementById(id);
-          if (section) {
-            const { offsetTop, offsetHeight } = section;
-            return (
-              scrollPosition >= offsetTop &&
-              scrollPosition < offsetTop + offsetHeight
-            );
-          }
-          return false;
-        });
-
-        // Update active section for highlighting
-        if (currentSection && currentSection !== activeSection) {
-          setActiveSection(currentSection);
-        }
-      }
-
-      // Handle sticky state for the navbar
-      const welcomeSection = document.getElementById("welcome");
-      if (welcomeSection) {
-        const { bottom } = welcomeSection.getBoundingClientRect();
-        setIsSticky(bottom < 0); // Make navbar sticky when Welcome is out of view
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [activeSection, manualActiveSection]);
-
-  const handleClick = (sectionId) => {
-    setManualActiveSection(sectionId); // Set manual navigation state
-    setActiveSection(sectionId); // Highlight the clicked section
-    if (sectionId !== "welcome") {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
+  useEffect(() => {
+    // Set active section based on current route
+    const pathname = location.pathname;
+    if (pathname === "/") {
+      setActiveSection("home");
+    } else if (pathname.startsWith("/projects")) {
+      setActiveSection("projects");
+    } else if (pathname === "/contact") {
+      setActiveSection("contact");
     }
+  }, [location.pathname]);
 
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
-    setTimeout(() => setManualActiveSection(null), 600); // Reset manual navigation after smooth scroll
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    // Apply theme to document body and html
+    document.body.classList.toggle("light-mode", !newTheme);
+    document.documentElement.classList.toggle("light-mode", !newTheme);
+    // Save theme preference to localStorage
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
   return (
-    <nav id="navbar" className={isSticky ? "sticky" : ""}>
-      <ul>
-        {[
-          { id: "welcome", label: "Welcome" },
-          { id: "projects", label: "Projects" },
-          { id: "home", label: "About Me" },
-          { id: "contact", label: "Contact Me" },
-        ].map(({ id, label }) => (
-          <li key={id}>
-            <a
-              href={`#${id}`}
-              className={activeSection === id ? "active" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                handleClick(id);
-              }}>
-              {label}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <nav className="modern-navbar">
+      <div className="navbar-container">
+        {/* Centered Navigation Items */}
+        <div className="navbar-center">
+          <ul className="navbar-nav">
+            {[
+              { id: "home", label: "Home", path: "/" },
+              { id: "projects", label: "Projects", path: "/projects" },
+              { id: "contact", label: "Contact", path: "/contact" },
+            ].map(({ id, label, path }) => (
+              <li key={id}>
+                <Link
+                  to={path}
+                  className={`nav-link ${
+                    activeSection === id ? "active" : ""
+                  }`}>
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Theme Toggle */}
+        <div className="navbar-right">
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label="Toggle theme">
+            {isDarkMode ? (
+              <IoSunnyOutline size={20} strokeWidth={2} />
+            ) : (
+              <FiMoon size={20} strokeWidth={2} />
+            )}
+          </button>
+        </div>
+      </div>
     </nav>
   );
 }

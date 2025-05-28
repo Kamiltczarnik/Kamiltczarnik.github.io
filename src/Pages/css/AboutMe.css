@@ -16,15 +16,15 @@
   flex-direction: row;
   gap: 2rem;
   padding: 2rem;
-  background-color: #1c1c1c;
-  height:455px;
+  background-color: #000000 !important;
+  height: 455px;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 .text-column {
-  flex:1;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -157,36 +157,35 @@
 @media (max-width: 780px) {
   .about-me-container {
     display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-top: 24px;
-  min-height: 400px;
-  flex-wrap: nowrap; /* Allow wrapping to prevent overlap */
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 24px;
+    min-height: 400px;
+    flex-wrap: nowrap; /* Allow wrapping to prevent overlap */
   }
 
   .about-me-text {
-  flex: 2;
-  display: flex;
-  flex-direction: column; /* Change to column to ensure content fits */
-  gap: .5rem;
-  padding: 1rem;
-  background-color: #1c1c1c;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-  min-width: 70%; /* Ensure it has enough space */
-  max-width: 100%; /* Prevent it from shrinking */
-  min-height: 650px; /* Ensures at least 650px, but allows growth */
-  height: auto; /* Allows dynamic expansion */
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Change to column to ensure content fits */
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #000000 !important;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    min-width: 70%; /* Ensure it has enough space */
+    max-width: 100%; /* Prevent it from shrinking */
+    /* min-height: 650px; /* Ensures at least 650px, but allows growth */
+    height: auto; /* Allows dynamic expansion */
   }
 
   .divider {
     height: 1px;
     width: 100%;
   }
-
 
   .about-me-image img {
     height: 65%;
@@ -224,47 +223,69 @@ p {
 
 /* On smaller screens (phones) */
 /* Default: Show full content */
-.full-text, .full-heading {
+.full-text,
+.full-heading {
   display: block;
 }
 
-.short-text, .short-heading {
+.short-text,
+.short-heading {
   display: none; /* Hidden by default */
 }
 
 /* On smaller screens (phones) */
 @media (max-width: 780px) {
-  .full-text, .full-heading {
+  .full-text,
+  .full-heading {
     display: none; /* Hide long content */
   }
-  
-  .short-text, .short-heading {
+
+  .short-text,
+  .short-heading {
     display: block; /* Show short content */
   }
-  .text-column h3{
-    margin:0;
-    padding-bottom:5px;
+  .text-column h3 {
+    margin: 0;
+    padding-bottom: 5px;
   }
-  #home .button{
-    width:80%;
-    font-size:10px;
+  #home .button {
+    width: 80%;
+    font-size: 10px;
   }
   .text-column p {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
-  .text-column
-  {
+  .text-column {
     flex: 0;
   }
 }
 @media (max-width: 350px) {
   .text-column p {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
-  #home .button{
-    font-size:6px;
+  #home .button {
+    font-size: 6px;
   }
-  .about-me-text{
-    min-height: 800px;
+  .about-me-text {
+    /* min-height: 800px; */
   }
+}
+
+/* Light Mode Styles for About Me */
+body.light-mode .about-me-text {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e9ecef !important;
+}
+
+body.light-mode .text-column h3 {
+  color: #000000 !important;
+}
+
+body.light-mode .text-column p {
+  color: #666666 !important;
+}
+
+body.light-mode .flip-card-front,
+body.light-mode .flip-card-back {
+  color: #666666 !important;
 }

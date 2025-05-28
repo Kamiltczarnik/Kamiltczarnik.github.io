@@ -1,12 +1,3 @@
-@keyframes backgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -18,71 +9,80 @@
   }
 }
 
-.gif {
-  width: 100%;
-}
 .hero-text {
-  font-size: 3rem; /* Adjust as needed */
+  font-size: 3rem;
   font-weight: bold;
   background: transparent;
   text-align: center;
   font-family: "Sometype Mono", serif;
+  color: #ffffff;
 }
 
 .gradient-text {
-  color: #ff4c4c;
-}
-.school-text {
-  background: linear-gradient(to top, #ff5f05, #13294b); /* Gradient colors */
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  animation: backgroundAnimation 3s ease infinite; /* Added animation */
+  color: #ff552e; /* Illinois Orange */
 }
 
-/* Keyframe for Gradient Animation */
-@keyframes backgroundAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.school-text {
+  color: #ffffff;
+  display: inline-block;
 }
+
 #welcome .inner {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center all child elements horizontally */
-  justify-content: center; /* Center all child elements vertically */
-  padding-top: 0;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px; /* Add space for navbar */
   position: relative;
   height: 100vh;
+  background-color: #000000; /* Pure black background */
 }
-#particles-js {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+#welcome {
+  position: relative;
+  background-color: #000000 !important; /* Pure black background */
+  /* min-height: 100vh; */
+  margin: 0 !important;
+  padding: 0;
+  border: none !important;
   width: 100%;
-  height: 100%;
-  z-index: -1;
 }
 
 #welcome body.no-scroll {
   overflow: hidden;
   position: relative;
 }
-#welcome {
-  position: relative;
+
+/* Light Mode Styles for Welcome */
+body.light-mode #welcome {
+  background-color: #ffffff !important;
 }
+
+body.light-mode #welcome .inner {
+  background-color: #ffffff !important;
+}
+
+body.light-mode .hero-text {
+  color: #000000 !important;
+}
+
+body.light-mode .gradient-text {
+  color: #ff552e !important; /* Illinois Orange */
+}
+
+body.light-mode .school-text {
+  color: #13294b !important; /* Illinois Blue */
+}
+
 @media screen and (max-width: 480px) {
-  ul.actions:not(.fixed) li input[type="submit"], ul.actions:not(.fixed) li input[type="reset"], ul.actions:not(.fixed) li input[type="button"], ul.actions:not(.fixed) li button, ul.actions:not(.fixed) li .button {
-      width: 90%;
+  ul.actions:not(.fixed) li input[type="submit"],
+  ul.actions:not(.fixed) li input[type="reset"],
+  ul.actions:not(.fixed) li input[type="button"],
+  ul.actions:not(.fixed) li button,
+  ul.actions:not(.fixed) li .button {
+    width: 90%;
   }
   .hero-text {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 }

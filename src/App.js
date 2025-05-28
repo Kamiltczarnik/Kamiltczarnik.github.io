@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Welcome from "./Pages/Welcome";
-import Projects from "./Pages/Projects";
-import Technologies from "./Pages/Technologies";
-import AboutMe from "./Pages/AboutMe";
-import Footer from "./components/Footer";
+import Home from "./Pages/Home";
+import ProjectsNew from "./Pages/ProjectsNew";
+import ContactNew from "./Pages/ContactNew";
 
 function App() {
   const location = useLocation();
@@ -18,17 +16,13 @@ function App() {
       }
     }
   }, [location]);
-  // This is your home page content
+
   return (
     <div id="wrapper">
-      <section id="welcome" style={{ position: "relative" }}>
-        <Welcome />
-        <Navbar />
-      </section>
-      <Projects />
-      <Technologies />
-      <AboutMe />
-      <Footer />
+      <Navbar />
+      <Home />
+      <ProjectsNew />
+      <ContactNew />
     </div>
   );
 }
