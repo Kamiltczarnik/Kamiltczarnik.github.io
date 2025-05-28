@@ -695,7 +695,22 @@ body.light-mode .technologies-vertical-box h4 {
   }
   .who-am-i-box {
     order: 3;
-    padding-bottom: 0.5rem;
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+    box-sizing: border-box;
+  }
+  .who-am-i-box ul.about-bullets {
+    margin-left: 0.8em !important;
+    padding-left: 0.8em !important;
+    padding-right: 0.2em !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .who-am-i-box ul.about-bullets li {
+    max-width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
   .technologies-vertical-box {
     order: 4;
@@ -888,4 +903,52 @@ body:not(.light-mode) .tech-item .tech-tooltip {
   background: #222;
   color: #fff;
   border: 1px solid #333;
+}
+
+.stat-scout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-wrap: nowrap;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0;
+}
+
+.stat-scout-title {
+  font-size: 1.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stat-scout-project {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .stat-scout-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0;
+  }
+  .stat-scout-title,
+  .stat-scout-project {
+    white-space: normal;
+  }
+}
+
+body.light-mode .stat-scout-title,
+body.light-mode .stat-scout-project {
+  color: #18181b;
+}
+
+body:not(.light-mode) .stat-scout-title,
+body:not(.light-mode) .stat-scout-project {
+  color: #fff;
 }

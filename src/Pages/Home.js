@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import GitHubCalendar from "react-github-calendar";
 import { HopIcon as Hockey } from "lucide-react";
+import { motion } from "framer-motion";
 import "./css/Home.css";
 
 function Home() {
@@ -10,6 +11,75 @@ function Home() {
     typeof document !== "undefined" &&
     document.body.classList.contains("light-mode") === false;
 
+  // Detect mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Animation variants
+  const bubbleVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.15 + i * 0.13,
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    }),
+  };
+  const centerVariants = {
+    hidden: { opacity: 0 },
+    visible: (i) => ({
+      opacity: 1,
+      transition: { delay: 0.15 + i * 0.13, duration: 0.5, ease: "easeOut" },
+    }),
+  };
+
+  // Animation order: desktop vs mobile
+  // Desktop: who-am-i, star-image, student-role, quote, technologies, education, center (fades in last)
+  // Mobile: center, student-role, who-am-i, technologies (education, quote, star-image hidden)
+  const getOrder = (bubble) => {
+    if (isMobile) {
+      switch (bubble) {
+        case "center":
+          return 0;
+        case "student":
+          return 1;
+        case "whoami":
+          return 2;
+        case "tech":
+          return 3;
+        default:
+          return 10;
+      }
+    } else {
+      switch (bubble) {
+        case "whoami":
+          return 0;
+        case "star":
+          return 1;
+        case "student":
+          return 2;
+        case "quote":
+          return 3;
+        case "tech":
+          return 4;
+        case "edu":
+          return 5;
+        case "center":
+          return 6;
+        default:
+          return 10;
+      }
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -17,18 +87,37 @@ function Home() {
         <div className="page-container">
           <div className="grid-6x6-layout">
             {/* "Who am I?" Box */}
-            <div className="bubble who-am-i-box">
+            <motion.div
+              className="bubble who-am-i-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("whoami")}>
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   gap: "0.6rem",
                   marginBottom: "0.1rem",
+                  flexWrap: "nowrap",
+                  minWidth: 0,
                 }}>
-                <h3 style={{ margin: 0, paddingBottom: "1rem" }}>
-                  Personal Project Spotlight : StatScout
-                </h3>
-                <Hockey className="stat-scout-hockey-icon" size={28} />
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    minWidth: 0,
+                  }}>
+                  <div className="stat-scout-header">
+                    <span className="stat-scout-title">
+                      Personal Project Spotlight:
+                    </span>
+                    <span className="stat-scout-project">
+                      StatScout
+                      <Hockey className="stat-scout-hockey-icon" size={28} />
+                    </span>
+                  </div>
+                </span>
               </div>
               <div
                 className="working-on-content"
@@ -193,21 +282,36 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Star Image Quote Box */}
-            <div className="bubble star-image-box">
+            <motion.div
+              className="bubble star-image-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("star")}>
               <img src="/assets/images/Headshot.jpg" alt="Headshot" />
-            </div>
+            </motion.div>
 
             {/* Student & Full Stack Developer Box */}
-            <div className="bubble student-role-box">
+            <motion.div
+              className="bubble student-role-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("student")}>
               <h2> Software Engineer </h2>
               <h2> and Data Analyst</h2>
-            </div>
+            </motion.div>
 
             {/* Center Box */}
-            <div className="bubble center-reference-box">
+            <motion.div
+              className="bubble center-reference-box"
+              variants={centerVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("center")}>
               <div
                 className="profile-avatar"
                 style={{
@@ -250,17 +354,27 @@ function Home() {
                 </a>
               </div>
               <div className="profile-name">Kamil Czarnik</div>
-            </div>
+            </motion.div>
 
             {/* Quote Box */}
-            <div className="bubble quote-bottom-box">
+            <motion.div
+              className="bubble quote-bottom-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("quote")}>
               <blockquote>
                 Water polo player, hackathon enthusiast, and lifelong learner.
               </blockquote>
-            </div>
+            </motion.div>
 
             {/* Technologies Box */}
-            <div className="bubble technologies-vertical-box">
+            <motion.div
+              className="bubble technologies-vertical-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("tech")}>
               <h3>Technologies</h3>
               <div className="tech-stacks-center">
                 <div className="tech-section">
@@ -399,10 +513,15 @@ function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Education Box */}
-            <div className="bubble education-bottom-box">
+            <motion.div
+              className="bubble education-bottom-box"
+              variants={bubbleVariants}
+              initial="hidden"
+              animate="visible"
+              custom={getOrder("edu")}>
               <h3>
                 Education
                 <img
@@ -461,7 +580,7 @@ function Home() {
                   </ul>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
