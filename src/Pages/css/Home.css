@@ -337,6 +337,9 @@ body {
   font-size: 2.2rem !important;
   margin-bottom: 0.1rem;
   display: block;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 
 .technologies-vertical-box .tech-item .tech-tooltip {
@@ -838,9 +841,16 @@ body.light-mode .react-github-calendar__tooltip {
 .stat-scout-hockey-icon {
   color: #fff;
   transition: color 0.3s;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-sizing: content-box;
 }
 body.light-mode .stat-scout-hockey-icon {
   color: #18181b;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
 }
 
 .tech-item {
@@ -863,6 +873,9 @@ body.light-mode .stat-scout-hockey-icon {
   font-size: 2.2rem !important;
   margin-bottom: 0.1rem;
   display: block;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
 }
 
 .tech-item .tech-tooltip {
@@ -948,4 +961,26 @@ body.light-mode .stat-scout-project {
 body:not(.light-mode) .stat-scout-title,
 body:not(.light-mode) .stat-scout-project {
   color: #fff;
+}
+
+.profile-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+body:not(.light-mode) .profile-location {
+  color: #fff;
+}
+
+body.light-mode .devicon-amazonwebservices-plain-wordmark {
+  color: #ff9900 !important;
+}
+body.light-mode .devicon-amazonwebservices-plain-wordmark {
+  /* If using devicon's colored class, ensure it is applied */
+  filter: none !important;
 }

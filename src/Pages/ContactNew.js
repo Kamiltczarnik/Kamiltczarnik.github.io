@@ -69,7 +69,10 @@ function ContactNew() {
             initial="hidden"
             animate="visible">
             <h1>Get In Touch</h1>
-            <p>You can also get in touch with me through the links below.</p>
+            <p>
+              You can get in touch with me and learn more about me through the
+              links below.
+            </p>
           </motion.div>
           <div className="contact-grid">
             {/* Email Bubble */}

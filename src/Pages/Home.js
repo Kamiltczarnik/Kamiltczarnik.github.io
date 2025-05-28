@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import GitHubCalendar from "react-github-calendar";
 import { HopIcon as Hockey } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import "./css/Home.css";
 
@@ -206,16 +207,17 @@ function Home() {
                         display: "flex",
                         justifyContent: "center",
                       }}>
-                      <img
-                        src="/assets/images/aws.png.png"
-                        alt="AWS"
+                      <i
+                        className="devicon-amazonwebservices-plain-wordmark"
                         title="AWS"
                         style={{
-                          height: "32px",
+                          fontSize: "32px",
                           width: "32px",
-                          objectFit: "contain",
-                        }}
-                      />
+                          height: "32px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}></i>
                       <span className="tech-tooltip">AWS</span>
                     </div>
                     <div
@@ -354,6 +356,10 @@ function Home() {
                 </a>
               </div>
               <div className="profile-name">Kamil Czarnik</div>
+              <div className="profile-location">
+                <MapPin size={18} style={{ marginRight: "0.2rem" }} />
+                <span>Chicago, IL</span>
+              </div>
             </motion.div>
 
             {/* Quote Box */}
@@ -457,7 +463,17 @@ function Home() {
                       <span className="tech-tooltip">Python</span>
                     </div>
                     <div className="tech-item">
-                      <img src="/assets/images/aws.png.png" alt="AWS icon" />
+                      <i
+                        className="devicon-amazonwebservices-plain-wordmark"
+                        title="AWS"
+                        style={{
+                          fontSize: "32px",
+                          width: "32px",
+                          height: "32px",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}></i>
                       <span className="tech-tooltip">AWS</span>
                     </div>
                     <div className="tech-item">
