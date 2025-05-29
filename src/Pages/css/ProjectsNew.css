@@ -507,6 +507,27 @@ body:not(.light-mode) .project-desc {
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) and (min-width: 901px) {
+  .projects-grid-2x2 {
+    gap: 1.8rem 1.8rem;
+    max-width: 950px;
+  }
+  .project-card-minimal {
+    padding: 1.8rem 1.8rem 1.4rem 1.8rem;
+    min-height: 160px;
+  }
+  .project-title {
+    font-size: 1.15rem;
+  }
+  .project-desc {
+    font-size: 0.95rem;
+  }
+  .project-tech-icon {
+    width: 1.9em;
+    height: 1.9em;
+  }
+}
+
 @media (max-width: 900px) {
   .projects-grid-2x2 {
     grid-template-columns: 1fr;
@@ -516,6 +537,7 @@ body:not(.light-mode) .project-desc {
     padding: 1.5rem 1.1rem 1.1rem 1.1rem;
   }
 }
+
 @media (max-width: 600px) {
   .projects-header h1 {
     font-size: 2rem;
@@ -547,6 +569,17 @@ body:not(.light-mode) .project-desc {
   .project-tech-icon {
     width: 1.7em;
     height: 1.7em;
+  }
+
+  /* Hide blocki tooltip on mobile */
+  .blocki-tooltip {
+    display: none !important;
+  }
+
+  .blocki-badge:hover .blocki-tooltip,
+  .blocki-badge:focus .blocki-tooltip {
+    display: none !important;
+    opacity: 0 !important;
   }
 }
 
