@@ -20,7 +20,7 @@ const projectData = [
     name: "Personal Portfolio",
     description: "Modern portfolio and personal website built with React.",
     route: "/projects/personal-portfolio",
-    image: "/assets/images/logo.png",
+    image: "/assets/images/favicon.png",
   },
   {
     name: "Lira",
