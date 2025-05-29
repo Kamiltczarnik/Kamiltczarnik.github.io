@@ -829,5 +829,11 @@ body.light-mode .project-github-icon {
   border-color: #3b82f6 !important;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18),
     0 0 16px 4px rgba(59, 130, 246, 0.22);
-  transition: box-shadow 0.3s, border-color 0.3s;
+  /* transition: box-shadow 0.3s, border-color 0.3s,
+    color 1s cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+/* Ensure showcase-glow elements can still have smooth color transitions */
+.showcase-glow * {
+  transition: color 1s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
