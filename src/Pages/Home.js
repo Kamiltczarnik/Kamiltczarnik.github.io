@@ -119,7 +119,7 @@ function Home() {
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  gap: "1.2rem",
+                  gap: ".5rem",
                   flexWrap: "wrap",
                 }}>
                 <div
@@ -136,12 +136,6 @@ function Home() {
                     <li>
                       Automating data collection from NFL, NBA, MLB, and NHL
                       using web scrapers and public APIs
-                    </li>
-                    <li>
-                      Designing scalable{" "}
-                      <span className="edu-highlight">ETL pipelines</span> and
-                      cloud storage with
-                      <span className="edu-highlight"> AWS</span>
                     </li>
                     <li>
                       Currently developing predictive models with{" "}
@@ -376,151 +370,112 @@ function Home() {
               animate="visible"
               custom={getOrder("tech")}>
               <h3>Technologies</h3>
-              <div className="tech-stacks-center">
-                <div className="tech-section">
-                  <h4>Software Engineering Stack</h4>
-                  <div className="tech-grid">
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-                        alt="React icon"
-                      />
-                      <span className="tech-tooltip">React</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                        alt="Python icon"
-                      />
-                      <span className="tech-tooltip">Python</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
-                        alt="Google Cloud icon"
-                      />
-                      <span className="tech-tooltip">Google Cloud</span>
-                    </div>
-                    <div className="tech-item">
-                      <i className="devicon-azuresqldatabase-plain colored"></i>
-                      <span className="tech-tooltip">SQL</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                        alt="JavaScript icon"
-                      />
-                      <span className="tech-tooltip">JavaScript</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-                        alt="TypeScript icon"
-                      />
-                      <span className="tech-tooltip">TypeScript</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
-                        alt="Docker icon"
-                      />
-                      <span className="tech-tooltip">Docker</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
-                        alt="Java icon"
-                      />
-                      <span className="tech-tooltip">Java</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                        alt="Git icon"
-                      />
-                      <span className="tech-tooltip">Git</span>
-                    </div>
-                    <div className="tech-item">
-                      <i className="devicon-fastapi-plain colored"></i>
-                      <span className="tech-tooltip">FastAPI</span>
-                    </div>
-                  </div>
+              <div className="tech-grid">
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                    alt="React icon"
+                  />
+                  <span className="tech-tooltip">React</span>
                 </div>
-                <div className="tech-section">
-                  <h4>Data Analysis Stack</h4>
-                  <div className="tech-grid">
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-                        alt="Python icon"
-                      />
-                      <span className="tech-tooltip">Python</span>
-                    </div>
-                    <div className="tech-item">
-                      <i
-                        className="devicon-amazonwebservices-plain-wordmark"
-                        title="AWS"
-                        style={{
-                          fontSize: "32px",
-                          width: "32px",
-                          height: "32px",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}></i>
-                      <span className="tech-tooltip">AWS</span>
-                    </div>
-                    <div className="tech-item">
-                      <i className="devicon-azuresqldatabase-plain colored"></i>
-                      <span className="tech-tooltip">SQL</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
-                        alt="Pandas icon"
-                      />
-                      <span className="tech-tooltip">Pandas</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
-                        alt="NumPy icon"
-                      />
-                      <span className="tech-tooltip">NumPy</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
-                        alt="PyTorch icon"
-                      />
-                      <span className="tech-tooltip">PyTorch</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
-                        alt="Google Cloud icon"
-                      />
-                      <span className="tech-tooltip">Google Cloud</span>
-                    </div>
-                    <div className="tech-item">
-                      <img src="/assets/images/excel.png" alt="Excel icon" />
-                      <span className="tech-tooltip">Excel</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="https://raw.githubusercontent.com/microsoft/PowerBI-Icons/main/SVG/Power-BI.svg"
-                        alt="Power BI icon"
-                      />
-                      <span className="tech-tooltip">Power BI</span>
-                    </div>
-                    <div className="tech-item">
-                      <img
-                        src="/assets/images/tableau.png"
-                        alt="Tableau icon"
-                      />
-                      <span className="tech-tooltip">Tableau</span>
-                    </div>
-                  </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                    alt="Python icon"
+                  />
+                  <span className="tech-tooltip">Python</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                    alt="JavaScript icon"
+                  />
+                  <span className="tech-tooltip">JavaScript</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                    alt="TypeScript icon"
+                  />
+                  <span className="tech-tooltip">TypeScript</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+                    alt="Docker icon"
+                  />
+                  <span className="tech-tooltip">Docker</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+                    alt="Java icon"
+                  />
+                  <span className="tech-tooltip">Java</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                    alt="Git icon"
+                  />
+                  <span className="tech-tooltip">Git</span>
+                </div>
+                <div className="tech-item">
+                  <i className="devicon-fastapi-plain colored"></i>
+                  <span className="tech-tooltip">FastAPI</span>
+                </div>
+                <div className="tech-item">
+                  <i className="devicon-azuresqldatabase-plain colored"></i>
+                  <span className="tech-tooltip">SQL</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+                    alt="Pandas icon"
+                  />
+                  <span className="tech-tooltip">Pandas</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+                    alt="NumPy icon"
+                  />
+                  <span className="tech-tooltip">NumPy</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+                    alt="PyTorch icon"
+                  />
+                  <span className="tech-tooltip">PyTorch</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg"
+                    alt="Google Cloud icon"
+                  />
+                  <span className="tech-tooltip">Google Cloud</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://raw.githubusercontent.com/microsoft/PowerBI-Icons/main/SVG/Power-BI.svg"
+                    alt="Power BI icon"
+                  />
+                  <span className="tech-tooltip">Power BI</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="/assets/images/tableau.png"
+                    alt="Tableau icon"
+                  />
+                  <span className="tech-tooltip">Tableau</span>
+                </div>
+                <div className="tech-item">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg"
+                    alt="Scikit-learn icon"
+                  />
+                  <span className="tech-tooltip">Scikit-learn</span>
                 </div>
               </div>
             </motion.div>
@@ -541,53 +496,51 @@ function Home() {
                 />
               </h3>
               <div className="education-content">
-                <div className="education-item">
-                  <h4>
-                    University of Illinois Urbana-Champaign{" "}
-                    <span className="year">(Aug 2024 - Present)</span>
-                  </h4>
-                  <ul>
-                    <li>
-                      A current senior at the University of Illinois
-                      Urbana-Champaign studying
-                      <span className="edu-highlight"> Computer Science </span>
-                      with a focus on
-                      <span className="edu-highlight">
-                        {" "}
-                        Software Engineering{" "}
-                      </span>
-                      and
-                      <span className="edu-highlight"> Data Science</span>.
-                    </li>
-                    <li>
-                      Mens Club Water Polo{" "}
-                      <span className="edu-highlight">
-                        Executive Board Member
-                      </span>
-                      .
-                    </li>
-                    <li>
-                      <span className="edu-highlight">GPA</span> :{" "}
-                      <span className="edu-highlight">3.84 / 4.00</span>
-                    </li>
-                  </ul>
+                <div className="education-column">
+                  <div className="education-item">
+                    <h4>
+                      University of Illinois Urbana-Champaign{" "}
+                      <span className="year">(Aug 2024 - Present)</span>
+                    </h4>
+                    <ul>
+                      <li>
+                        Senior at the University of Illinois Urbana-Champaign
+                        studying
+                        <span className="edu-highlight"> Computer Science </span>
+                      </li>
+                      <li>
+                        Mens Water Polo{" "}
+                        <span className="edu-highlight">
+                          Executive Board Member
+                        </span>
+                        .
+                      </li>
+                      <li>
+                        <span className="edu-highlight">GPA</span> :{" "}
+                        <span className="edu-highlight">3.84 / 4.00</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="education-item">
-                  <h4>
-                    Oakton College{" "}
-                    <span className="year">(Aug 2022 - May 2024)</span>
-                  </h4>
-                  <ul>
-                    <li>
-                      Completed an Associates Degree in Science and Mathematics
-                      with a focus in Computer Science.
-                    </li>
-                    <li>
-                      Graduated with a Cumulative{" "}
-                      <span className="edu-highlight">3.9 Unweighted GPA</span>.
-                    </li>
-                  </ul>
+                <div className="education-divider"></div>
+
+                <div className="education-column">
+                  <div className="education-item">
+                    <h4>
+                      Oakton College{"  "}
+                      <span className="year">(Aug 2022 - May 2024)</span>
+                    </h4>
+                    <ul>
+                      <li>
+                        Completed an Associates Degree in Science with a focus in Computer Science.
+                      </li>
+                      <li>
+                      <span className="edu-highlight">GPA</span> :{" "}
+                      <span className="edu-highlight">3.89 / 4.00</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>

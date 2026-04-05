@@ -308,29 +308,19 @@ body {
 
 .technologies-vertical-box h3 {
   text-align: left;
-  padding-bottom: 1.4rem;
+  padding-bottom: clamp(1rem, 2.5vw, 1.8rem); /* Responsive padding */
   transition: color 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.technologies-vertical-box .tech-section {
-  margin-bottom: 1.1rem;
-}
-.technologies-vertical-box h4 {
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0 0 0.7rem 0;
-  letter-spacing: 0.01em;
-  text-align: center;
-}
+
 .technologies-vertical-box .tech-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* Optimized for better fit */
   grid-template-rows: auto;
-  gap: 0.7rem 1.2rem;
-  margin: 0 auto;
+  gap: clamp(0.4rem, 1.2vw, 1rem); /* Responsive gap */
+  margin: clamp(0.1rem, 0.5vw, 0.3rem) auto;
   justify-items: center;
   align-items: center;
-  width: auto;
+  width: 85%; /* Consistent width */
   height: auto;
   text-align: center;
 }
@@ -359,6 +349,8 @@ body {
   background: none !important;
   box-shadow: none !important;
 }
+
+
 
 .technologies-vertical-box .tech-item .tech-tooltip {
   display: none;
@@ -413,9 +405,32 @@ body:not(.light-mode) .technologies-vertical-box .tech-item .tech-tooltip {
 
 .education-content {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-direction: row; /* Two-column layout */
+  gap: clamp(0.5rem, 1.5vw, 1.2rem); /* Responsive gap */
   margin-top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.education-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.education-divider {
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  margin: 0 clamp(0.5rem, 1.5vw, 1rem);
+  flex-shrink: 0;
+  align-self: center;
 }
 
 .education-item h4 {
@@ -619,6 +634,28 @@ body.light-mode .technologies-vertical-box h4 {
 
   .quote-bottom-box blockquote {
     font-size: 0.8rem;
+  }
+
+  .education-content {
+    flex-direction: column;
+    gap: clamp(0.8rem, 2vw, 1.2rem);
+  }
+  
+  .education-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    margin: clamp(0.5rem, 1vw, 0.75rem) 0;
+  }
+  
+  .education-column {
+    min-width: 100%;
   }
 }
 
@@ -1343,4 +1380,15 @@ body.light-mode .devicon-amazonwebservices-plain-wordmark {
     margin-bottom: 0.15em !important;
     line-height: 1.4 !important;
   }
+}
+
+/* Light mode styles for education divider */
+body.light-mode .education-divider {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
 }
