@@ -1,108 +1,117 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { IoSunnyOutline } from "react-icons/io5";
 import { FiMoon } from "react-icons/fi";
 import "./Navbar.css";
 
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "Projects", path: "/projects" },
+  { label: "Contact", path: "/contact" },
+];
+
 function Navbar() {
   const location = useLocation();
-  const [activeSection, setActiveSection] = useState("");
+  const themeTransitionTimeoutRef = useRef(null);
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return savedTheme === "dark";
-    // Otherwise, use system preference
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return true;
+    if (savedTheme) {
+      return savedTheme === "dark";
     }
-    return false;
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
   });
 
-  // Listen for system theme changes if user hasn't chosen manually
+  useEffect(() => {
+    return () => {
+      if (themeTransitionTimeoutRef.current) {
+        window.clearTimeout(themeTransitionTimeoutRef.current);
+      }
+      document.body.classList.remove("theme-transitioning");
+      document.documentElement.classList.remove("theme-transitioning");
+    };
+  }, []);
+
+  const startThemeTransition = () => {
+    document.body.classList.add("theme-transitioning");
+    document.documentElement.classList.add("theme-transitioning");
+
+    if (themeTransitionTimeoutRef.current) {
+      window.clearTimeout(themeTransitionTimeoutRef.current);
+    }
+
+    themeTransitionTimeoutRef.current = window.setTimeout(() => {
+      document.body.classList.remove("theme-transitioning");
+      document.documentElement.classList.remove("theme-transitioning");
+      themeTransitionTimeoutRef.current = null;
+    }, 820);
+  };
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return; // Don't react to system if user chose manually
+    if (savedTheme) {
+      return undefined;
+    }
+
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e) => {
-      setIsDarkMode(e.matches);
+    const handleChange = (event) => {
+      startThemeTransition();
+      setIsDarkMode(event.matches);
     };
+
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
   useEffect(() => {
-    // Apply the theme on component mount or change
     document.body.classList.toggle("light-mode", !isDarkMode);
     document.documentElement.classList.toggle("light-mode", !isDarkMode);
   }, [isDarkMode]);
 
   useEffect(() => {
-    // Set active section based on current route
-    const pathname = location.pathname;
-    if (pathname === "/") {
-      setActiveSection("home");
-    } else if (pathname.startsWith("/projects")) {
-      setActiveSection("projects");
-    } else if (pathname === "/contact") {
-      setActiveSection("contact");
-    }
-  }, [location.pathname]);
-
-  useEffect(() => {
-    // Scroll to top on route change, only on mobile
     if (window.innerWidth <= 600) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [location.pathname]);
 
   const toggleTheme = () => {
-    const newTheme = !isDarkMode;
-    setIsDarkMode(newTheme);
-    // Apply theme to document body and html
-    document.body.classList.toggle("light-mode", !newTheme);
-    document.documentElement.classList.toggle("light-mode", !newTheme);
-    // Save theme preference to localStorage
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    const nextThemeIsDark = !isDarkMode;
+    startThemeTransition();
+    setIsDarkMode(nextThemeIsDark);
+    localStorage.setItem("theme", nextThemeIsDark ? "dark" : "light");
   };
 
   return (
-    <nav className="modern-navbar">
+    <nav className="modern-navbar" aria-label="Primary">
       <div className="navbar-container">
-        {/* Centered Navigation Items */}
-        <div className="navbar-center">
-          <ul className="navbar-nav">
-            {[
-              { id: "home", label: "Home", path: "/" },
-              { id: "projects", label: "Projects", path: "/projects" },
-              { id: "contact", label: "Contact", path: "/contact" },
-            ].map(({ id, label, path }) => (
-              <li key={id}>
-                <Link
-                  to={path}
-                  className={`nav-link ${
-                    activeSection === id ? "active" : ""
-                  }`}>
-                  {label}
-                </Link>
-              </li>
+        <div className="navbar-pill">
+          <div className="navbar-nav" role="list">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                end={item.path === "/"}
+                className={({ isActive }) =>
+                  `nav-link${isActive ? " active" : ""}`
+                }>
+                {item.label}
+              </NavLink>
             ))}
-          </ul>
-        </div>
+          </div>
 
-        {/* Theme Toggle */}
-        <div className="navbar-right">
           <button
             className="theme-toggle"
+            type="button"
             onClick={toggleTheme}
-            aria-label="Toggle theme">
-            {isDarkMode ? (
-              <IoSunnyOutline size={20} strokeWidth={2} />
-            ) : (
-              <FiMoon size={20} strokeWidth={2} />
-            )}
+            aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
+            aria-pressed={!isDarkMode}>
+            <span className="theme-toggle__icon" aria-hidden="true">
+              {isDarkMode ? (
+                <IoSunnyOutline size={18} strokeWidth={2} />
+              ) : (
+                <FiMoon size={18} strokeWidth={2} />
+              )}
+            </span>
           </button>
         </div>
       </div>

@@ -1,173 +1,170 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
-import { FaEnvelope } from "react-icons/fa";
-import { FaCopy } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { ArrowUpRight, Check, Copy, Github, Mail } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
+import Navbar from "../components/Navbar";
 import "./css/ContactNew.css";
+
+const contactVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.08 + index * 0.06,
+      duration: 0.36,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+const contactCards = [
+  {
+    label: "Email",
+    value: "kamiltczarnik@gmail.com",
+    note: "Best for internships, project work, and direct conversations.",
+    action: "Copy email",
+    icon: Mail,
+    kind: "copy",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/kamil-czarnik",
+    note: "Roles, background, and coursework in one place.",
+    href: "https://www.linkedin.com/in/kamil-czarnik/",
+    action: "Open LinkedIn",
+    icon: FaLinkedin,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/Kamiltczarnik",
+    note: "Code, experiments, and the repos behind the portfolio.",
+    href: "https://github.com/Kamiltczarnik",
+    action: "Open GitHub",
+    icon: Github,
+    figure: "/assets/images/waving-character.png",
+  },
+];
 
 function ContactNew() {
   const [copied, setCopied] = useState(false);
-  const email = "kamiltczarnik@gmail.com";
 
-  // Animation variants
-  const headerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-  };
-  const bubbleVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.3 + i * 0.15,
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    }),
+  const copyEmail = async () => {
+    await navigator.clipboard.writeText("kamiltczarnik@gmail.com");
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1400);
   };
 
   return (
     <>
       <Navbar />
-      <section id="contact" className="page-section">
+      <section id="contact" className="page-section contact-page">
         <div className="page-container">
-          <motion.div
-            className="section-header"
-            variants={headerVariants}
-            initial="hidden"
-            animate="visible">
-            <h1>Get In Touch</h1>
-            <p>
-              You can get in touch with me and learn more about me through the
-              links below.
-            </p>
-          </motion.div>
-          <div className="contact-grid">
-            {/* Email Bubble */}
-            <motion.div
-              className="contact-bubble email-bubble"
-              variants={bubbleVariants}
+          <div className="contact-shell">
+            <motion.header
+              className="contact-header"
+              variants={contactVariants}
               initial="hidden"
               animate="visible"
               custom={0}>
-              <div className="contact-icon">
-                <FaEnvelope style={{ fontSize: "2.2rem", color: "#3b82f6" }} />
-              </div>
-              <h3>Email</h3>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.2rem",
-                  width: "100%",
-                }}>
-                <a
-                  href={`mailto:${email}`}
-                  className="btn-contact"
-                  style={{
-                    whiteSpace: "nowrap",
-                    flexShrink: 1,
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    minWidth: 0,
-                  }}>
-                  {email}
-                </a>
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(email);
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 1200);
-                  }}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 0,
-                    marginLeft: "0.1rem",
-                    color: copied ? "#2563eb" : "#3b82f6",
-                    fontSize: "1em",
-                    height: "1.8em",
-                    width: "1.8em",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                  aria-label="Copy email to clipboard"
-                  title={copied ? "Copied!" : "Copy email"}>
-                  <FaCopy
-                    style={{ fontSize: "1em", verticalAlign: "middle" }}
-                  />
-                </button>
-              </div>
-              <div
-                style={{
-                  textAlign: "center",
-                  marginTop: "0.18rem",
-                  minHeight: "1.1em",
-                  height: "1.1em",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}>
-                {copied && (
-                  <span style={{ color: "#2563eb", fontSize: "0.95rem" }}>
-                    Copied!
-                  </span>
-                )}
-              </div>
-            </motion.div>
+              <span className="section-eyebrow">Contact</span>
+              <h1>Simple ways to reach me.</h1>
+            </motion.header>
 
-            {/* GitHub Bubble */}
-            <motion.div
-              className="contact-bubble social-bubble"
-              variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
-              custom={1}>
-              <div className="contact-icon">
-                <i
-                  className="devicon-github-original"
-                  style={{ fontSize: "2.2rem" }}></i>
-              </div>
-              <h3>GitHub</h3>
-              <a
-                href="https://github.com/Kamiltczarnik"
-                className="social-link"
-                target="_blank"
-                rel="noopener noreferrer">
-                github.com/Kamiltczarnik
-              </a>
-            </motion.div>
+            <div className="contact-grid">
+              {contactCards.map((item, index) => {
+                const Icon = item.icon;
+                const isCopyCard = item.kind === "copy";
+                const cardClassName = `contact-card surface-panel${
+                  item.figure ? " contact-card--figure" : ""
+                }`;
 
-            {/* LinkedIn Bubble */}
-            <motion.div
-              className="contact-bubble social-bubble"
-              variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
-              custom={2}>
-              <div className="contact-icon">
-                <i
-                  className="devicon-linkedin-plain"
-                  style={{ fontSize: "2.2rem" }}></i>
-              </div>
-              <h3>LinkedIn</h3>
-              <a
-                href="https://www.linkedin.com/in/kamil-czarnik/"
-                className="social-link"
-                target="_blank"
-                rel="noopener noreferrer">
-                linkedin.com/in/kamil-czarnik
-              </a>
-            </motion.div>
+                const cardContent = (
+                  <>
+                    {item.figure ? (
+                      <div className="contact-figure-box" aria-hidden="true">
+                        <img
+                          src={item.figure}
+                          alt=""
+                          className="contact-figure-illustration"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : null}
+
+                    {isCopyCard ? (
+                      <span
+                        className={`contact-card__notice${
+                          copied ? " contact-card__notice--visible" : ""
+                        }`}
+                        aria-live="polite">
+                        Link copied
+                      </span>
+                    ) : null}
+
+                    <span className="contact-card__icon" aria-hidden="true">
+                      <Icon size={20} />
+                    </span>
+
+                    <div className="contact-card__body">
+                      <span className="contact-card__label">{item.label}</span>
+                      <h2>{item.value}</h2>
+                      <p>{item.note}</p>
+                    </div>
+
+                    <span className="contact-card__action">
+                      {isCopyCard ? (
+                        copied ? (
+                          <Check size={15} aria-hidden="true" />
+                        ) : (
+                          <Copy size={15} aria-hidden="true" />
+                        )
+                      ) : null}
+                      {item.action}
+                      {!isCopyCard ? <ArrowUpRight size={15} aria-hidden="true" /> : null}
+                    </span>
+                  </>
+                );
+
+                if (isCopyCard) {
+                  return (
+                    <motion.article
+                      key={item.label}
+                      className={cardClassName}
+                      role="button"
+                      tabIndex={0}
+                      onClick={copyEmail}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          copyEmail();
+                        }
+                      }}
+                      variants={contactVariants}
+                      initial="hidden"
+                      animate="visible"
+                      custom={index + 1}>
+                      {cardContent}
+                    </motion.article>
+                  );
+                }
+
+                return (
+                  <motion.a
+                    key={item.label}
+                    className={cardClassName}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={contactVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={index + 1}>
+                    {cardContent}
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
