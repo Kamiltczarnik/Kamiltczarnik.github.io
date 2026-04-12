@@ -73,13 +73,9 @@ const tech = {
   terraform: icon(
     "Terraform",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
-    "Tf"
+    "Terraform"
   ),
-  nativeMsg: icon(
-    "NativeMSG",
-    "/assets/images/project-mark-nativemsg.svg",
-    "NativeMSG"
-  ),
+  rcs: monogram("RCS", "RCS", "RCS"),
   framerMotion: monogram("Framer Motion", "FM", "Framer"),
 };
 
@@ -89,11 +85,21 @@ export const projects = [
     priority: 1,
     highlightTier: "highlighted",
     kicker: "In progress",
-    name: "NativeMSG Stats",
+    name: "sluggr ai",
     summary:
       "Fantasy assistant delivering NFL and MLB insight through RCS conversations, backed by Python workflows and cloud infrastructure.",
     compactSummary:
       "Fantasy assistant delivering NFL and MLB insight through RCS conversations.",
+    listRole: "Product direction, backend workflows, and cloud delivery",
+    listOutcome:
+      "Makes fantasy insight feel native on a phone by delivering NFL and MLB context through RCS conversations.",
+    listLayout: "hero",
+    listMedia: {
+      type: "theme-image",
+      lightSrc: "/assets/images/sluggr-phone-light.png",
+      darkSrc: "/assets/images/sluggr-phone-dark.png",
+      alt: "sluggr ai conversation preview on a phone",
+    },
     accent: "blue",
     badge: { type: "new", label: "New" },
     hasDetailPage: true,
@@ -101,28 +107,28 @@ export const projects = [
     logo: {
       kind: "asset",
       src: "/assets/images/project-mark-nativemsg.svg",
-      alt: "NativeMSG Stats mark",
+      alt: "sluggr ai mark",
       fit: "contain",
     },
     tech: [
       tech.python,
       tech.googleCloud,
-      tech.nativeMsg,
+      tech.rcs,
       tech.docker,
       tech.terraform,
     ],
     detail: {
       lead:
-        "NativeMSG Stats is being framed as a fantasy-first assistant that delivers NFL and MLB context directly through RCS conversations.",
+        "sluggr ai is being framed as a fantasy-first assistant that delivers NFL and MLB context directly through RCS conversations.",
       meta: [
         { label: "Status", value: "Case study in progress" },
         { label: "Focus", value: "Fantasy workflows + RCS delivery" },
-        { label: "Stack", value: "Python, GCP, Docker, Terraform" },
+        { label: "Stack", value: "Python, GCP, RCS, Docker, Terraform" },
       ],
       media: {
         type: "monogram",
-        text: "NM",
-        alt: "NativeMSG Stats project mark",
+        text: "SA",
+        alt: "sluggr ai project mark",
       },
       highlights: [
         {
@@ -153,7 +159,7 @@ export const projects = [
             "GCP, Docker, and Terraform make the deployment story part of the product’s credibility and scalability.",
         },
         {
-          title: "Deliver through NativeMSG",
+          title: "Deliver through sluggr ai",
           body:
             "Messaging is part of the endpoint, turning insight into something operational teams can actually receive and act on.",
         },
@@ -177,6 +183,10 @@ export const projects = [
       "Sports analytics workspace combining data pipelines, model experiments, and player insight workflows into one product.",
     compactSummary:
       "Sports analytics workspace for pipelines, model experiments, and player insight.",
+    listRole: "Sports analytics workspace",
+    listOutcome:
+      "Organizes pipelines, model experiments, and player research into one environment instead of scattered notebooks and scripts.",
+    listLayout: "signal",
     repo: "https://github.com/Kamiltczarnik/StatScout",
     accent: "blue",
     badge: null,
@@ -207,6 +217,16 @@ export const projects = [
       "Conversational AI banking assistant focused on real-time financial context, voice interaction, and a clearer dashboard experience.",
     compactSummary:
       "Finance assistant pairing account context, dashboards, and voice interaction.",
+    listRole: "Full-stack concept build",
+    listOutcome:
+      "Blends voice, dashboard context, and assistant workflows into a clearer conversational banking product.",
+    listLayout: "feature",
+    listMedia: {
+      type: "video",
+      src: "/assets/images/lira2.webm",
+      poster: "/assets/images/lira2.jpg",
+      alt: "Lira AI dashboard walkthrough",
+    },
     repo: "https://github.com/Kamiltczarnik/Lira",
     accent: "orange",
     badge: null,
@@ -317,6 +337,15 @@ export const projects = [
       "Narrative portfolio site focused on case studies, responsive composition, and a more editorial presentation of engineering work.",
     compactSummary:
       "Portfolio site built to present engineering work with more clarity and range.",
+    listRole: "Design system and frontend storytelling",
+    listOutcome:
+      "Turns technical work into a more legible narrative through motion, hierarchy, and case-study framing.",
+    listLayout: "editorial",
+    listMedia: {
+      type: "image",
+      src: "/assets/images/home.png",
+      alt: "Portfolio website home page",
+    },
     repo: "https://github.com/Kamiltczarnik/Kamiltczarnik.github.io",
     accent: "neutral",
     badge: null,
@@ -427,6 +456,15 @@ export const projects = [
       "NFL Hall of Fame predictor built around player comparison, search, and a streamlined interpretation of model output.",
     compactSummary:
       "Hall of Fame predictor built for player search, comparison, and model clarity.",
+    listRole: "Search, comparison, and model interpretation",
+    listOutcome:
+      "Makes sports predictions easier to trust by framing them through player search and side-by-side comparisons.",
+    listLayout: "analysis",
+    listMedia: {
+      type: "image",
+      src: "/assets/images/compare.png",
+      alt: "HOF Oracle player comparison view",
+    },
     accent: "orange",
     badge: { type: "blocki", label: "Class project" },
     hasDetailPage: true,
@@ -537,6 +575,15 @@ export const projects = [
       "ML-powered portfolio research tool that pairs market data, forecasting, and a cleaner decision surface for retail investors.",
     compactSummary:
       "Portfolio research tool pairing market data, forecasts, and cleaner decisions.",
+    listRole: "Forecasting and portfolio workflow design",
+    listOutcome:
+      "Puts market data, model output, and portfolio actions into one calmer research flow for retail investors.",
+    listLayout: "analysis",
+    listMedia: {
+      type: "image",
+      src: "/assets/images/PortManager.png",
+      alt: "PortfoliPro forecast panel",
+    },
     accent: "blue",
     badge: { type: "blocki", label: "Class project" },
     hasDetailPage: true,
