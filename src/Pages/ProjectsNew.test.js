@@ -2,6 +2,7 @@ import React from "react";
 import { MemoryRouter } from "react-router-dom";
 import { render, screen } from "@testing-library/react";
 import ProjectsNew from "./ProjectsNew";
+import { orderedProjects } from "../data/projects";
 
 jest.mock("framer-motion", () => {
   const React = require("react");
@@ -50,32 +51,37 @@ describe("ProjectsNew", () => {
   it("renders the editorial projects structure for recruiters", () => {
     renderProjectsPage();
 
+    expect(screen.getByRole("link", { name: "Projects" })).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /projects that show the product and the build/i })
+      screen.getByRole("heading", { name: /selected work\./i })
     ).toBeInTheDocument();
-    expect(screen.getAllByText("Featured project").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("Selected work").length).toBeGreaterThan(0);
     expect(
-      screen.getByText(/recruiters should be able to understand the product surface/i)
+      screen.getByText(
+        /a small, deliberate catalogue of things i've built/i
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /other work/i })
     ).toBeInTheDocument();
   });
 
   it("shows every project and includes a readable sluggr preview", () => {
     renderProjectsPage();
 
-    [
-      "sluggr ai",
-      "Lira AI",
-      "StatScout",
-      "Portfolio Website",
-      "HOF Oracle",
-      "PortfoliPro",
-    ].forEach((projectName) => {
+    orderedProjects.map((project) => project.name).forEach((projectName) => {
       expect(screen.getByText(projectName)).toBeInTheDocument();
     });
 
     expect(
-      screen.getByLabelText(/sluggr ai readable conversation preview/i)
+      screen.getByText(/in development/i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /fantasy assistant delivering nfl and mlb insight through rcs conversations/i
+      )
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /learn more/i })
     ).toBeInTheDocument();
   });
 });
