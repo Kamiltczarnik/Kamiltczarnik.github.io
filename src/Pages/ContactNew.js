@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Check, Copy, Github, Mail } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import "./css/ContactNew.css";
 
 const contactVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 40 },
   visible: (index) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.08 + index * 0.06,
-      duration: 0.36,
-      ease: [0.22, 1, 0.36, 1],
+      delay: 0.15 + index * 0.13,
+      duration: 0.5,
+      ease: "easeOut",
     },
   }),
 };
@@ -22,7 +22,7 @@ const contactCards = [
   {
     label: "Email",
     value: "kamiltczarnik@gmail.com",
-    note: "Best for internships, project work, and direct conversations.",
+    note: "Best for Opportunities, project work, and direct conversations.",
     action: "Copy email",
     icon: Mail,
     kind: "copy",
@@ -48,6 +48,10 @@ const contactCards = [
 
 function ContactNew() {
   const [copied, setCopied] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const motionState = shouldReduceMotion
+    ? { initial: false, animate: "visible" }
+    : { initial: "hidden", animate: "visible" };
 
   const copyEmail = async () => {
     await navigator.clipboard.writeText("kamiltczarnik@gmail.com");
@@ -64,11 +68,10 @@ function ContactNew() {
             <motion.header
               className="contact-header"
               variants={contactVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={0}>
               <span className="section-eyebrow">Contact</span>
-              <h1>Simple ways to reach me.</h1>
+              <h1>Best ways to reach me</h1>
             </motion.header>
 
             <div className="contact-grid">
@@ -121,7 +124,9 @@ function ContactNew() {
                         )
                       ) : null}
                       {item.action}
-                      {!isCopyCard ? <ArrowUpRight size={15} aria-hidden="true" /> : null}
+                      {!isCopyCard ? (
+                        <ArrowUpRight size={15} aria-hidden="true" />
+                      ) : null}
                     </span>
                   </>
                 );
@@ -141,8 +146,7 @@ function ContactNew() {
                         }
                       }}
                       variants={contactVariants}
-                      initial="hidden"
-                      animate="visible"
+                      {...motionState}
                       custom={index + 1}>
                       {cardContent}
                     </motion.article>
@@ -157,8 +161,7 @@ function ContactNew() {
                     target="_blank"
                     rel="noopener noreferrer"
                     variants={contactVariants}
-                    initial="hidden"
-                    animate="visible"
+                    {...motionState}
                     custom={index + 1}>
                     {cardContent}
                   </motion.a>

@@ -1,191 +1,289 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Github, MoveRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Github } from "lucide-react";
 import Navbar from "../components/Navbar";
-import ProjectBadge from "../components/ProjectBadge";
-import ProjectMark from "../components/ProjectMark";
-import TechIcon from "../components/TechIcon";
 import { orderedProjects } from "../data/projects";
 import "./css/ProjectsNew.css";
 
+
 const headerVariants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.38,
-      ease: [0.22, 1, 0.36, 1],
-    },
+    transition: { delay: 0.08, duration: 0.44, ease: "easeOut" },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 22, scale: 0.985 },
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
   visible: (index) => ({
     opacity: 1,
     y: 0,
-    scale: 1,
     transition: {
-      delay: 0.06 + index * 0.06,
-      duration: 0.42,
-      ease: [0.22, 1, 0.36, 1],
+      delay: 0.15 + index * 0.12,
+      duration: 0.48,
+      ease: "easeOut",
     },
   }),
 };
 
-const highlightedProjects = orderedProjects.filter(
-  (project) => project.highlightTier === "highlighted"
-);
+const sluggrSlug = "nativemsg-stats";
+const portfolioSlug = "personal-portfolio";
+const wideSlug = "statscout";
 
-const moreProjects = orderedProjects.filter(
-  (project) => project.highlightTier === "more"
-);
+// Which projects show in the "Other work" grid, in order.
+const gridProjectSlugs = [
+  wideSlug, // full-width at top
+  portfolioSlug,
+  "lira",
+  "hof-oracle",
+  "portfolipro",
+];
 
-function ProjectPrimaryAction({ project }) {
-  if (project.hasDetailPage) {
+function getTechLabel(tech) {
+  return tech.shortLabel || tech.label;
+}
+
+function getPreviewThumb(project) {
+  // Uses the lightSrc/darkSrc theme image, or listMedia, or detail.media.
+  const media =
+    project.listMedia ??
+    project.detail?.media ??
+    project.detail?.workflow?.find((step) => step.media)?.media ??
+    null;
+  return media;
+}
+
+
+function ThumbMedia({ project, wide = false }) {
+  const media = getPreviewThumb(project);
+  const thumbClass = `pn-card__thumb${wide ? " pn-card__thumb--wide" : ""}`;
+
+  if (!media) {
     return (
-      <Link
-        className="projects-card__link projects-card__link--primary"
-        to={`/projects/${project.slug}`}>
-        See more
-        <MoveRight size={14} aria-hidden="true" />
-      </Link>
+      <div className={`${thumbClass} pn-card__thumb--fallback`}>
+        <div className="pn-card__fallback">
+          {project.logo?.src ? <img src={project.logo.src} alt="" /> : null}
+          <span className="pn-card__fallback-label">
+            {project.kicker || "Project"}
+          </span>
+        </div>
+      </div>
     );
   }
 
-  if (!project.repo) {
-    return null;
+  if (media.type === "video") {
+    const mp4 = media.src?.endsWith(".webm")
+      ? media.src.replace(".webm", ".mp4")
+      : null;
+    return (
+      <div className="pn-card__thumb">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={media.poster}
+          preload="metadata">
+          <source src={media.src} type="video/webm" />
+          {mp4 ? <source src={mp4} type="video/mp4" /> : null}
+        </video>
+      </div>
+    );
   }
 
-  return (
-    <a
-      className="projects-card__link projects-card__link--primary"
-      href={project.repo}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open the ${project.name} repository`}>
-      View repo
-      <ArrowUpRight size={14} aria-hidden="true" />
-    </a>
-  );
-}
-
-function ProjectRepoAction({ project }) {
-  if (!project.hasDetailPage || !project.repo) {
-    return null;
-  }
-
-  return (
-    <a
-      className="projects-card__link projects-card__link--secondary"
-      href={project.repo}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open the ${project.name} repository`}>
-      <Github size={14} aria-hidden="true" />
-      GitHub
-    </a>
-  );
-}
-
-function ProjectTechRow({ project }) {
-  const visibleTech = project.tech.slice(0, 4);
-
-  if (!visibleTech.length) {
-    return null;
-  }
-
-  return (
-    <div className="projects-card__tech-row" aria-label={`${project.name} technologies`}>
-      {visibleTech.map((item) => (
-        <TechIcon
-          key={`${project.slug}-${item.label}`}
-          tech={item}
-          size="xs"
-          className="projects-card__tech-chip"
+  if (media.type === "theme-image") {
+    return (
+      <div className="pn-card__thumb">
+        <img
+          className="pn-theme-image pn-theme-image--dark"
+          src={media.darkSrc}
+          alt=""
+          loading="lazy"
         />
-      ))}
+        <img
+          className="pn-theme-image pn-theme-image--light"
+          src={media.lightSrc}
+          alt=""
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="pn-card__thumb">
+      <img
+        src={media.src}
+        alt=""
+        loading="lazy"
+        style={media.fit ? { objectFit: media.fit } : undefined}
+      />
     </div>
   );
 }
 
-function ProjectCard({ project, index, featured = false }) {
-  const hasRepoAction = project.hasDetailPage && project.repo;
-  const cardClassName = [
-    "projects-card",
-    featured ? "projects-card--feature" : "projects-card--compact",
-    `projects-card--${project.accent || "neutral"}`,
-  ].join(" ");
+function ProjectCard({ project, index, wide = false, motionState }) {
+  const className = `pn-card${wide ? " pn-card--wide" : ""}`;
 
   return (
-    <motion.article
-      className={cardClassName}
-      variants={cardVariants}
-      initial="hidden"
-      animate="visible"
+    <motion.div
+      className={className}
+      variants={itemVariants}
+      {...motionState}
       custom={index}>
-      <div className="projects-card__meta">
-        <span className="projects-card__kicker">{project.kicker}</span>
-        <ProjectBadge badge={project.badge} />
-      </div>
-
-      <div className="projects-card__identity">
-        <div className="projects-card__mark-wrap">
-          <ProjectMark project={project} size={featured ? "lg" : "md"} />
+      <ThumbMedia project={project} wide={wide} />
+      <div className="pn-card__body">
+        <div className="pn-card__meta">
+          <span className="pn-card__kicker">{project.kicker}</span>
+          {project.badge?.type === "blocki" ? (
+            <span className="pn-badge pn-badge--class">Class project</span>
+          ) : null}
+          {project.repo ? (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pn-card__github-btn"
+              aria-label="View repository">
+              <Github size={16} aria-hidden="true" />
+            </a>
+          ) : null}
         </div>
-        <div className="projects-card__body">
-          <h3>{project.name}</h3>
-          <p>{project.compactSummary}</p>
+        <h3 className="pn-card__title">{project.name}</h3>
+        <p className="pn-card__outcome">
+          {project.compactSummary || project.summary}
+        </p>
+        <div className="pn-card__tags">
+          {project.tech.slice(0, 4).map((t) => (
+            <span key={`${project.slug}-${t.label}`} className="pn-tag">
+              {getTechLabel(t)}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function SluggrHero({ project, motionState }) {
+  const media = getPreviewThumb(project);
+
+  return (
+    <motion.section
+      className="pn-hero"
+      variants={itemVariants}
+      {...motionState}
+      custom={1}>
+      <div className="pn-hero__copy">
+        <div className="pn-hero__tag">In development · 2026</div>
+        <h2 className="pn-hero__title">{project.name}</h2>
+        <div className="pn-hero__role"></div>
+        <p className="pn-hero__summary">{project.summary}</p>
+        <div className="pn-hero__stack">
+          {project.tech.slice(0, 5).map((t) => (
+            <span
+              key={`hero-${t.label}`}
+              className="pn-stack-pill pn-stack-pill--accent">
+              {t.icon ? <img src={t.icon} alt="" /> : null}
+              {getTechLabel(t)}
+            </span>
+          ))}
+        </div>
+        <div className="pn-hero__cta-row">
+          <Link
+            to={`/projects/${project.slug}`}
+            className="pn-cta pn-cta--primary">
+            Learn more
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
         </div>
       </div>
 
-      <ProjectTechRow project={project} />
-
-      <div
-        className={`projects-card__actions${
-          !hasRepoAction ? " projects-card__actions--single" : ""
-        }`}>
-        <ProjectPrimaryAction project={project} />
-        <ProjectRepoAction project={project} />
+      <div className="pn-hero__visual" aria-hidden="true">
+        <span className="pn-hero__badge pn-hero__badge--top">
+          <span className="pn-dot pn-dot--orange" />
+          Live demo
+        </span>
+        <span className="pn-hero__badge pn-hero__badge--bottom">
+          <span className="pn-dot pn-dot--blue" />
+          iMessage-native
+        </span>
+        {media?.darkSrc && media?.lightSrc ? (
+          <>
+            <img
+              className="pn-hero__phone pn-hero__phone--dark"
+              src={media.darkSrc}
+              alt="sluggr ai conversation on iPhone"
+              loading="eager"
+            />
+            <img
+              className="pn-hero__phone pn-hero__phone--light"
+              src={media.lightSrc}
+              alt=""
+              loading="eager"
+            />
+          </>
+        ) : null}
       </div>
-    </motion.article>
+    </motion.section>
   );
 }
 
 function ProjectsNew() {
+  const shouldReduceMotion = useReducedMotion();
+  const motionState = shouldReduceMotion
+    ? { initial: false, animate: "visible" }
+    : { initial: "hidden", animate: "visible" };
+
+  const sluggr =
+    orderedProjects.find((p) => p.slug === sluggrSlug) ?? orderedProjects[0];
+  const gridProjects = gridProjectSlugs
+    .map((slug) => orderedProjects.find((p) => p.slug === slug))
+    .filter(Boolean);
+
   return (
     <>
       <Navbar />
-      <section id="projects" className="page-section projects-page">
+      <section id="projects" className="page-section pn-page">
         <div className="page-container">
-          <div className="projects-shell">
+          <div className="pn-shell">
             <motion.header
-              className="projects-header"
+              className="pn-header"
               variants={headerVariants}
-              initial="hidden"
+              initial={shouldReduceMotion ? false : "hidden"}
               animate="visible">
               <span className="section-eyebrow">Projects</span>
+              <h1 className="pn-header__title">
+                Selected
+                <br />
+                work.
+              </h1>
+              <p className="pn-header__lead">
+                A small, deliberate catalogue of things I've built — from
+                fantasy-sports assistants to financial research tools. Have a
+                look!
+              </p>
             </motion.header>
 
-            <section className="projects-section projects-section--featured">
-              <div className="projects-feature-grid">
-                {highlightedProjects.map((project, index) => (
+            <SluggrHero project={sluggr} motionState={motionState} />
+
+            <section className="pn-section">
+              <div className="pn-section__head">
+                <h2>Other work</h2>
+              </div>
+
+              <div className="pn-grid">
+                {gridProjects.map((project, i) => (
                   <ProjectCard
                     key={project.slug}
                     project={project}
-                    index={index + 1}
-                    featured
+                    index={i + 2}
+                    wide={project.slug === wideSlug}
+                    motionState={motionState}
                   />
-                ))}
-              </div>
-            </section>
-
-            <section className="projects-section projects-section--more">
-              <div className="projects-more-grid">
-                {moreProjects.map((project, index) => (
-                  <ProjectCard key={project.slug} project={project} index={index + 3} />
                 ))}
               </div>
             </section>

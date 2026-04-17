@@ -44,7 +44,7 @@ function Navbar() {
       document.body.classList.remove("theme-transitioning");
       document.documentElement.classList.remove("theme-transitioning");
       themeTransitionTimeoutRef.current = null;
-    }, 820);
+    }, 1150);
   };
 
   useEffect(() => {

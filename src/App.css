@@ -10,14 +10,14 @@
   --radius-lg: 22px;
   --radius-xl: 28px;
   --radius-pill: 999px;
-  --nav-offset: 72px;
+  --nav-offset: 80px;
   --screen-shell-height: calc(100dvh - var(--nav-offset) - 18px);
   --timing-fast: 180ms;
   --timing-base: 240ms;
   --timing-slow: 320ms;
-  --timing-theme: 780ms;
+  --timing-theme: 1050ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-theme: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-theme: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -475,18 +475,52 @@ html.theme-transitioning *::after {
   height: 20px;
 }
 
+.project-badge--blocki {
+  position: relative;
+  gap: 0;
+  width: 30px;
+  min-width: 30px;
+  padding: 0;
+  justify-content: center;
+}
+
+.project-badge--blocki::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translate(-50%, 4px);
+  padding: 6px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border-strong);
+  background: var(--surface-3);
+  color: var(--text-primary);
+  font-family: var(--font-label);
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--timing-base) var(--ease-standard),
+    transform var(--timing-base) var(--ease-standard);
+}
+
 .project-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: var(--text-primary);
   border-radius: 18px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0)),
     var(--surface-2);
-  border: 1px solid var(--surface-border);
+  border: 1px solid var(--surface-border-strong);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 10px 24px rgba(2, 6, 23, 0.14);
+    0 8px 20px rgba(2, 6, 23, 0.12);
   overflow: hidden;
 }
 
@@ -507,7 +541,18 @@ html.theme-transitioning *::after {
   object-fit: contain;
 }
 
+.project-mark__system-svg {
+  width: 74%;
+  height: 74%;
+  display: block;
+}
+
 .project-mark--lg .project-mark__asset {
+  width: 76%;
+  height: 76%;
+}
+
+.project-mark--lg .project-mark__system-svg {
   width: 76%;
   height: 76%;
 }
@@ -522,16 +567,8 @@ html.theme-transitioning *::after {
   font-size: 1.55rem;
 }
 
-.project-mark--blue {
-  color: var(--accent-blue);
-}
-
-.project-mark--orange {
-  color: var(--accent-orange);
-}
-
-.project-mark--neutral {
-  color: var(--accent-neutral);
+.project-mark--system {
+  color: var(--text-primary);
 }
 
 .showcase-glow {
@@ -550,6 +587,12 @@ html.theme-transitioning *::after {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .project-badge--blocki:hover::after,
+  .project-badge--blocki:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
   .button-link:hover,
   .button-button:hover,
   .tech-icon-chip:hover {
@@ -576,7 +619,7 @@ html.theme-transitioning *::after {
 
 @media (max-width: 900px) {
   :root {
-    --nav-offset: 68px;
+    --nav-offset: 76px;
   }
 
   .page-section {
@@ -586,7 +629,7 @@ html.theme-transitioning *::after {
 
 @media (max-width: 640px) {
   :root {
-    --nav-offset: 64px;
+    --nav-offset: 70px;
   }
 
   .page-section {
@@ -601,5 +644,39 @@ html.theme-transitioning *::after {
   .button-button {
     min-height: 38px;
     font-size: 0.64rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button-link,
+  .button-button,
+  .tech-icon-chip,
+  .projects-card,
+  .projects-card__link,
+  .contact-card,
+  .project-detail-back,
+  .project-related-card,
+  .profile-social-link,
+  .nav-link,
+  .theme-toggle {
+    transition-duration: 0.01ms !important;
+  }
+
+  .button-link:hover,
+  .button-button:hover,
+  .tech-icon-chip:hover,
+  .projects-card:hover,
+  .projects-card__link:hover,
+  .contact-card:hover,
+  .project-detail-back:hover,
+  .project-related-card:hover,
+  .profile-social-link:hover,
+  .nav-link:hover,
+  .theme-toggle:hover {
+    transform: none !important;
   }
 }

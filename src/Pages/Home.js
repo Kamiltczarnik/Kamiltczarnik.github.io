@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Goal as Hockey, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { IoBaseballOutline } from "react-icons/io5";
 import Navbar from "../components/Navbar";
 import TechIcon from "../components/TechIcon";
 import "./css/Home.css";
@@ -79,6 +80,10 @@ const showcaseTechnologies = [
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const motionState = shouldReduceMotion
+    ? { initial: false, animate: "visible" }
+    : { initial: "hidden", animate: "visible" };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -95,8 +100,8 @@ function Home() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.15 + index * 0.13,
-        duration: 0.5,
+        delay: 0.12 + index * 0.11,
+        duration: 0.44,
         ease: "easeOut",
       },
     }),
@@ -107,8 +112,8 @@ function Home() {
     visible: (index) => ({
       opacity: 1,
       transition: {
-        delay: 0.15 + index * 0.13,
-        duration: 0.5,
+        delay: 0.12 + index * 0.11,
+        duration: 0.44,
         ease: "easeOut",
       },
     }),
@@ -123,8 +128,14 @@ function Home() {
           return 1;
         case "whoami":
           return 2;
-        case "tech":
+        case "about":
           return 3;
+        case "quote":
+          return 4;
+        case "tech":
+          return 5;
+        case "edu":
+          return 6;
         default:
           return 10;
       }
@@ -136,15 +147,17 @@ function Home() {
       case "star":
         return 1;
       case "student":
-        return 2;
-      case "quote":
         return 3;
-      case "tech":
+      case "about":
         return 4;
-      case "edu":
+      case "quote":
         return 5;
-      case "center":
+      case "tech":
         return 6;
+      case "edu":
+        return 7;
+      case "center":
+        return 2;
       default:
         return 10;
     }
@@ -159,16 +172,15 @@ function Home() {
             <motion.div
               className="bubble who-am-i-box showcase-glow"
               variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("whoami")}>
               <h3>Project Spotlight</h3>
 
               <div className="showcase-content">
                 <div className="showcase-copy-column">
                   <div className="showcase-project-name">
-                    NativeMSG Fantasy Assistant
-                    <Hockey className="stat-scout-hockey-icon" size={18} />
+                    sluggr ai
+                    <IoBaseballOutline className="spotlight-project-icon" />
                   </div>
                   <ul className="about-bullets">
                     <li>
@@ -177,7 +189,8 @@ function Home() {
                       directly through RCS conversations.
                     </li>
                     <li>
-                      Built to answer all fantasy football questions as your own personal assistant.
+                      Built to answer all fantasy football questions as your own
+                      personal assistant.
                     </li>
                     <li>
                       Focused on a messaging-first experience that feels fast,
@@ -207,8 +220,7 @@ function Home() {
             <motion.div
               className="bubble student-role-box"
               variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("student")}>
               <blockquote>Software Engineer</blockquote>
             </motion.div>
@@ -216,8 +228,7 @@ function Home() {
             <motion.div
               className="bubble center-reference-box"
               variants={centerVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("center")}>
               <div className="profile-avatar">
                 <a
@@ -244,11 +255,18 @@ function Home() {
               </div>
             </motion.div>
 
+            <motion.header
+              className="home-about-header"
+              variants={bubbleVariants}
+              {...motionState}
+              custom={getOrder("about")}>
+              <span className="section-eyebrow">Profile</span>
+            </motion.header>
+
             <motion.div
               className="bubble quote-bottom-box"
               variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("quote")}>
               <div className="reading-figure-box" aria-hidden="true">
                 <img
@@ -265,8 +283,7 @@ function Home() {
             <motion.div
               className="bubble technologies-vertical-box"
               variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("tech")}>
               <h3>Technologies</h3>
               <div className="tech-grid">
@@ -279,8 +296,7 @@ function Home() {
             <motion.div
               className="bubble education-bottom-box"
               variants={bubbleVariants}
-              initial="hidden"
-              animate="visible"
+              {...motionState}
               custom={getOrder("edu")}>
               <h3>
                 Education
@@ -303,12 +319,18 @@ function Home() {
                     <ul>
                       <li>
                         Senior at the University of Illinois Urbana-Champaign
-                        studying
-                        <span className="edu-highlight"> Computer Science </span>
+                        studying{" "}
+                        <span className="edu-highlight">
+                          {" "}
+                          Computer Science{" "}
+                        </span>
                       </li>
                       <li>
                         Mens Water Polo{" "}
-                        <span className="edu-highlight">Executive Board Member</span>.
+                        <span className="edu-highlight">
+                          Executive Board Member
+                        </span>
+                        .
                       </li>
                       <li>
                         <span className="edu-highlight">GPA</span> :{" "}

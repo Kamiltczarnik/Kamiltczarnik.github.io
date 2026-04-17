@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 1000;
-  padding: 8px 18px 0;
+  padding: 14px 18px 0;
   pointer-events: none;
 }
 
@@ -37,19 +37,19 @@
 .nav-link,
 .theme-toggle {
   display: inline-flex;
-  min-height: 30px;
+  min-height: 34px;
   align-items: center;
   justify-content: center;
   gap: 4px;
-  padding: 0 14px;
-  border-radius: 9px;
+  padding: 0 16px;
+  border-radius: 10px;
   color: var(--text-muted);
   border: 1px solid transparent;
-  font-family: var(--font-label);
-  font-size: 0.64rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  text-transform: none;
   transition:
     transform var(--timing-base) var(--ease-standard),
     border-color var(--timing-base) var(--ease-standard),
@@ -66,9 +66,12 @@
 }
 
 .theme-toggle {
-  width: 30px;
-  min-width: 30px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
   padding: 0;
+  border-radius: 999px;
   background: transparent;
   color: var(--text-primary);
   border-color: transparent;
@@ -102,7 +105,7 @@
 
 @media (max-width: 900px) {
   .modern-navbar {
-    padding: 8px 14px 0;
+    padding: 12px 14px 0;
   }
 
   .navbar-container {
@@ -128,12 +131,19 @@
 
 @media (max-width: 640px) {
   .modern-navbar {
-    padding-inline: 12px;
+    padding: 10px 12px 0;
   }
 
   .nav-link,
   .theme-toggle {
+    min-height: 32px;
+    font-size: 0.74rem;
+  }
+
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
     min-height: 30px;
-    font-size: 0.61rem;
   }
 }
