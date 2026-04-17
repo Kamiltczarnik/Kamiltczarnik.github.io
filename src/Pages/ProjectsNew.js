@@ -1,230 +1,94 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, Github, MoveRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 import Navbar from "../components/Navbar";
-import ProjectBadge from "../components/ProjectBadge";
-import ProjectMark from "../components/ProjectMark";
 import { orderedProjects } from "../data/projects";
 import "./css/ProjectsNew.css";
 
+
 const headerVariants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.38,
-      ease: [0.22, 1, 0.36, 1],
-    },
+    transition: { delay: 0.08, duration: 0.44, ease: "easeOut" },
   },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 22 },
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
   visible: (index) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.06 + index * 0.06,
-      duration: 0.38,
-      ease: [0.22, 1, 0.36, 1],
+      delay: 0.15 + index * 0.12,
+      duration: 0.48,
+      ease: "easeOut",
     },
   }),
 };
 
-const sluggrProjectSlug = "nativemsg-stats";
-const secondaryFeaturedProjectSlug = "lira";
-const galleryProjectSlugs = [
-  "statscout",
-  "personal-portfolio",
+const sluggrSlug = "nativemsg-stats";
+const portfolioSlug = "personal-portfolio";
+const wideSlug = "statscout";
+
+// Which projects show in the "Other work" grid, in order.
+const gridProjectSlugs = [
+  wideSlug, // full-width at top
+  portfolioSlug,
+  "lira",
   "hof-oracle",
   "portfolipro",
 ];
-
-const featuredProject =
-  orderedProjects.find((project) => project.slug === sluggrProjectSlug) ??
-  orderedProjects[0];
-
-const secondaryFeaturedProject =
-  orderedProjects.find((project) => project.slug === secondaryFeaturedProjectSlug) ??
-  orderedProjects[1];
-
-const galleryProjects = galleryProjectSlugs
-  .map((slug) => orderedProjects.find((project) => project.slug === slug))
-  .filter(Boolean);
-
-function classNames(...values) {
-  return values.filter(Boolean).join(" ");
-}
 
 function getTechLabel(tech) {
   return tech.shortLabel || tech.label;
 }
 
-function getAccentRgb(project) {
-  if (project.accent === "orange") {
-    return "249, 115, 22";
-  }
-
-  if (project.accent === "neutral") {
-    return "148, 163, 184";
-  }
-
-  return "59, 130, 246";
-}
-
-function getPreviewMedia(project) {
-  return (
+function getPreviewThumb(project) {
+  // Uses the lightSrc/darkSrc theme image, or listMedia, or detail.media.
+  const media =
     project.listMedia ??
     project.detail?.media ??
     project.detail?.workflow?.find((step) => step.media)?.media ??
-    null
-  );
+    null;
+  return media;
 }
 
-function ProjectPrimaryAction({ project, className = "" }) {
-  const actionClassName = classNames("projects-action-link", className);
 
-  if (project.hasDetailPage) {
+function ThumbMedia({ project, wide = false }) {
+  const media = getPreviewThumb(project);
+  const thumbClass = `pn-card__thumb${wide ? " pn-card__thumb--wide" : ""}`;
+
+  if (!media) {
     return (
-      <Link className={actionClassName} to={`/projects/${project.slug}`}>
-        Learn more
-        <MoveRight size={15} aria-hidden="true" />
-      </Link>
+      <div className={`${thumbClass} pn-card__thumb--fallback`}>
+        <div className="pn-card__fallback">
+          {project.logo?.src ? <img src={project.logo.src} alt="" /> : null}
+          <span className="pn-card__fallback-label">
+            {project.kicker || "Project"}
+          </span>
+        </div>
+      </div>
     );
   }
 
-  if (!project.repo) {
-    return null;
-  }
-
-  return (
-    <a
-      className={actionClassName}
-      href={project.repo}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open the ${project.name} repository`}>
-      View repo
-      <ArrowUpRight size={15} aria-hidden="true" />
-    </a>
-  );
-}
-
-function ProjectRepoAction({ project, className = "" }) {
-  if (!project.hasDetailPage || !project.repo) {
-    return null;
-  }
-
-  return (
-    <a
-      className={classNames("projects-repo-link", className)}
-      href={project.repo}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Open the ${project.name} repository`}>
-      <Github size={14} aria-hidden="true" />
-      GitHub
-    </a>
-  );
-}
-
-function ProjectTechPills({ project, limit = 4, className = "" }) {
-  const visibleTech = project.tech.slice(0, limit);
-
-  if (!visibleTech.length) {
-    return null;
-  }
-
-  return (
-    <div className={classNames("projects-tech-pills", className)}>
-      {visibleTech.map((item) => (
-        <span key={`${project.slug}-${item.label}`} className="projects-tech-pill">
-          {getTechLabel(item)}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function ThemePreviewImage({ media, alt, className = "", loading = "lazy" }) {
-  if (!media?.lightSrc || !media?.darkSrc) {
-    return null;
-  }
-
-  return (
-    <>
-      <img
-        className={classNames(className, "projects-theme-image", "projects-theme-image--dark")}
-        src={media.lightSrc}
-        alt={alt}
-        loading={loading}
-      />
-      <img
-        className={classNames(className, "projects-theme-image", "projects-theme-image--light")}
-        src={media.darkSrc}
-        alt=""
-        aria-hidden="true"
-        loading={loading}
-      />
-    </>
-  );
-}
-
-function ProjectFallbackPreview({ project }) {
-  return (
-    <div
-      className="projects-media-frame projects-media-frame--fallback"
-      role="img"
-      aria-label={`${project.name} project signal preview`}>
-      <div className="projects-media-frame__grid" aria-hidden="true"></div>
-      <div className="projects-media-frame__fallback-content">
-        <div className="projects-media-frame__fallback-mark">
-          <ProjectMark project={project} size="lg" />
-        </div>
-
-        <div className="projects-media-frame__bars" aria-hidden="true">
-          <span style={{ height: "42%" }}></span>
-          <span style={{ height: "68%" }}></span>
-          <span style={{ height: "54%" }}></span>
-          <span style={{ height: "82%" }}></span>
-        </div>
-
-        <div className="projects-media-frame__fallback-copy">
-          <span>Pipeline signal</span>
-          <strong>Models, data prep, and player insight in one place.</strong>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function ProjectPreviewMedia({ project, className = "", priority = false }) {
-  const media = getPreviewMedia(project);
-  const wrapperClassName = classNames(
-    "projects-media-frame",
-    `projects-media-frame--${project.listLayout || "default"}`,
-    className
-  );
-
-  if (!media) {
-    return <ProjectFallbackPreview project={project} />;
-  }
-
   if (media.type === "video") {
-    const mp4Source = media.src.endsWith(".webm")
+    const mp4 = media.src?.endsWith(".webm")
       ? media.src.replace(".webm", ".mp4")
       : null;
-
     return (
-      <div
-        className={wrapperClassName}
-        role="img"
-        aria-label={media.alt || `${project.name} preview`}>
-        <video autoPlay loop muted playsInline poster={media.poster} preload="metadata">
+      <div className="pn-card__thumb">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={media.poster}
+          preload="metadata">
           <source src={media.src} type="video/webm" />
-          {mp4Source ? <source src={mp4Source} type="video/mp4" /> : null}
+          {mp4 ? <source src={mp4} type="video/mp4" /> : null}
         </video>
       </div>
     );
@@ -232,223 +96,139 @@ function ProjectPreviewMedia({ project, className = "", priority = false }) {
 
   if (media.type === "theme-image") {
     return (
-      <div
-        className={wrapperClassName}
-        role="img"
-        aria-label={media.alt || `${project.name} preview`}>
-        <ThemePreviewImage
-          media={media}
+      <div className="pn-card__thumb">
+        <img
+          className="pn-theme-image pn-theme-image--dark"
+          src={media.darkSrc}
           alt=""
-          className="projects-media-frame__asset"
-          loading={priority ? "eager" : "lazy"}
+          loading="lazy"
+        />
+        <img
+          className="pn-theme-image pn-theme-image--light"
+          src={media.lightSrc}
+          alt=""
+          loading="lazy"
         />
       </div>
     );
   }
 
   return (
-    <div
-      className={wrapperClassName}
-      role="img"
-      aria-label={media.alt || `${project.name} preview`}>
+    <div className="pn-card__thumb">
       <img
-        className="projects-media-frame__asset"
         src={media.src}
         alt=""
-        loading={priority ? "eager" : "lazy"}
+        loading="lazy"
+        style={media.fit ? { objectFit: media.fit } : undefined}
       />
     </div>
   );
 }
 
-function ProjectStatement({ project, className = "" }) {
+function ProjectCard({ project, index, wide = false, motionState }) {
+  const className = `pn-card${wide ? " pn-card--wide" : ""}`;
+
   return (
-    <p className={classNames("projects-card-statement", className)}>
-      <strong>{project.listRole}</strong>
-      <span>{project.listOutcome}</span>
-    </p>
+    <motion.div
+      className={className}
+      variants={itemVariants}
+      {...motionState}
+      custom={index}>
+      <ThumbMedia project={project} wide={wide} />
+      <div className="pn-card__body">
+        <div className="pn-card__meta">
+          <span className="pn-card__kicker">{project.kicker}</span>
+          {project.badge?.type === "blocki" ? (
+            <span className="pn-badge pn-badge--class">Class project</span>
+          ) : null}
+          {project.repo ? (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pn-card__github-btn"
+              aria-label="View repository">
+              <Github size={16} aria-hidden="true" />
+            </a>
+          ) : null}
+        </div>
+        <h3 className="pn-card__title">{project.name}</h3>
+        <p className="pn-card__outcome">
+          {project.compactSummary || project.summary}
+        </p>
+        <div className="pn-card__tags">
+          {project.tech.slice(0, 4).map((t) => (
+            <span key={`${project.slug}-${t.label}`} className="pn-tag">
+              {getTechLabel(t)}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
-function SluggrHeroCard({ project, index, motionState }) {
-  const media = getPreviewMedia(project);
+function SluggrHero({ project, motionState }) {
+  const media = getPreviewThumb(project);
 
   return (
-    <motion.article
-      className="projects-hero-card"
-      variants={cardVariants}
+    <motion.section
+      className="pn-hero"
+      variants={itemVariants}
       {...motionState}
-      custom={index}
-      style={{ "--project-accent-rgb": getAccentRgb(project) }}>
-      <div className="projects-hero-card__copy">
-        <div className="projects-hero-card__meta">
-          <span className="projects-card-kicker">{project.kicker}</span>
-          <ProjectBadge badge={project.badge} />
+      custom={1}>
+      <div className="pn-hero__copy">
+        <div className="pn-hero__tag">In development · 2026</div>
+        <h2 className="pn-hero__title">{project.name}</h2>
+        <div className="pn-hero__role"></div>
+        <p className="pn-hero__summary">{project.summary}</p>
+        <div className="pn-hero__stack">
+          {project.tech.slice(0, 5).map((t) => (
+            <span
+              key={`hero-${t.label}`}
+              className="pn-stack-pill pn-stack-pill--accent">
+              {t.icon ? <img src={t.icon} alt="" /> : null}
+              {getTechLabel(t)}
+            </span>
+          ))}
         </div>
-
-        <div className="projects-hero-card__headline">
-          <div>
-            <span className="projects-card-label">Featured project</span>
-            <h2>{project.name}</h2>
-          </div>
-          <ProjectMark project={project} size="lg" />
-        </div>
-
-        <ProjectStatement project={project} className="projects-card-statement--hero" />
-
-        <p className="projects-hero-card__summary">{project.summary}</p>
-
-        <div className="projects-hero-card__notes">
-          <article className="projects-hero-note">
-            <span>Why it reads stronger now</span>
-            <p>
-              Recruiters should be able to understand the product surface without
-              opening the case study first.
-            </p>
-          </article>
-
-          <article className="projects-hero-note">
-            <span>What I shaped</span>
-            <p>
-              Messaging-first product thinking backed by Python workflows, cloud
-              infrastructure, and delivery design.
-            </p>
-          </article>
-        </div>
-
-        <div className="projects-hero-card__stack">
-          <span className="projects-stack-label">Core stack</span>
-          <ProjectTechPills project={project} limit={5} />
-        </div>
-
-        <div className="projects-hero-card__actions">
-          <ProjectRepoAction project={project} />
-          <ProjectPrimaryAction
-            project={project}
-            className="projects-action-link--button"
-          />
+        <div className="pn-hero__cta-row">
+          <Link
+            to={`/projects/${project.slug}`}
+            className="pn-cta pn-cta--primary">
+            Learn more
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </Link>
         </div>
       </div>
 
-      <div className="projects-hero-card__media">
-        <div
-          className="projects-hero-preview"
-          role="img"
-          aria-label="sluggr ai readable conversation preview">
-          <div className="projects-hero-preview__header">
-            <span className="projects-hero-preview__label">Readable chat preview</span>
-            <span className="projects-hero-preview__pill">On-device UI</span>
-          </div>
-
-          <div className="projects-hero-preview__frame">
-            <ThemePreviewImage
-              media={media}
-              alt=""
-              className="projects-hero-preview__crop"
+      <div className="pn-hero__visual" aria-hidden="true">
+        <span className="pn-hero__badge pn-hero__badge--top">
+          <span className="pn-dot pn-dot--orange" />
+          Live demo
+        </span>
+        <span className="pn-hero__badge pn-hero__badge--bottom">
+          <span className="pn-dot pn-dot--blue" />
+          iMessage-native
+        </span>
+        {media?.darkSrc && media?.lightSrc ? (
+          <>
+            <img
+              className="pn-hero__phone pn-hero__phone--dark"
+              src={media.darkSrc}
+              alt="sluggr ai conversation on iPhone"
               loading="eager"
             />
-          </div>
-        </div>
-
-        <div className="projects-hero-phone-stage">
-          <span className="projects-hero-preview__label">Mobile surface</span>
-          <div
-            className="projects-hero-phone-stage__frame"
-            role="img"
-            aria-label={media?.alt || `${project.name} phone preview`}>
-            <ThemePreviewImage
-              media={media}
+            <img
+              className="pn-hero__phone pn-hero__phone--light"
+              src={media.lightSrc}
               alt=""
-              className="projects-hero-phone"
               loading="eager"
             />
-          </div>
-        </div>
+          </>
+        ) : null}
       </div>
-    </motion.article>
-  );
-}
-
-function FeaturedWorkCard({ project, index, motionState }) {
-  return (
-    <motion.article
-      className="projects-feature-showcase"
-      variants={cardVariants}
-      {...motionState}
-      custom={index}
-      style={{ "--project-accent-rgb": getAccentRgb(project) }}>
-      <div className="projects-feature-showcase__media">
-        <ProjectPreviewMedia project={project} className="projects-media-frame--feature" />
-      </div>
-
-      <div className="projects-feature-showcase__content">
-        <div className="projects-feature-showcase__meta">
-          <span className="projects-card-kicker">{project.kicker}</span>
-          <ProjectBadge badge={project.badge} />
-        </div>
-
-        <div className="projects-feature-showcase__headline">
-          <div>
-            <span className="projects-card-label">Secondary feature</span>
-            <h2>{project.name}</h2>
-          </div>
-          <ProjectMark project={project} size="lg" />
-        </div>
-
-        <ProjectStatement project={project} />
-        <p className="projects-feature-showcase__summary">{project.summary}</p>
-
-        <div className="projects-feature-showcase__stack">
-          <span className="projects-stack-label">Selected tools</span>
-          <ProjectTechPills project={project} limit={4} />
-        </div>
-
-        <div className="projects-feature-showcase__actions">
-          <ProjectPrimaryAction
-            project={project}
-            className="projects-action-link--button"
-          />
-          <ProjectRepoAction project={project} />
-        </div>
-      </div>
-    </motion.article>
-  );
-}
-
-function ProjectGalleryCard({ project, index, motionState }) {
-  return (
-    <motion.article
-      className="projects-gallery-card"
-      variants={cardVariants}
-      {...motionState}
-      custom={index}
-      style={{ "--project-accent-rgb": getAccentRgb(project) }}>
-      <div className="projects-gallery-card__media">
-        <ProjectPreviewMedia project={project} />
-      </div>
-
-      <div className="projects-gallery-card__content">
-        <div className="projects-gallery-card__meta">
-          <span className="projects-card-kicker">{project.kicker}</span>
-          <ProjectBadge badge={project.badge} />
-        </div>
-
-        <div className="projects-gallery-card__headline">
-          <h3>{project.name}</h3>
-          <ProjectMark project={project} size="md" />
-        </div>
-
-        <ProjectStatement project={project} />
-        <p className="projects-gallery-card__summary">{project.compactSummary}</p>
-
-        <ProjectTechPills project={project} limit={4} />
-
-        <div className="projects-gallery-card__actions">
-          <ProjectPrimaryAction project={project} />
-          <ProjectRepoAction project={project} />
-        </div>
-      </div>
-    </motion.article>
+    </motion.section>
   );
 }
 
@@ -458,78 +238,50 @@ function ProjectsNew() {
     ? { initial: false, animate: "visible" }
     : { initial: "hidden", animate: "visible" };
 
+  const sluggr =
+    orderedProjects.find((p) => p.slug === sluggrSlug) ?? orderedProjects[0];
+  const gridProjects = gridProjectSlugs
+    .map((slug) => orderedProjects.find((p) => p.slug === slug))
+    .filter(Boolean);
+
   return (
     <>
       <Navbar />
-      <section id="projects" className="page-section projects-page">
+      <section id="projects" className="page-section pn-page">
         <div className="page-container">
-          <div className="projects-shell">
+          <div className="pn-shell">
             <motion.header
-              className="projects-page-header"
+              className="pn-header"
               variants={headerVariants}
-              {...motionState}>
+              initial={shouldReduceMotion ? false : "hidden"}
+              animate="visible">
               <span className="section-eyebrow">Projects</span>
-              <h1 className="projects-page-title">
-                Projects that show the product and the build.
+              <h1 className="pn-header__title">
+                Selected
+                <br />
+                work.
               </h1>
-              <p className="projects-page-lead">
-                A recruiter should be able to scan what the product is, what I
-                contributed, and why the work matters without deciphering a wall
-                of tiny cards first.
+              <p className="pn-header__lead">
+                A small, deliberate catalogue of things I've built — from
+                fantasy-sports assistants to financial research tools. Have a
+                look!
               </p>
             </motion.header>
 
-            <section className="projects-section" aria-labelledby="projects-featured-heading">
-              <div className="projects-section__header">
-                <div>
-                  <span className="projects-section-label">Featured project</span>
-                  <p className="projects-section__copy">
-                    The lead piece gets more room because the product itself deserves
-                    to read clearly, especially on mobile.
-                  </p>
-                </div>
+            <SluggrHero project={sluggr} motionState={motionState} />
+
+            <section className="pn-section">
+              <div className="pn-section__head">
+                <h2>Other work</h2>
               </div>
 
-              <h2 id="projects-featured-heading" className="projects-visually-hidden">
-                Featured project
-              </h2>
-
-              <SluggrHeroCard
-                key={featuredProject.slug}
-                project={featuredProject}
-                index={1}
-                motionState={motionState}
-              />
-            </section>
-
-            <section className="projects-section" aria-labelledby="projects-selected-heading">
-              <div className="projects-section__header">
-                <div>
-                  <span className="projects-section-label">Selected work</span>
-                  <p className="projects-section__copy">
-                    The rest of the page shifts from compressed tiles to a gallery with
-                    real surfaces, clearer outcomes, and enough breathing room to look
-                    intentional.
-                  </p>
-                </div>
-              </div>
-
-              <h2 id="projects-selected-heading" className="projects-visually-hidden">
-                Selected work
-              </h2>
-
-              <FeaturedWorkCard
-                project={secondaryFeaturedProject}
-                index={2}
-                motionState={motionState}
-              />
-
-              <div className="projects-gallery-grid">
-                {galleryProjects.map((project, index) => (
-                  <ProjectGalleryCard
+              <div className="pn-grid">
+                {gridProjects.map((project, i) => (
+                  <ProjectCard
                     key={project.slug}
                     project={project}
-                    index={index + 3}
+                    index={i + 2}
+                    wide={project.slug === wideSlug}
                     motionState={motionState}
                   />
                 ))}

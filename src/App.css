@@ -15,9 +15,9 @@
   --timing-fast: 180ms;
   --timing-base: 240ms;
   --timing-slow: 320ms;
-  --timing-theme: 780ms;
+  --timing-theme: 1050ms;
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-theme: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-theme: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,

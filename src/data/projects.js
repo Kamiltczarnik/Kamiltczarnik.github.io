@@ -1,4 +1,8 @@
-const icon = (label, src, shortLabel = label) => ({ label, icon: src, shortLabel });
+const icon = (label, src, shortLabel = label) => ({
+  label,
+  icon: src,
+  shortLabel,
+});
 const devicon = (label, className, shortLabel = label) => ({
   label,
   className,
@@ -13,67 +17,67 @@ const monogram = (label, text, shortLabel = label) => ({
 const tech = {
   python: icon(
     "Python",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   ),
   aws: icon("AWS", "/assets/images/aws.png.png"),
   pytorch: icon(
     "PyTorch",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
   ),
   sql: devicon("SQL", "devicon-azuresqldatabase-plain colored"),
   pandas: icon(
     "Pandas",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg",
   ),
   numpy: icon(
     "NumPy",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg",
   ),
   react: icon(
     "React",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
   ),
   javascript: icon(
     "JavaScript",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    "JS"
+    "JS",
   ),
   django: icon(
     "Django",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
   ),
   openai: icon("OpenAI API", "/assets/images/openai.png", "OpenAI"),
   typescript: icon(
     "TypeScript",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-    "TS"
+    "TS",
   ),
   fastapi: icon(
     "FastAPI",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
   ),
   googleCloud: icon(
     "Google Cloud",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg",
-    "GCP"
+    "GCP",
   ),
   flask: icon(
     "Flask",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg",
   ),
   docker: icon(
     "Docker",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
   ),
   css: icon(
     "CSS",
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
   ),
   gitHub: devicon("GitHub", "devicon-github-original", "GitHub"),
   terraform: icon(
     "Terraform",
     "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg",
-    "Terraform"
+    "Terraform",
   ),
   rcs: monogram("RCS", "RCS", "RCS"),
   framerMotion: monogram("Framer Motion", "FM", "Framer"),
@@ -118,8 +122,7 @@ export const projects = [
       tech.terraform,
     ],
     detail: {
-      lead:
-        "sluggr ai is being framed as a fantasy-first assistant that delivers NFL and MLB context directly through RCS conversations.",
+      lead: "sluggr ai is being framed as a fantasy-first assistant that delivers NFL and MLB context directly through RCS conversations.",
       meta: [
         { label: "Status", value: "Case study in progress" },
         { label: "Focus", value: "Fantasy workflows + RCS delivery" },
@@ -133,42 +136,35 @@ export const projects = [
       highlights: [
         {
           title: "Operational perspective",
-          body:
-            "The eventual case study is intended to show how analysis and delivery fit together as one reliable workflow.",
+          body: "The eventual case study is intended to show how analysis and delivery fit together as one reliable workflow.",
         },
         {
           title: "Infra-aware product thinking",
-          body:
-            "The stack leans into infrastructure and deployment as part of the product story rather than as hidden implementation detail.",
+          body: "The stack leans into infrastructure and deployment as part of the product story rather than as hidden implementation detail.",
         },
         {
           title: "Designed to expand later",
-          body:
-            "The project is visible now without pretending the full case study is already finished.",
+          body: "The project is visible now without pretending the full case study is already finished.",
         },
       ],
       workflow: [
         {
           title: "Collect and shape the data",
-          body:
-            "Python-based analysis forms the core of the workflow and prepares information for downstream delivery.",
+          body: "Python-based analysis forms the core of the workflow and prepares information for downstream delivery.",
         },
         {
           title: "Run through cloud infrastructure",
-          body:
-            "GCP, Docker, and Terraform make the deployment story part of the product’s credibility and scalability.",
+          body: "GCP, Docker, and Terraform make the deployment story part of the product’s credibility and scalability.",
         },
         {
           title: "Deliver through sluggr ai",
-          body:
-            "Messaging is part of the endpoint, turning insight into something operational teams can actually receive and act on.",
+          body: "Messaging is part of the endpoint, turning insight into something operational teams can actually receive and act on.",
         },
       ],
       contributions: [
         {
           title: "Placeholder case-study shell",
-          body:
-            "Added a presentable route now so the project can be represented cleanly while fuller material is still being assembled.",
+          body: "Added a presentable route now so the project can be represented cleanly while fuller material is still being assembled.",
         },
       ],
     },
@@ -182,11 +178,17 @@ export const projects = [
     summary:
       "Sports analytics workspace combining data pipelines, model experiments, and player insight workflows into one product.",
     compactSummary:
-      "Sports analytics workspace for pipelines, model experiments, and player insight.",
+      "A personal sports analytics workspace built to centralize what used to live across scattered notebooks and scripts. StatScout brings together data pipelines, ML model experiments, and player research workflows into one environment — pulling from live APIs, running predictive models with PyTorch, and surfacing insight through clean SQL-backed queries. Built to handle real sports data at scale.",
     listRole: "Sports analytics workspace",
     listOutcome:
       "Organizes pipelines, model experiments, and player research into one environment instead of scattered notebooks and scripts.",
     listLayout: "signal",
+    listMedia: {
+      type: "image",
+      src: "/assets/images/statscout-landing.png",
+      alt: "StatScout landing page",
+      fit: "cover",
+    },
     repo: "https://github.com/Kamiltczarnik/StatScout",
     accent: "blue",
     badge: null,
@@ -198,14 +200,7 @@ export const projects = [
       alt: "StatScout mark",
       fit: "contain",
     },
-    tech: [
-      tech.python,
-      tech.aws,
-      tech.pytorch,
-      tech.sql,
-      tech.pandas,
-      tech.numpy,
-    ],
+    tech: [tech.python, tech.pytorch, tech.sql, tech.pandas, tech.numpy],
   },
   {
     slug: "lira",
@@ -222,10 +217,10 @@ export const projects = [
       "Blends voice, dashboard context, and assistant workflows into a clearer conversational banking product.",
     listLayout: "feature",
     listMedia: {
-      type: "video",
-      src: "/assets/images/lira2.webm",
-      poster: "/assets/images/lira2.jpg",
-      alt: "Lira AI dashboard walkthrough",
+      type: "image",
+      src: "/assets/images/lira-landing.png",
+      alt: "Lira AI landing page",
+      fit: "contain",
     },
     repo: "https://github.com/Kamiltczarnik/Lira",
     accent: "orange",
@@ -238,16 +233,9 @@ export const projects = [
       alt: "Lira AI mark",
       fit: "contain",
     },
-    tech: [
-      tech.openai,
-      tech.python,
-      tech.react,
-      tech.typescript,
-      tech.fastapi,
-    ],
+    tech: [tech.openai, tech.python, tech.react, tech.typescript, tech.fastapi],
     detail: {
-      lead:
-        "Lira AI explores what a conversational banking product feels like when advice, dashboards, and voice live inside one interface.",
+      lead: "Lira AI explores what a conversational banking product feels like when advice, dashboards, and voice live inside one interface.",
       meta: [
         { label: "Role", value: "Full-stack developer" },
         { label: "Focus", value: "Conversational finance UX" },
@@ -262,25 +250,21 @@ export const projects = [
       highlights: [
         {
           title: "AI-first guidance",
-          body:
-            "The assistant supports natural language questions about accounts, spending, and product choices without hiding the data context.",
+          body: "The assistant supports natural language questions about accounts, spending, and product choices without hiding the data context.",
         },
         {
           title: "Dashboard plus assistant",
-          body:
-            "Balances operational account views with a more conversational layer so users do not need to choose between data and help.",
+          body: "Balances operational account views with a more conversational layer so users do not need to choose between data and help.",
         },
         {
           title: "Voice-aware experience",
-          body:
-            "Extends the interaction model beyond typing to make the assistant feel more accessible and more product-like.",
+          body: "Extends the interaction model beyond typing to make the assistant feel more accessible and more product-like.",
         },
       ],
       workflow: [
         {
           title: "Sign in and orient quickly",
-          body:
-            "The initial view puts balance, trends, and primary actions front and center so the app does not feel like a chatbot pasted onto a dashboard.",
+          body: "The initial view puts balance, trends, and primary actions front and center so the app does not feel like a chatbot pasted onto a dashboard.",
           media: {
             type: "image",
             src: "/assets/images/lira1.png",
@@ -289,8 +273,7 @@ export const projects = [
         },
         {
           title: "Read the financial snapshot",
-          body:
-            "The dashboard turns account activity into a compact decision surface that stays readable even as more information is introduced.",
+          body: "The dashboard turns account activity into a compact decision surface that stays readable even as more information is introduced.",
           media: {
             type: "video",
             src: "/assets/images/lira2.webm",
@@ -299,8 +282,7 @@ export const projects = [
         },
         {
           title: "Ask for help in context",
-          body:
-            "The assistant can respond to product and account questions while the surrounding interface still grounds the conversation in real data.",
+          body: "The assistant can respond to product and account questions while the surrounding interface still grounds the conversation in real data.",
           media: {
             type: "image",
             src: "/assets/images/lira3.png",
@@ -311,18 +293,15 @@ export const projects = [
       contributions: [
         {
           title: "Product flow",
-          body:
-            "Connected assistant behavior, dashboard presentation, and supporting product surfaces into one experience.",
+          body: "Connected assistant behavior, dashboard presentation, and supporting product surfaces into one experience.",
         },
         {
           title: "AI + finance integration",
-          body:
-            "Combined external data and language-model interactions so the app feels responsive and grounded in context.",
+          body: "Combined external data and language-model interactions so the app feels responsive and grounded in context.",
         },
         {
           title: "Voice support",
-          body:
-            "Added multimodal interaction to make the product feel more assistive than a standard dashboard.",
+          body: "Added multimodal interaction to make the product feel more assistive than a standard dashboard.",
         },
       ],
     },
@@ -343,8 +322,9 @@ export const projects = [
     listLayout: "editorial",
     listMedia: {
       type: "image",
-      src: "/assets/images/home.png",
-      alt: "Portfolio website home page",
+      src: "/assets/images/portfolio-character.png",
+      alt: "Portfolio website character",
+      fit: "contain",
     },
     repo: "https://github.com/Kamiltczarnik/Kamiltczarnik.github.io",
     accent: "neutral",
@@ -365,8 +345,7 @@ export const projects = [
       tech.framerMotion,
     ],
     detail: {
-      lead:
-        "This site is an ongoing exercise in turning technical work into a more legible story through layout, motion, and clearer project framing.",
+      lead: "This site is an ongoing exercise in turning technical work into a more legible story through layout, motion, and clearer project framing.",
       meta: [
         { label: "Role", value: "Designer + developer" },
         { label: "Focus", value: "Portfolio storytelling" },
@@ -381,25 +360,21 @@ export const projects = [
       highlights: [
         {
           title: "Story-first structure",
-          body:
-            "The site is organized to help visitors understand what was built, why it matters, and how to navigate quickly.",
+          body: "The site is organized to help visitors understand what was built, why it matters, and how to navigate quickly.",
         },
         {
           title: "Responsive composition",
-          body:
-            "Each surface is tuned to preserve hierarchy and spacing from mobile through large desktop layouts.",
+          body: "Each surface is tuned to preserve hierarchy and spacing from mobile through large desktop layouts.",
         },
         {
           title: "Case-study readiness",
-          body:
-            "Project pages exist to give more depth than a grid alone can provide, making the work easier to scan and remember.",
+          body: "Project pages exist to give more depth than a grid alone can provide, making the work easier to scan and remember.",
         },
       ],
       workflow: [
         {
           title: "Introduce the person behind the work",
-          body:
-            "The home view balances personality, current focus, and technical depth without making the first screen feel crowded.",
+          body: "The home view balances personality, current focus, and technical depth without making the first screen feel crowded.",
           media: {
             type: "image",
             src: "/assets/images/home.png",
@@ -408,8 +383,7 @@ export const projects = [
         },
         {
           title: "Surface projects with clearer hierarchy",
-          body:
-            "The projects page exists to make standout work easy to scan while still allowing deeper project exploration.",
+          body: "The projects page exists to make standout work easy to scan while still allowing deeper project exploration.",
           media: {
             type: "image",
             src: "/assets/images/projects.png",
@@ -418,8 +392,7 @@ export const projects = [
         },
         {
           title: "Keep contact simple and intentional",
-          body:
-            "The contact route stays concise so the page works as a clear conversion step rather than a content dump.",
+          body: "The contact route stays concise so the page works as a clear conversion step rather than a content dump.",
           media: {
             type: "image",
             src: "/assets/images/contact.png",
@@ -430,18 +403,15 @@ export const projects = [
       contributions: [
         {
           title: "Visual language",
-          body:
-            "Built the typography, spacing, and motion system to make the site feel premium without losing clarity.",
+          body: "Built the typography, spacing, and motion system to make the site feel premium without losing clarity.",
         },
         {
           title: "Responsive layouts",
-          body:
-            "Tuned the composition across device sizes so the same story reads well on both phone and desktop.",
+          body: "Tuned the composition across device sizes so the same story reads well on both phone and desktop.",
         },
         {
           title: "Project narrative",
-          body:
-            "Used deeper project pages to turn brief summaries into clearer project stories.",
+          body: "Used deeper project pages to turn brief summaries into clearer project stories.",
         },
       ],
     },
@@ -462,8 +432,9 @@ export const projects = [
     listLayout: "analysis",
     listMedia: {
       type: "image",
-      src: "/assets/images/compare.png",
-      alt: "HOF Oracle player comparison view",
+      src: "/assets/images/hof-dashboard.png",
+      alt: "HOF Oracle dashboard",
+      fit: "contain",
     },
     accent: "orange",
     badge: { type: "blocki", label: "Class project" },
@@ -484,8 +455,7 @@ export const projects = [
       tech.sql,
     ],
     detail: {
-      lead:
-        "HOF Oracle reframes predictive sports analytics as a clearer player-comparison product rather than a model result buried in tables.",
+      lead: "HOF Oracle reframes predictive sports analytics as a clearer player-comparison product rather than a model result buried in tables.",
       meta: [
         { label: "Role", value: "Full-stack developer" },
         { label: "Focus", value: "Search + model interpretation" },
@@ -500,25 +470,21 @@ export const projects = [
       highlights: [
         {
           title: "Model output with context",
-          body:
-            "Presents prediction output alongside supporting comparisons so the probability feels explainable, not abstract.",
+          body: "Presents prediction output alongside supporting comparisons so the probability feels explainable, not abstract.",
         },
         {
           title: "Fast search and compare",
-          body:
-            "Players can be found and evaluated quickly, keeping exploration fast enough to feel like a product, not just an analysis demo.",
+          body: "Players can be found and evaluated quickly, keeping exploration fast enough to feel like a product, not just an analysis demo.",
         },
         {
           title: "Readable sports data UI",
-          body:
-            "The interface stays legible around dense stats by emphasizing structure, spacing, and a clean visual rhythm.",
+          body: "The interface stays legible around dense stats by emphasizing structure, spacing, and a clean visual rhythm.",
         },
       ],
       workflow: [
         {
           title: "Choose a player to analyze",
-          body:
-            "The search flow prioritizes fast discovery and immediate orientation so the model feels approachable.",
+          body: "The search flow prioritizes fast discovery and immediate orientation so the model feels approachable.",
           media: {
             type: "image",
             src: "/assets/images/choose.png",
@@ -527,8 +493,7 @@ export const projects = [
         },
         {
           title: "Read the model outcome",
-          body:
-            "Prediction output is framed with supporting statistics, helping users understand where the result is coming from.",
+          body: "Prediction output is framed with supporting statistics, helping users understand where the result is coming from.",
           media: {
             type: "image",
             src: "/assets/images/chances.png",
@@ -537,8 +502,7 @@ export const projects = [
         },
         {
           title: "Compare careers side by side",
-          body:
-            "The comparison flow keeps the product exploratory and makes the predictive system easier to trust.",
+          body: "The comparison flow keeps the product exploratory and makes the predictive system easier to trust.",
           media: {
             type: "image",
             src: "/assets/images/compare.png",
@@ -549,18 +513,15 @@ export const projects = [
       contributions: [
         {
           title: "Comparison UX",
-          body:
-            "Built the search, comparison, and presentation layers around fast interpretation instead of raw stat dumps.",
+          body: "Built the search, comparison, and presentation layers around fast interpretation instead of raw stat dumps.",
         },
         {
           title: "Frontend and backend integration",
-          body:
-            "Integrated API responses so the predictive results and supporting data felt unified.",
+          body: "Integrated API responses so the predictive results and supporting data felt unified.",
         },
         {
           title: "Dense-data readability",
-          body:
-            "Used hierarchy and visual restraint to keep sports data readable without flattening the product’s depth.",
+          body: "Used hierarchy and visual restraint to keep sports data readable without flattening the product’s depth.",
         },
       ],
     },
@@ -581,8 +542,9 @@ export const projects = [
     listLayout: "analysis",
     listMedia: {
       type: "image",
-      src: "/assets/images/PortManager.png",
-      alt: "PortfoliPro forecast panel",
+      src: "/assets/images/portfolipro-landing.png",
+      alt: "PortfoliPro landing page",
+      fit: "contain",
     },
     accent: "blue",
     badge: { type: "blocki", label: "Class project" },
@@ -603,8 +565,7 @@ export const projects = [
       tech.numpy,
     ],
     detail: {
-      lead:
-        "PortfoliPro turns portfolio tracking and LSTM-based forecasting into a calmer, more readable research flow.",
+      lead: "PortfoliPro turns portfolio tracking and LSTM-based forecasting into a calmer, more readable research flow.",
       meta: [
         { label: "Role", value: "Full-stack developer" },
         { label: "Focus", value: "Forecasting + portfolio UX" },
@@ -619,25 +580,21 @@ export const projects = [
       highlights: [
         {
           title: "Portfolio workspace",
-          body:
-            "Keeps research, holdings, and model output in one surface instead of forcing users across disconnected pages.",
+          body: "Keeps research, holdings, and model output in one surface instead of forcing users across disconnected pages.",
         },
         {
           title: "Model-assisted exploration",
-          body:
-            "Blends historical data with forward-looking forecasts so the interface supports both analysis and action.",
+          body: "Blends historical data with forward-looking forecasts so the interface supports both analysis and action.",
         },
         {
           title: "Simple decision hierarchy",
-          body:
-            "Prioritizes signal first, then detail, so the page reads clearly even for users without a finance background.",
+          body: "Prioritizes signal first, then detail, so the page reads clearly even for users without a finance background.",
         },
       ],
       workflow: [
         {
           title: "Search and compare candidates",
-          body:
-            "Users can find assets quickly, evaluate live data, and decide which securities belong in the portfolio view.",
+          body: "Users can find assets quickly, evaluate live data, and decide which securities belong in the portfolio view.",
           media: {
             type: "image",
             src: "/assets/images/image1.png",
@@ -646,8 +603,7 @@ export const projects = [
         },
         {
           title: "Inspect forecast-driven context",
-          body:
-            "The model output is surfaced as supporting context rather than visual noise, making the prediction panel useful instead of overwhelming.",
+          body: "The model output is surfaced as supporting context rather than visual noise, making the prediction panel useful instead of overwhelming.",
           media: {
             type: "image",
             src: "/assets/images/PortManager.png",
@@ -656,8 +612,7 @@ export const projects = [
         },
         {
           title: "Manage the full portfolio",
-          body:
-            "Holdings and portfolio performance stay visible as part of the same workflow so the interface keeps its decision-making context intact.",
+          body: "Holdings and portfolio performance stay visible as part of the same workflow so the interface keeps its decision-making context intact.",
           media: {
             type: "image",
             src: "/assets/images/img3.png",
@@ -668,18 +623,15 @@ export const projects = [
       contributions: [
         {
           title: "Research flow",
-          body:
-            "Structured the interface around scanning, comparing, and acting instead of around disconnected feature demos.",
+          body: "Structured the interface around scanning, comparing, and acting instead of around disconnected feature demos.",
         },
         {
           title: "Live data and forecasts",
-          body:
-            "Connected real-time market information with the predictive layer so the product feels like one system.",
+          body: "Connected real-time market information with the predictive layer so the product feels like one system.",
         },
         {
           title: "Readable modeling UI",
-          body:
-            "Tuned layout and hierarchy so model-driven information stays interpretable on smaller screens.",
+          body: "Tuned layout and hierarchy so model-driven information stays interpretable on smaller screens.",
         },
       ],
     },
@@ -687,12 +639,12 @@ export const projects = [
 ];
 
 export const orderedProjects = [...projects].sort(
-  (left, right) => left.priority - right.priority
+  (left, right) => left.priority - right.priority,
 );
 
 export const getProjectBySlug = (slug) =>
   orderedProjects.find((project) => project.slug === slug);
 
 export const projectsWithDetails = orderedProjects.filter(
-  (project) => project.hasDetailPage
+  (project) => project.hasDetailPage,
 );

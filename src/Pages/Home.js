@@ -189,7 +189,8 @@ function Home() {
                       directly through RCS conversations.
                     </li>
                     <li>
-                      Built to answer all fantasy football questions as your own personal assistant.
+                      Built to answer all fantasy football questions as your own
+                      personal assistant.
                     </li>
                     <li>
                       Focused on a messaging-first experience that feels fast,
@@ -318,12 +319,18 @@ function Home() {
                     <ul>
                       <li>
                         Senior at the University of Illinois Urbana-Champaign
-                        studying
-                        <span className="edu-highlight"> Computer Science </span>
+                        studying{" "}
+                        <span className="edu-highlight">
+                          {" "}
+                          Computer Science{" "}
+                        </span>
                       </li>
                       <li>
                         Mens Water Polo{" "}
-                        <span className="edu-highlight">Executive Board Member</span>.
+                        <span className="edu-highlight">
+                          Executive Board Member
+                        </span>
+                        .
                       </li>
                       <li>
                         <span className="edu-highlight">GPA</span> :{" "}
